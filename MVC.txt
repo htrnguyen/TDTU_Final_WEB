@@ -1,0 +1,89 @@
+localhost/
+│
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── HomeController.php         # Xử lý trang chủ và các trang sản phẩm chính
+│   │   │   ├── ProductController.php      # Xử lý các trang chi tiết sản phẩm
+│   │   │   ├── SearchController.php       # Xử lý tìm kiếm sản phẩm
+│   │   │   ├── CartController.php         # Xử lý giỏ hàng và trang thanh toán
+│   │   │   ├── AccountController.php      # Xử lý đăng nhập, đăng ký, quên mật khẩu
+│   │   │   ├── AdminController.php        # Xử lý trang tổng quan admin
+│   │   │   ├── AdminProductController.php # Quản lý sản phẩm trong trang admin
+│   │   │   ├── AdminCategoryController.php# Quản lý danh mục sản phẩm trong admin
+│   │   │   ├── AdminOrderController.php   # Quản lý đơn đặt hàng trong admin
+│   │   │   ├── AdminCustomerController.php# Quản lý khách hàng trong admin
+│   │   │   ├── AdminCouponController.php  # Quản lý mã giảm giá trong admin
+│   │   │   └── AdminSettingsController.php# Quản lý cài đặt cửa hàng trong admin
+│   │
+│   ├── Models/
+│   │   ├── Product.php
+│   │   ├── Category.php
+│   │   ├── Order.php
+│   │   ├── User.php
+│   │   └── Coupon.php
+│   │
+├── database/
+│   ├── migrations/
+│   │   ├── 2024_01_01_000000_create_products_table.php
+│   │   ├── 2024_01_01_000001_create_users_table.php 
+│   ├── seeders/
+│   │   ├── DatabaseSeeder.php
+│   │   ├── UserSeeder.php
+│   │   ├── ProductSeeder.php
+│   │   └── CategorySeeder.php
+│   │
+├── public/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+├── resources/
+│   ├── views/
+│   │   ├── layouts/
+│   │   │   ├── app.blade.php               # Layout chính cho trang khách hàng
+│   │   │   └── admin.blade.php            # Layout chính cho trang quản trị
+│   │   ├── home.blade.php                 # Trang chủ mua sắm
+│   │   ├── men.blade.php                  # Trang mua sắm cho nam
+│   │   ├── women.blade.php                # Trang mua sắm cho nữ
+│   │   ├── kids.blade.php                 # Trang mua sắm cho trẻ em
+│   │   ├── product.blade.php              # Chi tiết sản phẩm
+│   │   ├── search.blade.php               # Kết quả tìm kiếm
+│   │   ├── cart.blade.php                 # Giỏ hàng
+│   │   ├── checkout.blade.php             # Thanh toán
+│   │   ├── account/
+│   │   │   ├── login.blade.php            # Trang đăng nhập
+│   │   │   ├── register.blade.php         # Trang đăng ký
+│   │   │   └── reset-password.blade.php   # Trang quên mật khẩu
+│   │   ├── admin/
+│   │   │   ├── dashboard.blade.php        # Trang tổng quan của admin
+│   │   │   ├── login.blade.php            # Trang đăng nhập cho admin
+│   │   │   ├── products/
+│   │   │   │   ├── index.blade.php        # Danh sách sản phẩm
+│   │   │   │   ├── edit.blade.php         # Sửa sản phẩm
+│   │   │   │   └── new.blade.php          # Thêm sản phẩm mới
+│   │   │   ├── categories/
+│   │   │   │   └── index.blade.php        # Quản lý danh mục
+│   │   │   ├── orders/
+│   │   │   │   └── index.blade.php        # Quản lý đơn hàng
+│   │   │   ├── customers/
+│   │   │   │   └── index.blade.php        # Quản lý khách hàng
+│   │   │   ├── coupons/
+│   │   │   │   ├── index.blade.php        # Quản lý mã giảm giá
+│   │   │   │   └── new.blade.php          # Tạo mã giảm giá mới
+│   │   │   └── settings/
+│   │   │       └── store.blade.php        # Cài đặt cửa hàng
+│   │
+├── routes/
+│   └── web.php                             # Định nghĩa các route cho website
+│
+├── storage/
+└── vendor/
+
+# Website tham khảo
+https://evershop.io/docs/development/getting-started/introduction
+
+# Front store: https://demo.evershop.io/
+# Admin panel: https://demo.evershop.io/admin/ 
+    + Email:    demo@evershop.io
+    + Pass:     123456
