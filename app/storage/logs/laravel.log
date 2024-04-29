@@ -1,0 +1,165 @@
+[2024-04-29 08:04:38] production.ERROR: The C:\TDTU\HK4\Web\CK_WEB\app\bootstrap\cache directory must be present and writable. {"exception":"[object] (Exception(code: 0): The C:\\TDTU\\HK4\\Web\\CK_WEB\\app\\bootstrap\\cache directory must be present and writable. at C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php:178)
+[stacktrace]
+#0 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(131): Illuminate\\Foundation\\PackageManifest->write()
+#1 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(107): Illuminate\\Foundation\\PackageManifest->build()
+#2 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(90): Illuminate\\Foundation\\PackageManifest->getManifest()
+#3 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\PackageManifest.php(79): Illuminate\\Foundation\\PackageManifest->config()
+#4 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\RegisterFacades.php(26): Illuminate\\Foundation\\PackageManifest->aliases()
+#5 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(309): Illuminate\\Foundation\\Bootstrap\\RegisterFacades->bootstrap()
+#6 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(470): Illuminate\\Foundation\\Application->bootstrapWith()
+#7 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(194): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#8 C:\\TDTU\\HK4\\Web\\CK_WEB\\artisan(40): Illuminate\\Foundation\\Console\\Kernel->handle()
+#9 {main}
+"} 
+[2024-04-29 08:06:11] production.ERROR: Command "make:migrate" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:migrate\" is not defined.
+
+Did you mean one of these?
+    make:cache-table
+    make:cast
+    make:channel
+    make:class
+    make:command
+    make:component
+    make:controller
+    make:enum
+    make:event
+    make:exception
+    make:factory
+    make:interface
+    make:job
+    make:listener
+    make:mail
+    make:middleware
+    make:migration
+    make:model
+    make:notification
+    make:notifications-table
+    make:observer
+    make:policy
+    make:provider
+    make:queue-batches-table
+    make:queue-failed-table
+    make:queue-table
+    make:request
+    make:resource
+    make:rule
+    make:scope
+    make:seeder
+    make:session-table
+    make:test
+    make:trait
+    make:view at C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php:704)
+[stacktrace]
+#0 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php(260): Symfony\\Component\\Console\\Application->find()
+#1 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun()
+#2 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run()
+#3 C:\\TDTU\\HK4\\Web\\CK_WEB\\artisan(40): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 {main}
+"} 
+[2024-04-29 08:08:12] production.ERROR: Database file at path [C:\TDTU\HK4\Web\CK_WEB\app\database\database.sqlite] does not exist. Ensure this is an absolute path to the database. (Connection: sqlite, SQL: select name from sqlite_master where type = 'table' and name not like 'sqlite_%' order by name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 0): Database file at path [C:\\TDTU\\HK4\\Web\\CK_WEB\\app\\database\\database.sqlite] does not exist. Ensure this is an absolute path to the database. (Connection: sqlite, SQL: select name from sqlite_master where type = 'table' and name not like 'sqlite_%' order by name) at C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:813)
+[stacktrace]
+#0 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(767): Illuminate\\Database\\Connection->runQueryCallback()
+#1 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(385): Illuminate\\Database\\Connection->select()
+#3 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\SQLiteBuilder.php(51): Illuminate\\Database\\Connection->selectFromWriteConnection()
+#4 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(147): Illuminate\\Database\\Schema\\SQLiteBuilder->getTables()
+#5 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\Builder->hasTable()
+#6 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(689): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#7 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#8 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(300): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#9 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): retry()
+#10 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(140): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->repositoryExists()
+#11 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->prepareDatabase()
+#12 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(622): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#13 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#14 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#15 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#16 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#18 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#19 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call()
+#20 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(212): Illuminate\\Container\\Container->call()
+#21 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#22 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(181): Symfony\\Component\\Console\\Command\\Command->run()
+#23 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run()
+#24 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand()
+#25 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun()
+#26 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run()
+#27 C:\\TDTU\\HK4\\Web\\CK_WEB\\artisan(40): Illuminate\\Foundation\\Console\\Kernel->handle()
+#28 {main}
+
+[previous exception] [object] (Illuminate\\Database\\SQLiteDatabaseDoesNotExistException(code: 0): Database file at path [C:\\TDTU\\HK4\\Web\\CK_WEB\\app\\database\\database.sqlite] does not exist. Ensure this is an absolute path to the database. at C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\SQLiteConnector.php:34)
+[stacktrace]
+#0 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(222): Illuminate\\Database\\Connectors\\SQLiteConnector->connect()
+#1 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#2 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1219): call_user_func()
+#3 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(512): Illuminate\\Database\\Connection->getPdo()
+#4 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(407): Illuminate\\Database\\Connection->getPdoForSelect()
+#5 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(800): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#6 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(767): Illuminate\\Database\\Connection->runQueryCallback()
+#7 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(398): Illuminate\\Database\\Connection->run()
+#8 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(385): Illuminate\\Database\\Connection->select()
+#9 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\SQLiteBuilder.php(51): Illuminate\\Database\\Connection->selectFromWriteConnection()
+#10 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(147): Illuminate\\Database\\Schema\\SQLiteBuilder->getTables()
+#11 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\Builder->hasTable()
+#12 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(689): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#13 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#14 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\helpers.php(300): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#15 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(164): retry()
+#16 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(140): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->repositoryExists()
+#17 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->prepareDatabase()
+#18 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(622): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#19 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection()
+#20 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#21 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#22 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#23 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#24 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#25 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call()
+#26 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(212): Illuminate\\Container\\Container->call()
+#27 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute()
+#28 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(181): Symfony\\Component\\Console\\Command\\Command->run()
+#29 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run()
+#30 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand()
+#31 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun()
+#32 C:\\TDTU\\HK4\\Web\\CK_WEB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run()
+#33 C:\\TDTU\\HK4\\Web\\CK_WEB\\artisan(40): Illuminate\\Foundation\\Console\\Kernel->handle()
+#34 {main}
+"} 
