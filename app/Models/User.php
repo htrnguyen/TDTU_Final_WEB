@@ -10,7 +10,7 @@ class User extends Model
     use HasFactory;
 
     protected $primaryKey = 'user_id';
-    protected $fillable = ['username', 'email', 'password', 'address', 'phone'];
+    protected $fillable = ['last_name', 'first_name', 'username', 'email', 'password', 'address', 'phone'];
     protected $dates = ['created_at'];
     public $timestamps = false;
 
