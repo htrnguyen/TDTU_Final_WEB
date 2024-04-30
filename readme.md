@@ -23,7 +23,7 @@ Follow these steps to get the server up and running:
    - Execute the command:
 
      ```
-     php artisan migrate
+     php artisan migrate:refresh --seed   
      ```
 
 5. **Start the Server**
