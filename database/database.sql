@@ -7,7 +7,9 @@ USE shoe_store;
 -- Create the users table
 CREATE TABLE IF NOT EXISTS users (
     user_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(50) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) UNIQUE,
     password VARCHAR(100) NOT NULL,
     address VARCHAR(255),
