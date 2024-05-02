@@ -17,6 +17,7 @@ Follow these steps to get the server up and running:
 3. **Create Database**
    - Access your MySQL database management system (e.g., phpMyAdmin).
    - Create a new database named `shoe_store`.
+   - **`Note:`** Just create database not running entire `database/database.sql` in mySQL
 
 4. **Run Migrations**
    - In your command line interface, navigate to the project directory if you haven't already.
@@ -32,5 +33,7 @@ Follow these steps to get the server up and running:
      ```
      php artisan serve
      ```
+
+**`Note:`** Only do `step 3` and `step 4` for the first time you run the server.
 
 By following these steps, your Laravel application should now be up and running locally. You can access it through your web browser at the URL provided by the `php artisan serve` command.
