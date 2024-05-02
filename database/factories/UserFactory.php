@@ -17,7 +17,7 @@ class UserFactory extends Factory
             'first_name' => $this->faker->firstName,
             'username' => $this->faker->unique()->userName,
             'email' => $this->faker->unique()->safeEmail,
-            'password' => bcrypt('password'), // You can generate hashed passwords here
+            'password' => 'password', // You can generate hashed passwords here
             'address' => $this->faker->address,
             'phone' => $this->faker->phoneNumber,
             'avatar' => '/storage/images/users/default_avatar.jpg',
