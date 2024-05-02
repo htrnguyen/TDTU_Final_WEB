@@ -14,6 +14,7 @@ return new class extends Migration
             $table->unsignedInteger('category_id');
             $table->decimal('price', 10, 2);
             $table->text('description')->nullable();
+            $table->string('image', 255)->nullable();
         });
     }
 

@@ -20,6 +20,7 @@ class UserFactory extends Factory
             'password' => bcrypt('password'), // You can generate hashed passwords here
             'address' => $this->faker->address,
             'phone' => $this->faker->phoneNumber,
+            'avatar' => '/storage/images/users/default_avatar.jpg',
             'created_at' => now(),
         ];
     }
