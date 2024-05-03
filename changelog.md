@@ -15,3 +15,5 @@ All notable changes to this project will be documented in this file.
 
 - Add migrations, seeders and, factories
 - Add Class diagram
+- Add Class diagram
+- Remove file trash in views
