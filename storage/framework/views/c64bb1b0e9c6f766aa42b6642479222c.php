@@ -67,4 +67,4 @@
 </body>
 
 </html>
-<?php /**PATH C:\Users\ADMIN\Documents\TDTU_IT\HK2-2\Web\CK_WEB\resources\views/layouts/client.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\TDTU\HK4\Web\CK_WEB\resources\views/layouts/client.blade.php ENDPATH**/ ?>

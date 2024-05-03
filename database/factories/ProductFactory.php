@@ -16,7 +16,8 @@ class ProductFactory extends Factory
             'product_name' => $this->faker->unique()->word,
             'category_id' => Category::factory(),
             'price' => $this->faker->randomFloat(2, 1, 1000),
-            'description' => $this->faker->sentence
+            'description' => $this->faker->sentence,
+            'image' => '/storage/images/products/air-force-1-07-shoes-WrLlWX.png'
         ];
     }
 }

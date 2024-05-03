@@ -1,5 +1,7 @@
 <?php
 
+define('DEFAULT_AVATAR_PATH', '/storage/images/users/default_avatar.jpg');
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 100);
             $table->string('address', 255)->nullable();
             $table->string('phone', 20)->nullable();
+            $table->string('avatar', 255)->nullable()->default(DEFAULT_AVATAR_PATH);
             $table->timestamp('created_at')->default(now());
             $table->index('email');
         });

@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body px-5">
                         <h2 class="card-title text-center pt-5">Create A New Account</h2>
-                        <form id="formLogin" method="POST" action="<?php echo e(route('login')); ?>">
+                        <form id="formRegister" method="POST" action="<?php echo e(route('register')); ?>">
                             <?php echo csrf_field(); ?>
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="name" name="name"
