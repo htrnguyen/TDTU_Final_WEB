@@ -13,3 +13,4 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Add migrations, seeders and, factories
 - Add Class diagram 
+- Remove file trash in views

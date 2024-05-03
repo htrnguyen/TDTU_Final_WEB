@@ -24,44 +24,45 @@
 <body>
     <header>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-secondary-subtle px-4 py-4 ">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">Logo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/men') }}">Men</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/woman') }}">Women</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/kids') }}">Kids</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link fas fa-search" href="#"></a>
-                    <a class="nav-item nav-link fas fa-shopping-cart" href="#"></a>
-                    <a class="nav-item nav-link fas fa-user" href="#"></a>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 py-3 border">
+            <a class="navbar-brand" href="{{ url('/') }}">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/men') }}">Men</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/woman') }}">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/kids') }}">Kids</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link fas fa-search" href="#"></a>
+                <a class="nav-item nav-link fas fa-shopping-cart" href="#"></a>
+                <a class="nav-item nav-link fas fa-user" href="{{ url('/login') }}"></a>
             </div>
         </nav>
     </header>
-
-    <div class="container mt-4">
-        @yield('content')
+    @yield('banner')
+    <div class="content px-5 py-5">
+        <div class="px-5">
+            @yield('content')
+        </div>
     </div>
 
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="bg-light text-center text-lg-start fixed-bottom">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2024 Shoe Shop<a class="text-dark" href="#"></a>
+            © 2024 Shoe Store<a class="text-dark" href="#"></a>
         </div>
     </footer>
+
     <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 
