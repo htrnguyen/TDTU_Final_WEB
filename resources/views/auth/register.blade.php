@@ -5,9 +5,9 @@
     <div class="container mt-5">
         <div class="row justify-content-center ">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card shadow-lg border-0">
                     <div class="card-body px-5">
-                        <h2 class="card-title text-center pt-5">Create A New Account</h2>
+                        <h2 class="card-title text-center pt-5 pb-2">Create A New Account</h2>
                         <form id="formRegister" method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="mb-3">
@@ -22,7 +22,7 @@
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Password" required>
                             </div>
-                            <button type="submit" class="btn btn-dark w-100">SIGN IN</button>
+                            <button type="submit" class="btn btn-dark w-100">SIGN UP</button>
                         </form>
                         <div class="text-center mt-3">
                             Already have an account?

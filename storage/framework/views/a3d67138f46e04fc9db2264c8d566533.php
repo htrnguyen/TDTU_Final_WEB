@@ -3,11 +3,11 @@
 <?php $__env->startSection('content'); ?>
     <?php echo $__env->make('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="container mt-5">
-        <div class="row justify-content-center ">
+        <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card shadow-lg border-0">
                     <div class="card-body px-5">
-                        <h2 class="card-title text-center pt-5">Login</h2>
+                        <h2 class="card-title text-center pt-5 pb-2">Login</h2>
                         <form id="formLogin" method="POST" action="<?php echo e(route('login')); ?>">
                             <?php echo csrf_field(); ?>
                             <div class="mb-3">
@@ -22,7 +22,8 @@
                         </form>
                         <div class="text-center mt-3">
                             <a href="<?php echo e(route('register')); ?>" class="text-decoration-none px-3">Create an account</a>
-                            <a href="#" class="text-decoration-none px-3 text-dark">Forgot your password?</a>
+                            <a href="<?php echo e(route('reset-password')); ?>" class="text-decoration-none px-3 text-dark">Forgot your
+                                password?</a>
                         </div>
                     </div>
                 </div>

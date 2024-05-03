@@ -19,13 +19,18 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <style>
+
+    </style>
+
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 py-3 border">
-            <a class="navbar-brand" href="{{ url('/') }}">Logo</a>
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{ asset('images/logo.webp') }}" alt="Logo" style="height: 50px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -51,13 +56,14 @@
         </nav>
     </header>
     @yield('banner')
-    <div class="content px-5 py-5">
+
+    <main class="flex-grow-1  px-5 pt-3 pb-5">
         <div class="px-5">
             @yield('content')
         </div>
-    </div>
+    </main>
 
-    <footer class="bg-light text-center text-lg-start fixed-bottom">
+    <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2024 Shoe Store<a class="text-dark" href="#"></a>
         </div>
