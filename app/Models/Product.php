@@ -9,12 +9,31 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'product_id';
-    protected $fillable = ['product_name', 'category_id', 'price', 'description', 'image'];
-    public $timestamps = false;
+    protected $fillable = [
+        'name',
+        'category_id',
+        'price',
+        'description',
+        'stock_quantity',
+    ];
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class);
+    }
+
+    public function sizes()
+    {
+        return $this->hasMany(ProductSize::class);
+    }
+
+    public function colors()
+    {
+        return $this->hasMany(ProductColor::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
     }
 }

@@ -9,18 +9,19 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'order_id';
-    protected $fillable = ['user_id', 'total_amount'];
-    protected $dates = ['order_date'];
-    public $timestamps = false;
+    protected $fillable = [
+        'user_id',
+        'order_date',
+        'total_amount',
+    ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
-    public function orderDetails()
+    public function orderDetail()
     {
-        return $this->hasMany(OrderDetail::class, 'order_id');
+        return $this->hasOne(OrderDetail::class);
     }
 }

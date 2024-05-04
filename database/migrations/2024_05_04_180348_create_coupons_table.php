@@ -3,23 +3,23 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-return new class extends Migration
+class CreateCouponsTable extends Migration
 {
     public function up()
     {
         Schema::create('coupons', function (Blueprint $table) {
-            $table->increments('coupon_id');
-            $table->string('coupon_code', 20);
+            $table->id();
+            $table->string('coupon_code')->unique();
             $table->decimal('discount', 5, 2);
-            $table->dateTime('create_date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->dateTime('expiration_date')->nullable();
+            $table->timestamp('start_date')->useCurrent();
+            $table->timestamp('expiration_date')->nullable();
+            $table->timestamps();
         });
     }
 
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('coupons');
     }
-};
+}
