@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phone', 20)->nullable();
             $table->string('avatar', 255)->nullable()->default(DEFAULT_AVATAR_PATH);
             $table->string('role', 6)->default('user');
+            $table->boolean('is_active')->default(1);
             $table->timestamp('created_at')->default(now());
             $table->index('email');
         });

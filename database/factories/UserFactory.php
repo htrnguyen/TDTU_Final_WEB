@@ -22,6 +22,7 @@ class UserFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'avatar' => '/storage/images/users/default_avatar.jpg',
             'role' => 'user',
+            'is_active' => true,
             'created_at' => now(),
         ];
     }
