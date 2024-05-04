@@ -2,6 +2,7 @@
 
 namespace App\Route;
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Auth\LoginController;
@@ -36,3 +37,8 @@ Route::view('/', 'client.home')->name('home');
 Route::get('check-health', function () {
     return response()->json(['message' => 'Call URI from web'], Response::HTTP_OK);
 });
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+});
+
