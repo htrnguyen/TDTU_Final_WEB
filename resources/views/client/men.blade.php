@@ -3,7 +3,9 @@
 @section('title', 'Men Collection')
 
 @section('content')
-    @include('partials.breadcrumbs')
+    <div class="container mt-3">
+        @include('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs])
+        <H1>Men</H1>
 
-    <h1>Men</h1>
+    </div>
 @endsection

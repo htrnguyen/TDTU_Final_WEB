@@ -5,71 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shoe Store</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>@yield('title', 'Shoe Store')</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-    </script>
-    <!-- Font Awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-    <style>
-
-    </style>
-
+    <link rel="stylesheet" href="{{ asset('css/client/custom.css') }}">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 py-3 border">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ asset('images/logo.webp') }}" alt="Logo" style="height: 50px;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-                <ul class="navbar-nav ">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/men') }}">Men</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/woman') }}">Women</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/kids') }}">Kids</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link fas fa-search" href="#"></a>
-                <a class="nav-item nav-link fas fa-shopping-cart" href="#"></a>
-                <a class="nav-item nav-link fas fa-user" href="{{ url('/login') }}"></a>
-            </div>
-        </nav>
-    </header>
-    @yield('banner')
+    @include('partials.header')
 
-    <main class="flex-grow-1  px-5 pt-3 pb-5">
-        <div class="px-5">
-            @yield('content')
-        </div>
+    <main class="flex-grow-1">
+        @yield('content')
     </main>
 
-    <footer class="bg-light text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2024 Shoe Store<a class="text-dark" href="#"></a>
-        </div>
-    </footer>
+    @include('partials.footer')
 
-    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/client/custom.js') }}"></script>
 </body>
 
 </html>
