@@ -14,7 +14,7 @@ class CouponFactory extends Factory
         return [
             'coupon_code' => $this->faker->unique()->regexify('[A-Za-z0-9]{10}'),
             'discount' => $this->faker->randomFloat(2, 5, 50),
-            'create_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'start_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'expiration_date' => $this->faker->dateTimeBetween('now', '+1 year')
         ];
     }

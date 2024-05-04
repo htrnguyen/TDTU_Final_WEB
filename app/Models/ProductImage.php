@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class ProductImage extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
         'product_id',
-        'quantity',
+        'image_path',
+        'is_main_image',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     public function product()
     {
