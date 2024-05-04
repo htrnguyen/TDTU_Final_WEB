@@ -2,13 +2,13 @@
 
 namespace App\Route;
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\MenController;
-use App\Http\Controllers\AdminController;
 
 
 Route::group(['namespace' => 'auth'], function () {
@@ -37,3 +37,8 @@ Route::view('/', 'client.home')->name('home');
 Route::get('check-health', function () {
     return response()->json(['message' => 'Call URI from web'], Response::HTTP_OK);
 });
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/home', [AdminController::class, 'index'])->name('home');
+});
+
