@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\MenController;
+use App\Http\Controllers\AdminController;
 
 
 Route::group(['namespace' => 'auth'], function () {
