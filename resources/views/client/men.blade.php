@@ -3,12 +3,12 @@
 @section('title', 'Men Collection')
 @section('content')
     <!-- Main Content -->
-    <div class="container mt-3">
+    <div class="container px-5 mt-3">
         @include('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs]) 
         <div class="row">
             <!-- Banner Section -->
             <div class="col-12 mb-3" style="background-color: #685f58;">
-                <h1 class="text-white pt-3 pb-3 px-3">Men</h1>
+                <h1 class="text-white py-5 px-3 fw-bold">MEN</h1>
             </div>
 
             <!-- Filters Sidebar for large screens -->
@@ -37,7 +37,6 @@
                             <option>M</option>
                             <option>L</option>
                             <option>XL</option>
-                            <!-- Add other sizes -->
                         </select>
                     </div>
                 </div>
@@ -53,23 +52,11 @@
                         <option value="?sort=price">Price</option>
                         <option value="?sort=name">Name</option>
                     </select>
-                </div>
+                </div>  
 
+                {{-- Load Products --}}
                 <div class="row">
-                    @foreach ($products as $product)
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <img src="{{ asset('storage/products/' . $product->image) }}" alt="{{ $product->name }}"
-                                    class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $product->name }}</h5>
-                                    <p class="card-price">${{ $product->price }}</p>
-                                    <a href="#" class="btn btn-primary">View
-                                        Product</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+
                 </div>
 
                 <!-- Pagination -->

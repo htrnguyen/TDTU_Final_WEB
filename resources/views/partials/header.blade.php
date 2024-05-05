@@ -10,13 +10,13 @@
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/men') }}">Men</a>
+                    <a class="nav-link text-dark" href="{{ url('/men') }}">Men</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/women') }}">Women</a>
+                    <a class="nav-link text-dark" href="{{ url('/women') }}">Women</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/kids') }}">Kids</a>
+                    <a class="nav-link text-dark" href="{{ url('/kids') }}">Kids</a>
                 </li>
             </ul>
         </div>
