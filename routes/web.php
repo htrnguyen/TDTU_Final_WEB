@@ -39,6 +39,6 @@ Route::get('check-health', function () {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('/home', [AdminController::class, 'index'])->name('home');
+    Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
 });
 
