@@ -208,4 +208,7 @@ return [
 
     'partitioned' => env('SESSION_PARTITIONED_COOKIE', false),
 
+    'timezone' => 'Asia/Ho_Chi_Minh',
+
+
 ];
