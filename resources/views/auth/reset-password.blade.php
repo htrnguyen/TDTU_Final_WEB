@@ -1,8 +1,8 @@
 @extends('layouts.client')
 
 @section('content')
-    @include('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs])
-    <div class="container mt-5">
+<div class="container mt-3">
+        @include('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs])
         <div class="row justify-content-center ">
             <div class="col-md-6">
                 <div class="card shadow-lg border-0">

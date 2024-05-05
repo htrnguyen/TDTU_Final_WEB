@@ -9,10 +9,8 @@ class User extends Authenticatable
 {
     use HasFactory;
 
-    protected $primaryKey = 'user_id';
-    protected $fillable = ['last_name', 'first_name', 'username', 'email', 'password', 'address', 'phone', 'avatar', 'role'];
-    protected $dates = ['created_at'];
-    public $timestamps = false;
+    protected $fillable = ['last_name', 'first_name', 'username', 'email', 'password', 'address', 'phone_number', 'avatar_url', 'role', 'is_active'];
+    protected $dates = ['created_at', 'updated_at'];
 
     public function orders()
     {

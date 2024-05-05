@@ -17,12 +17,12 @@ class UserFactory extends Factory
             'first_name' => $this->faker->firstName,
             'username' => $this->faker->unique()->userName,
             'email' => $this->faker->unique()->safeEmail,
-            'password' => 'password', // You can generate hashed passwords here
+            'password' => bcrypt('password'), // Default password is 'password'. You may use Hash::make() for Laravel 8
             'address' => $this->faker->address,
-            'phone' => $this->faker->phoneNumber,
-            'avatar' => '/storage/images/users/default_avatar.jpg',
-            'role' => 'user',
-            'created_at' => now(),
+            'phone_number' => $this->faker->phoneNumber,
+            'role' => 'user', // Default role is 'user'
+            'avatar_url' => '/storage/images/users/default_avatar.jpg',
+            'is_active' => true,
         ];
     }
 }
