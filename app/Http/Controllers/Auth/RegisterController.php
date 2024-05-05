@@ -34,12 +34,16 @@ class RegisterController extends Controller
 
         User::create($attributes);
 
-        return response()->json([
+        response()->json([
             'success' => true,
             'data' => $attributes
         ]);
 
-        // return redirect()->route('login')->with('success', 'Registration successful! You can now log in.');
+        return redirect()->route('login')->with('success', 'Registration successful! You can now log in.');
+    }
+
+    public function update() {
+        
     }
 
     public function destroy()

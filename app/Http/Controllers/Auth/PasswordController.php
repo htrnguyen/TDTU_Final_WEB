@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ResetPasswordController extends Controller
+class PasswordController extends Controller
 {
     public function index()
     {
@@ -16,5 +16,13 @@ class ResetPasswordController extends Controller
         ];
 
         return view('auth.reset-password', compact('breadcrumbs'));
+    }
+
+    public function edit() {
+        
+    }
+
+    public function update() {
+
     }
 }

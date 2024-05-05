@@ -12,7 +12,7 @@ Follow these steps to get the server up and running:
     - Navigate to the project directory.
     - Run the command:
 
-        ```
+        ``` bash
         composer install
         ```
 
@@ -27,7 +27,7 @@ Follow these steps to get the server up and running:
     - In your command line interface, navigate to the project directory if you haven't already.
     - Execute the command:
 
-        ```
+        ``` bash
         php artisan migrate:refresh --seed
         ```
 
@@ -35,7 +35,7 @@ Follow these steps to get the server up and running:
 
     - While still in the project directory in your command line interface, run:
 
-        ```
+        ``` bash
         php artisan serve
         ```
 

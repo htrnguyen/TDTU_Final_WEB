@@ -8,12 +8,13 @@ use App\Http\Controllers\Admin\AdminCreateProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MenController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
+use Illuminate\Support\Facades\Auth;
 
 Route::group(['namespace' => 'auth'], function () {
 
@@ -28,9 +29,11 @@ Route::group(['namespace' => 'auth'], function () {
     Route::post('/register', [RegisterController::class, 'store']);
     Route::delete('/delete', [RegisterController::class, 'destroy']);
 
+    // Auth::
+
 
     // Reset-password
-    Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
+    Route::get('/reset-password', [PasswordController::class, 'index'])->name('reset-password');
 
     // Cart 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');

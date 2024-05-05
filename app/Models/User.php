@@ -2,24 +2,40 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
-    protected $fillable = ['last_name', 'first_name', 'username', 'email', 'password', 'address', 'phone_number', 'avatar_url', 'role', 'is_active'];
-    protected $dates = ['created_at', 'updated_at'];
+    protected $fillable = [
+        'last_name',
+        'first_name',
+        'username',
+        'email',
+        'password',
+        'address',
+        'phone_number',
+        'avatar_url',
+        'role',
+        'is_active'
+    ];
 
-    public function orders()
+    
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    
+    protected function casts(): array
     {
-        return $this->hasMany(Order::class, 'user_id');
-    }
-
-    public function casts(): array {
         return [
-            'password' => 'hashed'
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
         ];
     }
 }

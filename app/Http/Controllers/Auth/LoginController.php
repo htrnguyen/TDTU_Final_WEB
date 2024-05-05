@@ -34,7 +34,7 @@ class LoginController extends Controller
             ]);
         };
 
-        return response()->json([
+        response()->json([
             'message' => 'Login successfully',
             'data' => $credentials
         ]);
