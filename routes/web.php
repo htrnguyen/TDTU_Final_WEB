@@ -3,6 +3,8 @@
 namespace App\Route;
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminCreateProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Auth\LoginController;
@@ -50,4 +52,6 @@ Route::get('check-health', function () {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
+    Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
+    Route::get('/product/createproduct', [AdminCreateProductController::class, 'index'])->name('createproduct_admin');
 });

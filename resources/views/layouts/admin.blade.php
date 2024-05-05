@@ -4,28 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{asset('css/admin/admin.css') }}">
     <title>Admin shoe</title>
 </head>
 <body>
     <div class="container">
-        {{-- <header>
-            <div class="header-search">
-                <input type="text" placeholder="Search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="header-account">
-                <img src="{{asset('images/avatar.jpg') }}" alt="">
-                <p>Admin Page</p>
-                <div class="ha-SignInOut" style="display: none;">
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
-                </div>
-            </div>
-            
-        </header> --}}
-
+        {{-- Header --}}
+        @yield('header-admin')
         {{-- Sidebar-Dashboard-informatiom --}}
         <div class="container-sidebar-child">
             @yield('container-sidebar-dashboard')
@@ -43,11 +30,11 @@
                     <i class="fa-solid fa-plus"></i>
                 </button>
             </div>
-            <a href="#" class="dashboard">
+            <a href="{{route('home_admin')}}" class="dashboard">
                 <i class="fa-solid fa-grip"></i>
                 <p>Dashboard</p>
             </a>
-            <a href="#">
+            <a href="{{route('product_admin')}}">
                 <i class="fa-solid fa-boxes-stacked"></i>
                 <p>Product</p> 
             </a>

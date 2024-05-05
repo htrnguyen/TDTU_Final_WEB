@@ -21,67 +21,8 @@ a {
 }
 
 body {
-    background-color: #fdfdfd;
+    background-color: #fdfcfc;
 }
-
-header {
-    position: fixed;
-    width: calc(100% - 300px);
-    right: 0;
-    height: 70px;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    z-index: 10;
-}
-
-.header-search {
-    position: relative;
-    background-color: #e7e7e7;
-    border-radius: 20px;
-}
-
-.header-search input {
-    font-size: 1.2rem;
-    width: 300px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: transparent;
-    padding: 0 20px 0 60px;
-}
-
-.header-search input:focus {
-    outline: none;
-    border: 1px solid var(--secondary-color);
-}
-.header-search i {
-    position: absolute;
-    left: 23px;
-    top: 10px;
-    font-size: 1.2rem;
-}
-
-
-.header-account {
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.2rem;
-    align-items: center;
-}
-
-.header-account img {
-    margin-right: 10px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 2px;
-    border: solid 3px var(--dark-color);
-    object-fit: contain;
-
-}
-
 
 /* Container-sidebar */
 .container-sidebar {
@@ -184,7 +125,7 @@ header {
 /* Container-sidebar-dashboard */
 .container-sidebar-dashboard {
     height: 100%;
-    position: absolute;
+    position: fixed;
     right: 0;
     width: 300px;
     background-color: #fff;
@@ -293,6 +234,7 @@ header {
     left: 250px;
     width: calc(100% - 550px);
     color: black;
+    z-index: 10;
 }
 
 .title-main {
@@ -373,6 +315,7 @@ header {
 }
 
 .chart-activity-progress .chart {
+    background-color: #fff;
     position: relative;
     padding: 20px;
     width: 100%;
@@ -438,3 +381,283 @@ header {
     object-fit: contain;
     background-image: var(--primary-color);
 }
+
+/* tracking-details */
+.tracking-details {
+    margin-top: 60px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tracking {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.tracking p,
+.most-tracking p {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #6d6d6d;
+}
+
+.tracking-barchart {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 10px 7px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tracking-barchart span {
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: #6d6d6d;
+}
+
+.most-tracking {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: start;
+}
+
+.most-tracking-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    border-radius: 20px;
+}
+
+.most-tracking-content-child {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: var(--tertiary-color);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.most-tracking-content-child-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+}
+
+.most-tracking-content-child-details p {
+    margin: 3px 0 0 0;
+}
+
+/* Container-main-product */
+.container-main-product {
+    padding: 20px 40px;
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    color: black;
+    z-index: 10;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ph-search {
+    position: relative;
+    background-color: #fff;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.ph-search input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 20px;
+    padding:0 10px 0 40px;
+    border: 1px solid #000;
+}
+
+.ph-search i {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 1.2rem;
+}
+
+.ph-createOrder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.ph-createOrder button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.ph-createOrder button i {
+    margin-right: 10px;
+}
+
+
+.list-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.classify-product {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.classify-product h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+
+}
+
+.cp-list-classify {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 0 10px;
+    border: 1px solid #000;
+}
+
+.cp-sort select {
+    width: 90px;
+    height: 40px;
+}
+
+.cp-collection select {
+    margin: 0 10px;
+    width: 135px;
+    height: 40px;
+}
+
+.cp-price select {
+    width: 120px;
+    height: 40px;
+} 
+
+.list-product-created {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-product-created table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table tr:first-child{
+    border: none;
+    box-shadow: none;
+    text-align: left;
+}
+
+
+table tr th {
+    padding: 8px 0 8px 25px;
+    background-color: transparent;
+}
+
+table tr td{
+    padding: 20px 0 20px 25px;
+    background-color: #fff;
+    
+}
+.lpc-product {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.lpc-product img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #fcfdfc;
+    margin:0 20px 0 5px;
+}
+
+.lpc-category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+}
+
+.lpc-category p{
+    margin-right: 10px;
+    background-color: #eff0ef;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.lpc-color {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.lpc-color p {
+    margin-right: 10px;
+}
+
+td p {
+    text-align: left;
+}
+
+td .edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+
+

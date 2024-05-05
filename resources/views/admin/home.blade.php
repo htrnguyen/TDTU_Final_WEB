@@ -62,11 +62,11 @@
         <div class="dashboard-image">
             <img src="{{asset('images/dashboard_1.png')}}" alt="">
             <h2>Hi, <span>My admin...</span></h2>
-            <p>You have <span>4</span> tasks to finish all task today, Youraldready completed <span>50%</span> tasks for today. Your <br> progress is <span>very good.</span> </p>
+            <p>You have <span>4</span> tasks to finish all task today, Your <br> aldready completed <span>50%</span> tasks for today. Your <br> progress is <span>very good.</span> </p>
         </div>
         <div class="chart-activity-progress">
             <div class="chart-activity chart">
-                <canvas id="linechart"></canvas>
+                <canvas id="linechart" width="470px"></canvas>
             </div>
             <div class="chart-progress chart">
                 <div class="cp-child">
@@ -96,7 +96,7 @@
                 <h3>Tracking</h3>
                 <p>20 hours, 30 min on this week</p>
                 <div class="tracking-barchart">
-                    <h3>$1,250 <span>This week</span> </h3>
+                    <h4>1,250 Followers <span>This week</span> </h4>
                     <canvas id="barchart"></canvas>
                 </div>
             </div>
