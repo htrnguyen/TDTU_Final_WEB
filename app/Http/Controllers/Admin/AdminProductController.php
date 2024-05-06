@@ -11,4 +11,10 @@ class AdminProductController extends Controller
     {
         return view('admin.product');
     }
+
+    public function productCreate()
+    {
+        return view('admin.createProduct');
+    }
+
 }

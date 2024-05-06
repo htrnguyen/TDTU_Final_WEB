@@ -67,6 +67,7 @@
     </div>
     {{-- Chart-js --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{{asset('js/dashboard_chart.js') }}"></script>
+    <script src="{{asset('js/admin/dashboard_chart.js') }}"></script>
+    <script src="{{asset('js/admin/script.js') }}"></script>
 </body>
 </html>

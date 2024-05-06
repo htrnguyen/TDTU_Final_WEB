@@ -36,7 +36,7 @@ body {
     flex-direction: column;
     align-items: start;
     padding-left: 40px;
-    justify-content: space-around;
+    justify-content: start;
     z-index: 10;
 }
 
@@ -44,7 +44,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: -25px;
 }
 
 .logo p {
@@ -58,7 +57,7 @@ body {
 }
 
 .cs-create-new-task {
-    margin-top: -40px;
+    margin: 25px 0 20px 0;
     width: 160px;
     height: 70px;
     display: flex;
@@ -87,7 +86,8 @@ body {
     display: flex;
     justify-content: start;
     align-items: center;
-    width: 120px;
+    width: 90%;
+    padding: 15px 10px;
 }
 
 .container-sidebar a i {
@@ -101,13 +101,15 @@ body {
 
 .container-sidebar a:hover {
     color: var(--primary-color);
+    border-radius: 10px;
+    background-color: #e3f4cb;
 }
 
 .container-sidebar a::before{
     position: absolute;
     content: "";
     width: 3px;
-    height: 30px;
+    height: 45px;
     right: 0;
     border-radius: 20px;
 }
@@ -512,14 +514,16 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: var(--secondary-color);
-    padding: 20px;
-    border-radius: 20px;
+    padding: 15px;
+    border-radius: 15px;
     font-weight: bold;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .ph-createOrder button i {
     margin-right: 10px;
+    cursor: pointer;
 }
 
 
@@ -658,6 +662,233 @@ input[type="checkbox"] {
     width: 20px;
     height: 20px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 
+
+
+/* Container-main-create-product */
+.container-main-create-product {
+    padding: 20px 40px;
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    color: black;
+    z-index: 10;
+}
+
+.back-product {
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.back-product i {
+    background-color: var(--secondary-color);
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.4rem;
+    margin-right: 20px;
+}
+
+.form-create-product {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.form-group-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fg-description, 
+.fg-category,
+.fg-color,
+.fg-image,
+.fg-pricing {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.fg-description-details, 
+.fg-category-details,
+.fg-color-details,
+.fg-image-details,
+.fg-pricing-details {
+    width: 80%;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.fg-description-details p, 
+.fg-category-details p,
+.fg-color-details p,
+.fg-pricing-details p{
+    margin-bottom: 4px;
+}
+
+.fg-description-details input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 10px;
+    border: 1px solid #e7e7e7;
+    margin-bottom: 15px;
+}
+
+.fg-description-details textarea {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.fg-description-details input:focus, textarea:focus {
+    outline: solid 1px var(--primary-color);
+}
+
+.fg-category,
+.fg-color,
+.fg-pricing {
+    margin-top: 30px;
+}
+
+.fg-category-details select, 
+.fg-color-details select {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 10px;
+    border: 1px solid #e7e7e7;
+    margin-bottom: 15px;
+}
+
+.fg-image-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.fg-image-details input[type="file"] {
+    display: none;
+}
+
+.fg-image-details label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: #d0f0c8;
+    text-align: center;
+    border: 2px dashed var(--primary-color);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.fg-image-details #images-place {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px; 
+    max-width: 500px; 
+    border-radius: 10px;
+}
+
+.fg-image-details img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.fg-image-details .image-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.fg-image-details .image-wrapper button {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right:15px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.fg-pricing-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.fg-pricing-input,
+.fg-pricing-discount-input {
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.fg-pricing-details input:focus {
+    border: none;
+    outline: none;
+}
+
+#btn-AddProduct {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+#btn-AddProduct:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}

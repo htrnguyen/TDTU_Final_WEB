@@ -56,7 +56,7 @@
             <table>
                 <tr>
                     <th>
-                        <input type="checkbox" name="check" id="check">
+                        <input type="checkbox" name="check" id="checkAllProduct" >
                         PRODUCT DETAILS
                     </th>
                     <th>CATEGORY</th>
@@ -69,7 +69,7 @@
                 <tr> {{--Cho foreach chạy tại đây--}}
                     <td>
                         <div class="lpc-product">
-                            <input type="checkbox" name="check" id="check">
+                            <input type="checkbox" name="check" id="check" class="Select-product">
                             <img src="{{asset('images/product-nike.png')}}" alt="nike">
                             <div class="lpc-name-description">
                                 <h3>Nike Air Max 270c</h3>
