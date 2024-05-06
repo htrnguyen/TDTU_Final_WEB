@@ -22,6 +22,10 @@ class AdminProductController extends Controller
         return view('admin.createProduct');
     }
 
+    public function productOrder()
+    {
+        return view('admin.orderProduct');
+    }
     public function store()
     {
         

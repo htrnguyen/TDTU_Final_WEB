@@ -13,7 +13,7 @@
                     <p>Add Product</p>
                 </button>
             </a>
-            <a href="#" id="ph-order">
+            <a href="{{route('orderproduct_admin')}}" id="ph-order">
                 <button>
                     <i class="fa-solid fa-dolly"></i>
                     <p>Order</p>
