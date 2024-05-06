@@ -28,6 +28,8 @@ Route::group(['namespace' => 'auth'], function () {
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'store']);
     Route::delete('/delete', [RegisterController::class, 'destroy']);
+    Route::get('email/verify', [MailController::class, 'verify']);
+
 
     // Auth::
 
@@ -53,7 +55,7 @@ Route::get('check-health', function () {
     return response()->json(['message' => 'Call URI from web'], Response::HTTP_OK);
 });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
 
 
@@ -63,6 +65,3 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/product/createproduct', [AdminProductController::class, 'store']);
 });
 
-// Route::get('test-mail', [MailController::class, 'verify'])->name('mail.verify');
-
-Route::get('email/verify', [MailController::class, 'verify']);

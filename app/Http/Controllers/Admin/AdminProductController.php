@@ -26,9 +26,10 @@ class AdminProductController extends Controller
     {
         return view('admin.orderProduct');
     }
+    
     public function store()
     {
-        
+
         try {
             $attributes = request()->validate([
                 'name' => 'required|string|max:255',
@@ -38,7 +39,7 @@ class AdminProductController extends Controller
                 'stock_quantity' => 'required|numeric|min:0',
                 'category_id' => 'required|numeric',
             ]);
-            
+
             $product = Product::create($attributes);
 
             return response()->json([
@@ -70,6 +71,6 @@ class AdminProductController extends Controller
         //     throw
         // }
 
-        
+
     }
 }
