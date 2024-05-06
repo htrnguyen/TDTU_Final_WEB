@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
     Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
     Route::get('/product/createproduct', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
+    Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
 });
 
 Route::get('test-mail', [MailController::class, 'verify'])->name('mail.verify');

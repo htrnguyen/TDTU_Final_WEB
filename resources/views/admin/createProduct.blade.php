@@ -7,7 +7,7 @@
         </a>
         <div class="bp-title">
             <p>Back to Products</p>
-            <h1>Add New Product</h1>
+            <h2>Add New Product</h2>
         </div>
     </div>
     <div class="form-create-product">
@@ -95,16 +95,23 @@
                                 <p>Product Price</p>
                                 <div class="fg-pricing-input">
                                     <i class="fa-solid fa-dollar-sign"></i>
-                                    <input type="text" placeholder="Please typing information">
+                                    <input type="text" placeholder="299$">
                                 </div>
                             </div>
                             <div class="fg-pricing-2">
                                 <p>Product Discount</p>
                                 <div class="fg-pricing-discount-input">
                                     <i class="fa-solid fa-percent"></i>
-                                    <input type="text" placeholder="Please typing information">
+                                    <input type="text" placeholder="50">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="fg-quantity">
+                        <h3>Quantity</h3>
+                        <div class="fg-quantity-details">
+                            <p>Product Quantity</p>
+                            <input type="text" placeholder="100">
                         </div>
                     </div>
                     <button type="submit" id="btn-AddProduct">Add Product</button>
