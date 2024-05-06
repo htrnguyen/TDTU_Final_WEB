@@ -34,19 +34,19 @@ class LoginController extends Controller
             ]);
         };
 
-        response()->json([
+        return response()->json([
             'message' => 'Login successfully',
-            'data' => $credentials
+            'data' => $credentials,
         ]);
 
         // TODO: Pre-request script to fecth in postman and fix password hashing issue
 
 
         //regenerate the session token
-        request()->session()->regenerate();
+        // request()->session()->regenerate();
 
-        //redirect
-        return redirect('/');
+        // //redirect
+        // return redirect('/');
     }
 
     public function destroy()

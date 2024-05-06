@@ -32,7 +32,19 @@ class RegisterController extends Controller
             'phone' => ['nullable', 'string', 'max:20'],
         ]);
 
-        User::create($attributes);
+        return response()->json([
+            'success' => true,
+            'message' => $attributes
+        ]);
+
+        if (! User::create($attributes)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Cannot create account'
+            ]);
+        }
+
+        redirect()->route('mail.verify');
 
         response()->json([
             'success' => true,

@@ -11,10 +11,11 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MenController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 Route::group(['namespace' => 'auth'], function () {
 
@@ -57,4 +58,12 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
     Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
     Route::get('/product/createproduct', [AdminCreateProductController::class, 'index'])->name('createproduct_admin');
+});
+
+Route::get('test-mail', [MailController::class, 'verify'])->name('mail.verify');
+Route::get('email/verify', function() {
+    return response()->json([
+        'success' => true,
+        'message' => 'Verified'
+    ]);
 });
