@@ -1,7 +1,8 @@
 @component('mail::message')
-# Hello {{ $username }},
+# Hello {{ $user->first_name }} {{ $user->last_name }},
 
-Thank you for registering with us! Before we can get started, you need to confirm your registration.
+Thank you for registering with us!
+Before we can get started, you need to confirm your registration.
 
 @component('mail::button', ['url' => $verificationUrl, 'color' => 'success', 'align' => 'center'])
 Verify Your Email
