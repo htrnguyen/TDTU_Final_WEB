@@ -13,12 +13,22 @@ class VerificationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    // public $username;
+    // public $verificationUrl;
     /**
      * Create a new message instance.
      */
     public function __construct()
     {
         //
+    }
+
+    public function build()
+    {
+        $username = 'John Doe';
+        $verificationUrl = 'http://localhost:8000/email/Verify';
+
+        return $this->view('mail.verify', compact('username', 'verificationUrl'));
     }
 
     /**

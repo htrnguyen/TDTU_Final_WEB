@@ -19,7 +19,8 @@ class MailController extends Controller
     }
 
     public function verify() {
-        Mail::to('luhtri2109@gmail.com')->send(new VerificationMail());
+        // Mail::to('luhtri2109@gmail.com')->send(new VerificationMail());
+        Mail::to('hatrongnguyen04@gmail.com')->send(new VerificationMail());
     }
 
     /**

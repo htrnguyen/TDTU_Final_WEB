@@ -61,6 +61,7 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::get('test-mail', [MailController::class, 'verify'])->name('mail.verify');
+
 Route::get('email/verify', function() {
     return response()->json([
         'success' => true,
