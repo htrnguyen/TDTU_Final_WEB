@@ -7,12 +7,14 @@ use App\Http\Controllers\Admin\AdminProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MenController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
+use App\Models\User;
 
 Route::group(['namespace' => 'auth'], function () {
 
@@ -27,9 +29,11 @@ Route::group(['namespace' => 'auth'], function () {
     Route::post('/register', [RegisterController::class, 'store']);
     Route::delete('/delete', [RegisterController::class, 'destroy']);
 
+    // Auth::
+
 
     // Reset-password
-    Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('reset-password');
+    Route::get('/reset-password', [PasswordController::class, 'index'])->name('reset-password');
 
     // Cart 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
@@ -53,4 +57,13 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
     Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
     Route::get('/product/createproduct', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
+});
+
+Route::get('test-mail', [MailController::class, 'verify'])->name('mail.verify');
+
+Route::get('email/verify', function() {
+    return response()->json([
+        'success' => true,
+        'message' => 'Verified'
+    ]);
 });

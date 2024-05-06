@@ -24,13 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Log::listen(function ($level, $message, $context) {
-            // Output log messages to the terminal
-            $output = "[" . strtoupper($level) . "] " . $message;
-            if (!empty($context)) {
-                $output .= ' ' . json_encode($context);
-            }
-            echo $output . PHP_EOL;
-        });
+        //
     }
 }

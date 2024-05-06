@@ -1,18 +1,15 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Seeders;
 
 use App\Models\ProductSize;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class ProductSizeFactory extends Factory
+class ProductSizeSeeder extends Seeder
 {
-    protected $model = ProductSize::class;
-
-    public function definition()
+    public function run()
     {
-        return [
-            'size_name' => $this->faker->word,
-        ];
+        ProductSize::factory()->count(20)->create();
     }
 }

@@ -24,6 +24,12 @@ return [
     |--------------------------------------------------------------------------
     | Session Lifetime
     |--------------------------------------------------------------------------
+    |
+    | Here you may specify the number of minutes that you wish the session
+    | to be allowed to remain idle before it expires. If you want them
+    | to expire immediately when the browser is closed then you may
+    | indicate that via the expire_on_close configuration option.
+    |
     */
 
     'lifetime' => env('SESSION_LIFETIME', 120),
@@ -207,8 +213,5 @@ return [
     */
 
     'partitioned' => env('SESSION_PARTITIONED_COOKIE', false),
-
-    'timezone' => 'Asia/Ho_Chi_Minh',
-
 
 ];

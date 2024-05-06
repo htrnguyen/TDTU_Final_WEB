@@ -12,7 +12,7 @@ class ProductColorFactory extends Factory
     public function definition()
     {
         return [
-            'color_name' => $this->faker->colorName,
+            'color' => $this->faker->colorName,
         ];
     }
 }

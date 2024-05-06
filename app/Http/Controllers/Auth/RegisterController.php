@@ -32,14 +32,30 @@ class RegisterController extends Controller
             'phone' => ['nullable', 'string', 'max:20'],
         ]);
 
-        User::create($attributes);
-
         return response()->json([
+            'success' => true,
+            'message' => $attributes
+        ]);
+
+        if (! User::create($attributes)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Cannot create account'
+            ]);
+        }
+
+        redirect()->route('mail.verify');
+
+        response()->json([
             'success' => true,
             'data' => $attributes
         ]);
 
-        // return redirect()->route('login')->with('success', 'Registration successful! You can now log in.');
+        return redirect()->route('login')->with('success', 'Registration successful! You can now log in.');
+    }
+
+    public function update() {
+        
     }
 
     public function destroy()
