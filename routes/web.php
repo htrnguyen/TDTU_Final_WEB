@@ -36,9 +36,11 @@ Route::group(['namespace' => 'auth'], function () {
 
     // Reset-password
     Route::get('/reset-password', [PasswordController::class, 'index'])->name('reset-password');
+    Route::post('/reset-password', [PasswordController::class, 'reset'])->name('reset-password');
+    Route::post('/password/update', [PasswordController::class, 'update']);
 
     // Cart 
-    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');    
 });
 
 
