@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\UserRegisteredSuccessfully;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -32,30 +33,27 @@ class RegisterController extends Controller
             'phone' => ['nullable', 'string', 'max:20'],
         ]);
 
-        return response()->json([
-            'success' => true,
-            'message' => $attributes
-        ]);
+        $user = User::create($attributes);
 
-        if (! User::create($attributes)) {
+        if (!$user) {
             return response()->json([
                 'success' => false,
                 'message' => 'Cannot create account'
             ]);
         }
 
-        redirect()->route('mail.verify');
+        event(new UserRegisteredSuccessfully($user));
 
-        response()->json([
+        return response()->json([
             'success' => true,
-            'data' => $attributes
+            'data' => $user
         ]);
 
-        return redirect()->route('login')->with('success', 'Registration successful! You can now log in.');
+        // return redirect()->route('login')->with('success', 'Registration successful! You can now log in.');
     }
 
-    public function update() {
-        
+    public function update()
+    {
     }
 
     public function destroy()

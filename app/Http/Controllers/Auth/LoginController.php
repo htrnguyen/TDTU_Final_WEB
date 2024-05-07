@@ -23,7 +23,8 @@ class LoginController extends Controller
     public function store()
     {
         $credentials = request()->validate([
-            'email' => ['required', 'email'],
+            'username' => ['username'],
+            'email' => ['email'],
             'password' => ['required'],
         ]);
 

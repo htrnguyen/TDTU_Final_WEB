@@ -28,15 +28,19 @@ Route::group(['namespace' => 'auth'], function () {
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'store']);
     Route::delete('/delete', [RegisterController::class, 'destroy']);
+    Route::get('email/verify', [MailController::class, 'verify']);
+
 
     // Auth::
 
 
     // Reset-password
     Route::get('/reset-password', [PasswordController::class, 'index'])->name('reset-password');
+    Route::post('/reset-password', [PasswordController::class, 'reset'])->name('reset-password');
+    Route::post('/password/update', [PasswordController::class, 'update']);
 
     // Cart 
-    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');    
 });
 
 
@@ -53,18 +57,13 @@ Route::get('check-health', function () {
     return response()->json(['message' => 'Call URI from web'], Response::HTTP_OK);
 });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
+
+
     Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
     Route::get('/product/createproduct', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
     Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
+    Route::post('/product/createproduct', [AdminProductController::class, 'store']);
 });
 
-Route::get('test-mail', [MailController::class, 'verify'])->name('mail.verify');
-
-Route::get('email/verify', function() {
-    return response()->json([
-        'success' => true,
-        'message' => 'Verified'
-    ]);
-});
