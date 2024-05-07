@@ -1,4 +1,6 @@
 @extends('layouts.admin')
+<script src="{{asset('js/admin/scriptOdered.js')}}"></script>
+
 @section('container-main')
 <div class="container-main-order-product">
     <div class="back-product">
@@ -16,11 +18,11 @@
             <input type="text" placeholder="Enter order ID to search">
         </div>
         <div class="hop-fresh-report">
-           <div class="hop-fresh">
+           <div class="hop-fresh" id="fresh-order">
             <i class="fa-solid fa-arrows-rotate"></i>
             <p>Refresh</p>
            </div>
-           <div class="hop-report">
+           <div class="hop-report" id="report-order">
             <i class="fa-solid fa-chart-pie"></i>
             <p>Report</p>
            </div>
@@ -74,6 +76,7 @@
     </div>
     <div class="mask-for-view"></div>
     <div class="view-ordered-details">
+        <i class="fa-solid fa-xmark cancel-icon"></i>
         <div class="vod-header">
             <img src="{{asset('images/Jordan.png')}}" alt="">
             <p>In progress</p>
@@ -109,4 +112,25 @@
         </div>
     </div>
 </div>
+<script>
+    document.querySelectorAll('.action-order').forEach((item, index) => {
+    item.addEventListener('click', () => {
+        var maskForView = document.querySelector('.mask-for-view');
+        var viewOrdered = document.querySelector('.view-ordered-details'); // Removed the extra ' in this line
+        maskForView.style.visibility = 'visible';
+        viewOrdered.style.visibility = 'visible';
+        });
+    });
+
+    document.querySelectorAll('.cancel-icon').forEach((item, index) => {
+        item.addEventListener('click', () => {
+            document.querySelector('.mask-for-view').style.visibility = 'hidden';
+            document.querySelector('.view-ordered-details').style.visibility = 'hidden';   
+        });
+    });
+
+    document.getElementById('fresh-order').addEventListener('click', () => {
+        location.reload();
+    });
+</script>
 @endsection

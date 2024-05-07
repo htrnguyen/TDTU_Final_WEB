@@ -108,5 +108,18 @@
         </div>
     </div>
 </div>
-    
+<script>
+    // Checkbox for all checkboxes
+    let checkbox = document.getElementById('checkAllProduct');
+    checkbox.addEventListener('click', function() {
+        let checkboxes = document.querySelectorAll('.Select-product');
+        for (let i of checkboxes) {
+            if(checkbox.checked) {
+                i.checked = true;
+            } else {
+                i.checked = false;
+            }
+        }
+    });
+</script>
 @endsection
