@@ -14,30 +14,50 @@
             <!-- Filters Sidebar for large screens -->
             <div class="col-md-3 d-none d-md-block">
                 <div>
-                    <h4>Filter by</h4>
+                    <h5 class="mb-4">FILTER BY</h5>
                     <div class="mb-3">
-                        <label for="priceRange" class="form-label">Price</label>
-                        <input type="range" class="form-range" id="priceRange" min="0" max="1000"
-                            value="500">
+                        <p class="form-label">PRICE</p>
+                        <div class="range-slide">
+                            <div class="slide">
+                                <div class="line" id="line" style="left: 0%; right: 0%;"></div>
+                                <span class="thumb" id="thumbMin" style="left: 0%;"></span>
+                                <span class="thumb" id="thumbMax" style="left: 100%;"></span>
+                            </div>
+                            <input id="rangeMin" type="range" max="2000" min="50" step="10" value="50">
+                            <input id="rangeMax" type="range" max="2000" min="20" step="10" value="1000">
+                        </div>
+                        <div class="display">
+                            <span class="mb-3" id="min"></span>
+                            <span id="max"></span>
+                        </div>
+                    </div>
+                    <!-- Range Silder -->
+                    
+                    <div class="mb-3">
+                        <p class="form-label border-bottom pb-2">COLOR</p>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter" >
+                            <label for="colorFilter" class="form-check-label mr-2" > White</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter" >
+                            <label for="colorFilter" class="form-check-label mr-2"> Black</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter" >
+                            <label for="colorFilter" class="form-check-label mr-2" > Grey</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark"  type="checkbox" id="colorFilter" >
+                            <label for="colorFilter" class="form-check-label mr-2"> Blue</label><br></br>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="colorFilter" class="form-label">Color</label>
-                        <select id="colorFilter" class="form-select">
-                            <option>White</option>
-                            <option>Black</option>
-                            <option>Grey</option>
-                            <option>Blue</option>
-                            <!-- Add other colors -->
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="sizeFilter" class="form-label">Size</label>
-                        <select id="sizeFilter" class="form-select">
-                            <option>S</option>
-                            <option>M</option>
-                            <option>L</option>
-                            <option>XL</option>
-                        </select>
+                        <p class="form-label border-bottom pb-2">SIZE</p>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                            <label class="form-check-label mr-2"> S</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                            <label class="form-check-label mr-2"> M</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                            <label class="form-check-label mr-2"> L</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                            <label class="form-check-label mr-2"> XL</label><br></br>
+                        </div>
                     </div>
                 </div>
 
@@ -45,18 +65,58 @@
 
             <!-- Main Content Column -->
             <div class="col-md-9">
-                <div class="d-flex justify-content-end mb-2">
+                <div class="d-flex justify-content-end mb-2 align-items-center">
                     <!-- Sorting Dropdown -->
-                    <select class="form-select w-auto" onchange="location = this.value;">
+                    <span class="me-1">Sort By: </span>
+                    <select class="form-select w-auto me-2" onchange="location = this.value;">
                         <option value="?sort=default" selected>Default</option>
                         <option value="?sort=price">Price</option>
                         <option value="?sort=name">Name</option>
                     </select>
+                    <a href="" class="text-dark"><i class="fas fa-arrow-down"></i></a>
                 </div>  
 
                 {{-- Load Products --}}
                 <div class="row">
-
+                    <div class="col-md-4">
+                        <div class="card border-0">
+                            <a href="" class="text-dark text-decoration-none">
+                                <img src="{{ asset('images/shoe1.jpg') }}" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">Strutter shoes</h5>
+                                    <p class="card-text mb-2">Men's Shoes</p>
+                                    <p class="text-secondary mb-2">2 colors</p>
+                                    <p class="text-secondary mb-2">$422.40</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0">
+                            <a href="" class="text-dark text-decoration-none">
+                                <img src="{{ asset('images/shoe2.jpg') }}" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nizza trefoil shoes</h5>
+                                    <p class="card-text mb-2">Men's Shoes</p>
+                                    <p class="text-secondary mb-2">3 colors</p>
+                                    <p class="text-secondary mb-2">$597.30</p>
+                                </div>
+                            </a>                           
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0">
+                            <a href="" class="text-dark text-decoration-none">
+                                <img src="{{ asset('images/shoe1.jpg') }}" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">Seasonal color chuck 70</h5>
+                                    <p class="card-text mb-2">Men's Shoes</p>
+                                    <p class="text-secondary mb-2">1 color</p>
+                                    <p class="text-secondary mb-2">$882.20</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Pagination -->
