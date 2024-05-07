@@ -70,7 +70,14 @@ class AdminProductController extends Controller
         // if (!Product::create($attributes)) {
         //     throw
         // }
+    }
 
+    public function show() {
+        $products = Product::all();
 
+        return response()->json([
+            'success' => true,
+            'data' => $products
+        ]);
     }
 }
