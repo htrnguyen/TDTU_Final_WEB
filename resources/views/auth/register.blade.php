@@ -1,7 +1,7 @@
 @extends('layouts.client')
 
 @section('content')
-<div class="container mt-3">
+    <div class="container mt-3">
         @include('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs])
         <div class="row justify-content-center ">
             <div class="col-md-6">
@@ -10,9 +10,15 @@
                         <h2 class="card-title text-center pt-5 pb-2">Create A New Account</h2>
                         <form id="formRegister" method="POST" action="{{ route('register') }}">
                             @csrf
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Full name" required>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="firstName" name="firstName"
+                                        placeholder="First Name" required>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" id="lastName" name="lastName"
+                                        placeholder="Last Name" required>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email"
@@ -26,7 +32,7 @@
                         </form>
                         <div class="text-center mt-3">
                             Already have an account?
-                            <a href="{{ route('login')}}" class="text-decoration-none">Login</a>
+                            <a href="{{ route('login') }}" class="text-decoration-none">Login</a>
                         </div>
                     </div>
                 </div>

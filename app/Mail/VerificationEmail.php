@@ -2,33 +2,43 @@
 
 namespace App\Mail;
 
+use App\Models\Token;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
-class VerificationMail extends Mailable
+class VerificationEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
     // public $username;
     // public $verificationUrl;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        //
+        $this->user = $user;
     }
 
     public function build()
     {
-        $username = 'John Doe';
-        $verificationUrl = 'http://localhost:8000/email/Verify';
+        $username = $this->user->username;
+        $token = Token::create([
+            'token' => Str::random(60),
+            'expires_at' => Carbon::now()->addMinutes(5),
+        ])->token;
 
-        return $this->view('mail.verify', compact('username', 'verificationUrl'));
+        $verificationUrl = 'http://localhost:8000/email/verify' . "?token=$token&username=$username";
+
+        return $this->view('mail.verify', compact('verificationUrl'));
     }
 
     /**

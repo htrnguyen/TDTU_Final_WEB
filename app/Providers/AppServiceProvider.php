@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\UserRegisteredEvent;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 

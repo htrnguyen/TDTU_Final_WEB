@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phone_number')->nullable();
             $table->enum('role', ['user', 'admin', 'master'])->default('user');
             $table->string('avatar_url')->default(DEFAULT_AVATAR_PATH);
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }
