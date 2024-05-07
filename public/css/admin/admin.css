@@ -870,8 +870,7 @@ textarea:focus,
 
 
 .fg-pricing-input,
-.fg-pricing-discount-input,
- {
+.fg-pricing-discount-input{
     border: 1px solid #e7e7e7;
     padding: 10px;
     border-radius: 10px;
@@ -1021,9 +1020,93 @@ table tr:first-child{
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
+    cursor: pointer;
 }
 
 /* Show view product details */
+.mask-for-view {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    transition: visibility 0.8s ease;
+}
 .view-ordered-details {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 550px;
+    background-color: #fff;
+    padding: 20px 15px 10px 15px;
+    border-radius: 15px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
 
+.vod-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+}
+
+.vod-header img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    background-color: #fcfdfc;
+    border-radius: 10px;
+}
+
+.vod-header p {
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #9dd38f;
+}
+
+.vod-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 10px;
+}
+
+.vod-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.vod-details-left,
+.vod-details-right {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+}
+
+.vod-describe-shortly {
+    margin-top: 15px;
+}
+
+.view-ordered-details i {
+    position: absolute;
+    font-size: 1.6rem;
+    top: 5px;
+    right: 7px;
+    cursor: pointer;
 }
