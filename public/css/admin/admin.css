@@ -492,7 +492,6 @@ body {
     background-color: transparent;
     border-radius: 20px;
     padding:0 10px 0 40px;
-    border: 1px solid #000;
 }
 
 .ph-search i {
@@ -585,7 +584,7 @@ select {
     align-items: center;
 }
 
-.list-product-created table {
+table {
     width: 100%;
     border-collapse: collapse;
 }
@@ -1139,14 +1138,21 @@ table tr:first-child{
 }
 
 .coupon-body {
+    background-color: #fff;
+    border-radius: 20px;
+    position: relative;
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
 }
 
 .coupod-child {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     border-radius: 20px;
@@ -1156,10 +1162,25 @@ table tr:first-child{
 }
 
 .coupod-child img {
-    width: 210px;
-    height: 210px;
-    object-fit: contain;
-    border-radius: 20px 0 0 20px;
+    width: 350px;
+    height: 205px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.cd-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+}
+
+.cd-day .cd-active {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .coupon-details {
@@ -1169,12 +1190,481 @@ table tr:first-child{
     justify-content: space-between;
     align-self: start;
     height: 210px;
+    width: 100%;
 }
 
-.cd-price, .cd-icon-price,
-.cd-shipping, .cd-icon-shipping,
-.cd-type, .cd-icon-type {
+.cd-price, 
+.cd-shipping, 
+.cd-type {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.cd-icon-price,
+.cd-icon-shipping,
+.cd-icon-type,
+.cd-active .cd-active-details {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    width: 170px;
+}
+.coupon-details i {
+    width: 20px;
+    color: #114232;
+}
+
+.coupon-action {
+    padding: 10px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.coupon-action .ca-edit {
+    width: 70%;
+    border: 2px solid #114232;
+    color: #114232;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 1rem;
+}
+.coupon-action .ca-delete {
+    width: 20%;
+    border: 2px solid #114232;
+    color: #114232;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 1rem;
+}
+/* Adjust button toggle */
+
+.btn-checkbox-toggle{
+    background: #114232;
+    width: 50px;
+    height: 25px;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.btn-checkbox-toggle::before{
+    position: absolute;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.5s;
+    top: 2px;
+    left: 2px;
+}
+
+.cd-active input[type="checkbox"]:checked + .btn-checkbox-toggle{
+    background-color: #9BCF53;
+}
+
+.cd-active input[type="checkbox"]:checked + .btn-checkbox-toggle::before{
+    transform: translateX(132%);
+}
+
+.cd-active input[type="checkbox"] {
+    display: none;
+}
+
+/* container-main-tasklist */
+.container-main-tasklist {
+    padding: 20px 40px;
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    color: black;
+    z-index: 10;
+} 
+.tasklist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasklist-search {
+    position: relative;
+    background-color: #fff;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.tasklist-search input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 20px;
+    padding:0 10px 0 40px;
+}
+
+.tasklist-search i {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 1.2rem;
+}
+
+.tasklist-header a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background-color: #9BCF53;
+    padding:12px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.tasklist-activity {
+    background-color: #fff;
+    border-radius: 20px;
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.ta-todo,
+.ta-progress,
+.ta-approve,
+.ta-done {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    width: 23%;
+    background-color: #e3f6c9;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.ta-todo-child,
+.ta-progress-child,
+.ta-approve-child,
+.ta-done-child {
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 10px 7px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tasklist-activity .unfi {
+    margin-top: 15px;
+    background-color: #BBE2EC;
+    color: #005165;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.tasklist-activity .fi {
+    background-color: #9BCF53;
+    color: #3b6600;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 15px;
+}
+.tasklist-activity .behance {
+    background-color: #87a5ff;
+    color: #0029a3;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.tasklist-activity .continue {
+    background-color: #f4ec87;
+    color: #797104;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 15px;
+}
+.tasklist-activity p {
+    margin-top: 20px;
+}
+
+.ta-todo .h3-todo {
+    color: #005165;
+}
+
+.ta-progress {
+    background-color: #a9bdff;
+}
+
+.ta-progress .h3-progress {
+    color: #001b74;
+}
+
+.ta-approve {
+    background-color: #fffab8;
+}
+
+.ta-approve .h3-approve {
+    color: #847b00;
+}
+
+
+.ta-done {
+    background-color: #ffb8c4;
+}
+
+.ta-done .h3-done {
+    color: #5b000f;
+}
+
+/* container-main-customer */ 
+.container-main-customer {
+    padding: 20px 40px;
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    color: black;
+    z-index: 10;
+
+}
+
+
+.Customer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ch-search {
+    position: relative;
+    background-color: #fff;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.ch-search input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 20px;
+    padding:0 10px 0 40px;
+}
+
+.ch-search i {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 1.2rem;
+}
+
+.list-customer {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lc-customer img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #fcfdfc;
+    margin:0 20px 0 5px;
+    border-radius: 50%;
+}
+
+.lc-customer {
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    align-items: center;
+}
+
+.list-customer .remove {
+    background-color: #ebebeb;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.list-customer .remove:hover {
+    background-color: #a3e06a;
+    
+}
+
+.list-customer tr td {
+    box-shadow: 10px 7px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* container-main-setting */
+.container-main-setting {
+    padding: 20px 40px;
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    color: black;
+    z-index: 10;
+}
+
+.setting-search {
+    position: relative;
+    background-color: #fff;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.setting-search input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 20px;
+    padding:0 10px 0 40px;
+}
+
+.setting-search i {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 1.2rem;
+}
+
+.setting-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-top: 30px;
+    gap: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+.sc-function {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.sc-function a {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid #fff;
+}
+
+.sc-function a:hover {
+    border: 2px solid #82d015;
+}
+
+.form-change-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    background-color: #ffffff;
+    padding: 15px;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 10px 7px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.sc-header-form {
+    margin-bottom: 10px;
+}
+
+.sc-image {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.sc-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.sc-image label, 
+.sc-image .btn-remove {
+    background-color: #9BCF53;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.sc-image .btn-remove {
+    background-color: #ebebeb;
+}
+
+.sc-image input[type="file"] {
+    display: none;
+}
+
+.sc-name, .sc-username, .sc-email {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 10px;
+    border-radius: 15px;
+    gap: 10px;
+}
+
+.form-change-profile input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 10px;
+    border: 1px solid #e7e7e7;
+}
+
+.form-change-profile input:focus {
+    border: none;
+    outline: none;
+}
+
+.btn-submit {
+    margin-top: 20px;
+}
+
+.btn-submit button {
+    background-color: #9BCF53;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+.btn-submit button:first-child {
+    background-color: #ebebeb;
+    margin-right: 15px;
 }

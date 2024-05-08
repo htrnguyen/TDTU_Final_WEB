@@ -11,20 +11,16 @@
 </head>
 <body>
     <div class="container">
-        {{-- Header --}}
-        @yield('header-admin')
-        {{-- Sidebar-Dashboard-informatiom --}}
-        <div class="container-sidebar-child">
-            @yield('container-sidebar-dashboard')
-        </div>
-        {{-- Sidebar main --}}
-           @include('partials.adminsidebar')
-        {{-- Main --}}
+        @if(!request()->is('admin/login'))
+            @yield('header-admin')
+            <div class="container-sidebar-child">
+                @yield('container-sidebar-dashboard')
+            </div>
+               @include('partials.adminsidebar')
+        @endif
         <main>
             @yield('container-main')
         </main>
-        </div>
     </div>
-    {{-- Chart-js --}}
 </body>
 </html>

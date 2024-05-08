@@ -22,20 +22,20 @@
         <i class="fa-solid fa-gift"></i>
         <p>Coupon</p>
     </a>
-    <a href="#" class="tasklist">
+    <a href="{{route('tasklist_admin')}}" class="tasklist">
         <i class="fa-solid fa-bars-progress"></i>
         <p>Task List</p>
     </a>
-    <a href="#" class="customer">
+    <a href="{{route('customer_admin')}}" class="customer">
         <i class="fa-solid fa-user"></i>
         <p>Customer</p>
     </a>
-    <a href="#" class="inbox">
-        <i class="fa-solid fa-comment-dots"></i>
-        <p>Inbox</p>
-    </a>
-    <a href="#" class="setting">
+    <a href="{{route('setting_admin')}}" class="setting">
         <i class="fa-solid fa-cog"></i>
         <p>Setting</p>
+    </a>
+    <a href="{{route('login_admin')}}" class="logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <p>Logout</p>
     </a>
 </div>

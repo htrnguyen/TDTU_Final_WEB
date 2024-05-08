@@ -8,13 +8,12 @@ use Illuminate\Support\Facades\Route;
 // Admin 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\AdminCouponController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Response;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\PasswordController;
-=======
+use App\Http\Controllers\Admin\AdminTaskListController;
+use App\Http\Controllers\Admin\AdminCustomerController;
+use App\Http\Controllers\Admin\AdminSettingController;
+use App\Http\Controllers\Admin\AdminLoginController;
+
 
 // Client
 use App\Http\Controllers\Client\CartController;
@@ -26,7 +25,6 @@ use App\Http\Controllers\Client\ProductController;
 
 // Auth
 use App\Http\Controllers\Auth\SessionController;
->>>>>>> 5c5f188a21921755dc809c8bc8d1bb5d19ad7eaf
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Client\AccountController;
@@ -84,13 +82,22 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     Route::get('/product/createproduct', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
     Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
     Route::post('/product/createproduct', [AdminProductController::class, 'store']);
-<<<<<<< HEAD
+
+    // Counpon
     Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
-=======
-    Route::get('/product/show', [AdminProductController::class, 'show']);
-    
-    // Others feature ...
->>>>>>> 5c5f188a21921755dc809c8bc8d1bb5d19ad7eaf
+
+    // Task List
+    Route::get('/tasklist', [AdminTaskListController::class, 'index'])->name('tasklist_admin');
+
+    // Customer
+    Route::get('/customer', [AdminCustomerController::class, 'index'])->name('customer_admin');
+
+    // Setting
+    Route::get('/setting', [AdminSettingController::class, 'index'])->name('setting_admin');
+
+    // Login
+    Route::get('/login', [AdminLoginController::class, 'index'])->name('login_admin');
+
 });
 
 // Use this api to check if server health is good or not
