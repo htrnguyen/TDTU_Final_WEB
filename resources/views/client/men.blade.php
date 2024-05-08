@@ -44,6 +44,10 @@
                             <label for="colorFilter" class="form-check-label mr-2" > Grey</label><br></br>
                             <input class="form-check-input form-check-input-lg border border-dark"  type="checkbox" id="colorFilter" >
                             <label for="colorFilter" class="form-check-label mr-2"> Blue</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark"  type="checkbox" id="colorFilter" >
+                            <label for="colorFilter" class="form-check-label mr-2"> Purple</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark"  type="checkbox" id="colorFilter" >
+                            <label for="colorFilter" class="form-check-label mr-2"> Green</label><br></br>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -81,12 +85,26 @@
                     <div class="col-md-4">
                         <div class="card border-0">
                             <a href="" class="text-dark text-decoration-none">
-                                <img src="{{ asset('images/shoe1.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body">
+                                <img src="{{ asset('images/shoe1-purple.jpg') }}" class="card-img-top" alt="">
+                                <div class="card-body" id="original-info">
                                     <h5 class="card-title">Strutter shoes</h5>
                                     <p class="card-text mb-2">Men's Shoes</p>
-                                    <p class="text-secondary mb-2">2 colors</p>
+                                    <p class="text-secondary mb-2">3 colors</p>
                                     <p class="text-secondary mb-2">$422.40</p>
+                                </div>
+                                <div class="card-body" id="new-info" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <img src="{{ asset('images/shoe1-purple.jpg') }}" class="img-thumbnail" alt="Image 1">
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="{{ asset('images/shoe1-green.jpg') }}" class="img-thumbnail" alt="Image 2">
+                                        </div>
+                                        <div class="col-3">
+                                            <img src="{{ asset('images/shoe1-black.jpg') }}" class="img-thumbnail" alt="Image 3">
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary mt-3 mb-2">$422.40</p>
                                 </div>
                             </a>
                         </div>
@@ -95,11 +113,19 @@
                         <div class="card border-0">
                             <a href="" class="text-dark text-decoration-none">
                                 <img src="{{ asset('images/shoe2.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body">
+                                <div class="card-body" id="original-info">
                                     <h5 class="card-title">Nizza trefoil shoes</h5>
                                     <p class="card-text mb-2">Men's Shoes</p>
-                                    <p class="text-secondary mb-2">3 colors</p>
+                                    <p class="text-secondary mb-2">1 color</p>
                                     <p class="text-secondary mb-2">$597.30</p>
+                                </div>
+                                <div class="card-body" id="new-info" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <img src="{{ asset('images/shoe2.jpg') }}" class="img-thumbnail" alt="Image 1">
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary mt-3 mb-2">$422.40</p>
                                 </div>
                             </a>                           
                         </div>
@@ -107,12 +133,20 @@
                     <div class="col-md-4">
                         <div class="card border-0">
                             <a href="" class="text-dark text-decoration-none">
-                                <img src="{{ asset('images/shoe1.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body">
+                                <img src="{{ asset('images/shoe3.jpg') }}" class="card-img-top" alt="">
+                                <div class="card-body" id="original-info">
                                     <h5 class="card-title">Seasonal color chuck 70</h5>
                                     <p class="card-text mb-2">Men's Shoes</p>
                                     <p class="text-secondary mb-2">1 color</p>
                                     <p class="text-secondary mb-2">$882.20</p>
+                                </div>
+                                <div class="card-body" id="new-info" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <img src="{{ asset('images/shoe3.jpg') }}" class="img-thumbnail" alt="Image 1">
+                                        </div>
+                                    </div>
+                                    <p class="text-secondary mt-3 mb-2">$422.40</p>
                                 </div>
                             </a>
                         </div>
