@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MenController extends Controller
+class CartController extends Controller
 {
     public function index()
     {
         $breadcrumbs = [
             'Home' => route('home'),
-            'Men' => null
+            'Shopping cart' => null
         ];
 
-        return view('client.men', compact('breadcrumbs'));
+        return view('client.cart', compact('breadcrumbs'));
     }
 }
