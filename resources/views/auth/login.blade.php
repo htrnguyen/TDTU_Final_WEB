@@ -11,9 +11,22 @@
                         <a href="" class="icon"></a>
                     </div>
                     <span>Use your email for registration</span>
-                    <input type="text" placeholder="Name" id="signup-name" name="name" required autofocus />
+                    <table>
+                        <tr>
+                            <th>
+                                <input type="text" placeholder="First Name" id="signup-fname" name="firstName" required autofocus />
+                            </th>
+                            <th>
+                                <input type="text" placeholder="Last Name" id="signup-lname" name="lastName" required autofocus />
+                            </th>
+                        </tr>
+                    </table>
+                    <input type="text" placeholder="Username" id="signup-user" name="username" required autofocus />
                     <input type="email" placeholder="Email" id="signup-email" name="email" required />
                     <input type="password" placeholder="Password" id="signup-password" name="password" required />
+                    <input type="password" placeholder="Confirm Password" id="signup-password-confirmation" name="password-confirmation" required />
+                    <input type="text" placeholder="Address" id="signup-address" name="address"  />
+                    <input type="text" placeholder="Phone Number" id="signup-phone-number" name="phone-number"  />
                     <p id="messageError"></p>
                     <button type="submit" id="signup-submit-btn">Sign Up</button>
                 </form>
@@ -35,7 +48,7 @@
                             <input id="remember-me" type="checkbox" name="remember">
                             <label for="remember-me">Remember me</label>
                         </div>
-                        <a href="{{ route('reset-password') }}"> Forgot Password</a>
+                        <a href="{{ route('reset-password') }}"> Forgot Password?</a>
                     </div>
                     <button type="submit" id="login-submit-btn">Login</button>
                 </form>

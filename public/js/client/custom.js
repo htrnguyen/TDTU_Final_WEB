@@ -1,5 +1,5 @@
-let min = 50; // Thay đổi giá trị tối thiểu thành 20
-let max = 2000; // Thay đổi giá trị tối đa thành 2000
+let min = 50; 
+let max = 2000; 
 
 const minValue = $('#min')
 const maxValue = $('#max')
@@ -36,4 +36,24 @@ $('#rangeMax').on('input', function(e) {
     'left': calcLeftPosition(min) + '%',
     'right': (100 - calcLeftPosition(newValue)) + '%'
   });
+});
+
+// Lấy tham chiếu đến các phần tử
+var originalInfo = document.getElementById('original-info');
+var newInfo = document.getElementById('new-info');
+
+// Sự kiện khi di chuột vào vị trí mới
+originalInfo.addEventListener('mouseenter', function() {
+  // Ẩn thông tin ban đầu
+  originalInfo.style.display = 'none';
+  // Hiện thông tin mới
+  newInfo.style.display = 'block';
+});
+
+// Sự kiện khi di chuột ra khỏi vị trí mới
+newInfo.addEventListener('mouseleave', function() {
+  // Ẩn thông tin mới
+  newInfo.style.display = 'none';
+  // Hiển thị lại thông tin ban đầu
+  originalInfo.style.display = 'block';
 });
