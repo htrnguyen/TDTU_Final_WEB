@@ -1110,3 +1110,71 @@ table tr:first-child{
     right: 7px;
     cursor: pointer;
 }
+
+/* container-main-coupon */
+.container-main-coupon {
+    padding: 20px 40px;
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    color: black;
+    z-index: 10;
+}
+
+.coupon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coupon-header a {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    gap: 10px;
+    background-color: #9BCF53;
+    padding:12px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.coupon-body {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coupod-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ffffff;
+    gap: 20px;
+    box-shadow: 10px 7px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.coupod-child img {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    border-radius: 20px 0 0 20px;
+}
+
+.coupon-details {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: start;
+    height: 210px;
+}
+
+.cd-price, .cd-icon-price,
+.cd-shipping, .cd-icon-shipping,
+.cd-type, .cd-icon-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

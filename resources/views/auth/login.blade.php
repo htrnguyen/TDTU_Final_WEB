@@ -34,7 +34,7 @@
 
             <!-- Login -->
             <div class="form-container sign-in">
-                <form method="POST" action="{{ route('login') }}" class="action">
+                <form method="POST" action="{{ route('login.submit') }}" class="action">
                     @csrf
                     <h1>Login</h1>
                     <div class="social-icons">

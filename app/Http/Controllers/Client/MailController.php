@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
-use App\Mail\VerificationEmail;
+use App\Http\Controllers\Controller;
 use App\Models\Token;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
@@ -49,6 +48,40 @@ class MailController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Verification successfully'
+        ]);
+    }
+
+    public function resetPassword()
+    {
+        $token = request()->query('token');
+        $username = request()->query('username');
+
+        $tokenRecord = Token::where('token', $token)->first();
+
+        if (!$tokenRecord) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid token'
+            ]);
+        }
+
+        $user = User::where('username', $username)->first();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found'
+            ]);
+        }
+
+        // Activate user email and delete token record
+        $user->is_active = true;
+        $user->save();
+        $tokenRecord->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Reset password successfully'
         ]);
     }
 

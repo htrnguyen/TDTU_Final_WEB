@@ -18,7 +18,7 @@
         <i class="fa-solid fa-boxes-stacked"></i>
         <p>Product</p> 
     </a>
-    <a href="#" class="coupon">
+    <a href="{{route('coupon_admin')}}" class="coupon">
         <i class="fa-solid fa-gift"></i>
         <p>Coupon</p>
     </a>

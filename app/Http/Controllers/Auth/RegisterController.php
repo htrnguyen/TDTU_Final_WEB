@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -30,8 +31,15 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'address' => ['nullable', 'string', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:20'],
+            'phone_number' => ['nullable', 'string', 'max:20'],
         ]);
+        
+        // Save user avatar
+        if (request()->hasFile('avatar')) {
+            $avatar = request()->file('avatar');
+            $avatar_url = $avatar->storeAs('users', $attributes['username'] . $avatar->getExtension());
+            $attributes['avatar_url'] = Storage::url($avatar_url);
+        } 
 
         $user = User::create($attributes);
 
@@ -44,12 +52,7 @@ class RegisterController extends Controller
 
         event(new UserRegisteredSuccessfully($user));
 
-        return response()->json([
-            'success' => true,
-            'data' => $user
-        ]);
-
-        // return redirect()->route('login')->with('success', 'Registration successful! You can now log in.');
+        return redirect()->route('login')->with('message', 'Your account have been created. Please check your email to verify your accout');
     }
 
     public function update()
@@ -58,10 +61,11 @@ class RegisterController extends Controller
 
     public function destroy()
     {
-        $user = Auth::user();
-        // User::destroy($user->id);
-
-        dd($user);
+        if ($user = Auth::user()) {
+            // User::destroy($user->id);
+            dd($user);
+        }
+        
 
         // Optionally, logout the user after deletion
         Auth::logout();
