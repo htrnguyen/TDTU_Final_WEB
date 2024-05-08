@@ -11,11 +11,14 @@
                             <p class="card-text">We've sent a code to <span id="email">example@email.com</span></p>
                         </div>
                         <form>
+                            @csrf
                             <div class="mt-3 mb-3">
-                                <input type="text" class="form-control py-2 rounded rounded-4" id="code" placeholder="Code" required>
+                                <input type="text" class="form-control py-2 rounded rounded-4" id="code"
+                                    placeholder="Code" required>
                             </div>
                             <div class="mb-3">
-                                <input type="password" class="form-control mb-3 py-2 rounded rounded-4" id="password" placeholder="New Password" required>
+                                <input type="password" class="form-control mb-3 py-2 rounded rounded-4" id="password"
+                                    placeholder="New Password" required>
                                 <small class="form-text text-muted">
                                     <ul>
                                         <li>Minimum of 8 characters</li>
