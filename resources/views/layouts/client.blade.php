@@ -16,7 +16,7 @@
 
 <body class="{{ request()->is('login') ? '' : 'd-flex flex-column min-vh-100' }}">
     {{-- Không sử dụng header khi ở trang đăng nhập hoặc đăng kí --}}
-    @if(!request()->is('login') && !request()->is('register')) 
+    @if(!request()->is('login') && !request()->is('register') && !request()->is('reset-password')) 
         @include('partials.header')
     @endif
 
@@ -25,7 +25,7 @@
     </main>
 
     {{-- Không sử dụng footer khi ở trang đăng nhập hoặc đăng kí --}}
-    @if(!request()->is('login') && !request()->is('register'))
+    @if(!request()->is('login') && !request()->is('register') && !request()->is('reset-password'))
         @include('partials.footer') 
     @endif
 

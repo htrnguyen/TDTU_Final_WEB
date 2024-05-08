@@ -40,6 +40,8 @@ Route::group(['namespace' => 'auth'], function () {
     Route::get('/forgot-password', [PasswordController::class, 'index'])->name('forgot-password');
     Route::post('/forgot-password', [PasswordController::class, 'reset'])->name('forgot-password');
     Route::post('/password/update', [PasswordController::class, 'update']);
+
+    Route::get('reset-password', [PasswordController::class, 'resetPassword'])->name('reset-password');
 });
 
 Route::group(['namespace' => 'client'], function () {
@@ -60,6 +62,7 @@ Route::group(['namespace' => 'client'], function () {
 
     // Mailing
     Route::get('email/verify', [MailController::class, 'verify']);
+    Route::get('test-reset-password', [MailController::class, 'resetPassword']);
 
     // Profile
     Route::get('/profile/{username}', [AccountController::class, 'index'])->name('account.profile');

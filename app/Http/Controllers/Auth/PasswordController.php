@@ -66,4 +66,9 @@ class PasswordController extends Controller
             'message' => 'Password updated successfully.',
         ]);
     }
+
+    public function resetPassword()
+    {
+        return view('auth.reset-password');
+    }
 }
