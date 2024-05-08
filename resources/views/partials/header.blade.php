@@ -1,7 +1,8 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 py-2 border">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('images/Mike.webp') }}" alt="Logo" style="height: 50px;">
+        <a class="navbar-brand" href="{{ url('/') }}" style="display:flex; justify-content: space-between; align-items:end">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 50px; margin-right: 10px">
+            <h3>Shoe Store</h3>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

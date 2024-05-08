@@ -4,6 +4,7 @@ namespace App\Route;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminCouponController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Auth\LoginController;
@@ -65,5 +66,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/product/createproduct', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
     Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
     Route::post('/product/createproduct', [AdminProductController::class, 'store']);
+    Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
 });
 
