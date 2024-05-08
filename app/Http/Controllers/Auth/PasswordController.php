@@ -17,7 +17,7 @@ class PasswordController extends Controller
             'Reset password' => null
         ];
 
-        return view('auth.reset-password', compact('breadcrumbs'));
+        return view('auth.forgot-password', compact('breadcrumbs'));
     }
 
     public function reset()

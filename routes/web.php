@@ -8,13 +8,9 @@ use Illuminate\Support\Facades\Route;
 // Admin 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\AdminCouponController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Response;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordController;
-=======
 
 // Client
 use App\Http\Controllers\Client\CartController;
@@ -26,9 +22,7 @@ use App\Http\Controllers\Client\ProductController;
 
 // Auth
 use App\Http\Controllers\Auth\SessionController;
->>>>>>> 5c5f188a21921755dc809c8bc8d1bb5d19ad7eaf
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Client\AccountController;
 
 Route::group(['namespace' => 'auth'], function () {
@@ -43,22 +37,21 @@ Route::group(['namespace' => 'auth'], function () {
     Route::delete('/delete', [RegisterController::class, 'destroy']);
 
     // Reset-password
-    Route::get('/reset-password', [PasswordController::class, 'index'])->name('reset-password');
-    Route::post('/reset-password', [PasswordController::class, 'reset'])->name('reset-password');
+    Route::get('/forgot-password', [PasswordController::class, 'index'])->name('forgot-password');
+    Route::post('/forgot-password', [PasswordController::class, 'reset'])->name('forgot-password');
     Route::post('/password/update', [PasswordController::class, 'update']);
-
 });
 
 Route::group(['namespace' => 'client'], function () {
     //Home
     Route::view('/', 'client.home')->name('home');
-    
+
     // Men
     Route::get('/men', [MenController::class, 'index'])->name('men');
     Route::get('/men/show', [ProductController::class, 'showMenPage'])->name('men.products');
-    
+
     // Women
-    
+
     // Cart 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
@@ -71,26 +64,24 @@ Route::group(['namespace' => 'client'], function () {
     // Profile
     Route::get('/profile/{username}', [AccountController::class, 'index'])->name('account.profile');
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
-
 });
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     // Home
     Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
-    
+
     // Product
     Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
     Route::get('/product/createproduct', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
     Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
     Route::post('/product/createproduct', [AdminProductController::class, 'store']);
-<<<<<<< HEAD
+
     Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
-=======
+
     Route::get('/product/show', [AdminProductController::class, 'show']);
-    
+
     // Others feature ...
->>>>>>> 5c5f188a21921755dc809c8bc8d1bb5d19ad7eaf
 });
 
 // Use this api to check if server health is good or not
