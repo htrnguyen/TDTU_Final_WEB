@@ -9,16 +9,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCouponController;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\AdminTaskListController;
 use App\Http\Controllers\Admin\AdminCustomerController;
 use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AdminLoginController;
-
-=======
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\PasswordController;
->>>>>>> 1c9cfde042b99016d859e78ab5a626a2a70f03d7
 
 // Client
 use App\Http\Controllers\Client\CartController;
@@ -32,6 +26,7 @@ use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\AccountController;
+use App\Http\Controllers\auth\PasswordController;
 
 Route::group(['namespace' => 'auth'], function () {
     // Login
@@ -88,7 +83,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
     Route::post('/product/createproduct', [AdminProductController::class, 'store']);
 
-<<<<<<< HEAD
     // Counpon
     Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
 
@@ -104,13 +98,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     // Login
     Route::get('/login', [AdminLoginController::class, 'index'])->name('login_admin');
 
-=======
-    Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
-
-    Route::get('/product/show', [AdminProductController::class, 'show']);
-
-    // Others feature ...
->>>>>>> 1c9cfde042b99016d859e78ab5a626a2a70f03d7
 });
 
 // Use this api to check if server health is good or not

@@ -13,7 +13,7 @@
     
 </style>
 
-<footer class="text-dark text-center text-lg-start" style="background-color: #e3f4cb;">
+<footer class="text-dark text-center text-lg-start" style="background-color: #A3B763;">
 
     <!-- Grid container -->
     <div class="container p-4">
@@ -21,7 +21,7 @@
         <div class="row mt-4">
             <!--Grid column-->
             <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4">About company</h5>
+            <h5 class="text-uppercase mb-4">Shoe Store</h5>
 
             <p>
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
@@ -52,7 +52,7 @@
                 <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
 
                 <div class="form-outline form-white mb-4">
-                    <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="Search"/>
+                    <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="Search" style="border-radius: 15px; font-size:0.9rem; width: 300px; margin-top:-4px"/>
                 </div>
 
                 <ul class="fa-ul" style="margin-left: 1.65em;">
@@ -94,7 +94,7 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: #87A922;">
+    <div class="text-center p-3" style="background-color: #ffffff;">
         © 2024 Shoe Store - All rights reserved.
         <div class="payment-icons">
             <i class="fab fa-cc-visa"></i>

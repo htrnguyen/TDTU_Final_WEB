@@ -7,8 +7,8 @@
         @include('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs]) 
         <div class="row">
             <!-- Banner Section -->
-            <div class="col-12 mb-3" style="background-color: #87A922;">
-                <h1 class="text-white py-5 px-3 fw-bold">MEN</h1>
+            <div class="col-12 mb-3" style="background-color: #A3B763;">
+                <h1 class="text-black py-5 px-3 fw-bold">MEN</h1>
             </div>
 
             <!-- Filters Sidebar for large screens -->
