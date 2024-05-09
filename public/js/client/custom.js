@@ -38,22 +38,19 @@ $('#rangeMax').on('input', function(e) {
   });
 });
 
-// Lấy tham chiếu đến các phần tử
-var originalInfo = document.getElementById('original-info');
-var newInfo = document.getElementById('new-info');
 
-// Sự kiện khi di chuột vào vị trí mới
-originalInfo.addEventListener('mouseenter', function() {
-  // Ẩn thông tin ban đầu
-  originalInfo.style.display = 'none';
-  // Hiện thông tin mới
-  newInfo.style.display = 'block';
-});
+var originalInfos = document.querySelectorAll('.original-info');
+var newInfos = document.querySelectorAll('.new-info');
 
-// Sự kiện khi di chuột ra khỏi vị trí mới
-newInfo.addEventListener('mouseleave', function() {
-  // Ẩn thông tin mới
-  newInfo.style.display = 'none';
-  // Hiển thị lại thông tin ban đầu
-  originalInfo.style.display = 'block';
+originalInfos.forEach(function(originalInfo, index) {
+  var newInfo = newInfos[index]; // Lấy phần tử .new-info tương ứng với phần tử .original-info
+  originalInfo.addEventListener('mouseenter', function() {
+    originalInfo.style.display = 'none';
+    newInfo.style.display = 'block';
+  });
+
+  newInfo.addEventListener('mouseleave', function() {
+    newInfo.style.display = 'none';
+    originalInfo.style.display = 'block';
+  });
 });

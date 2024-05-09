@@ -1,3 +1,8 @@
+
+.no-border {
+    border:none;
+}
+
 .range-slide {
     position: relative;
     margin-top: 30px;
@@ -65,3 +70,4 @@
     display: flex;
     justify-content: space-between;
 }
+

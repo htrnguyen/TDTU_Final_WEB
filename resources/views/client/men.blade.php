@@ -3,13 +3,12 @@
 @section('title', 'Men Collection')
 @section('content')
     <!-- Main Content -->
-    <div class="container px-5 mt-3">
-        @include('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs]) 
+    
+    <!-- Banner Section -->
+    <img src="{{ asset('images/men-banner.jpg') }}" class="img-thumbnail banner no-border" alt="Men">
+    
+    <div class="container px-5 mt-3"> 
         <div class="row">
-            <!-- Banner Section -->
-            <div class="col-12 mb-3" style="background-color: #A3B763;">
-                <h1 class="text-black py-5 px-3 fw-bold">MEN</h1>
-            </div>
 
             <!-- Filters Sidebar for large screens -->
             <div class="col-md-3 d-none d-md-block">
@@ -86,13 +85,13 @@
                         <div class="card border-0">
                             <a href="" class="text-dark text-decoration-none">
                                 <img src="{{ asset('images/shoe1-purple.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body" id="original-info">
+                                <div class="original-info card-body" >
                                     <h5 class="card-title">Strutter shoes</h5>
                                     <p class="card-text mb-2">Men's Shoes</p>
                                     <p class="text-secondary mb-2">3 colors</p>
                                     <p class="text-secondary mb-2">$422.40</p>
                                 </div>
-                                <div class="card-body" id="new-info" style="display: none;">
+                                <div class="new-info card-body" style="display: none;">
                                     <div class="row">
                                         <div class="col-3">
                                             <img src="{{ asset('images/shoe1-purple.jpg') }}" class="img-thumbnail" alt="Image 1">
@@ -113,13 +112,13 @@
                         <div class="card border-0">
                             <a href="" class="text-dark text-decoration-none">
                                 <img src="{{ asset('images/shoe2.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body" id="original-info">
+                                <div class="original-info card-body">
                                     <h5 class="card-title">Nizza trefoil shoes</h5>
                                     <p class="card-text mb-2">Men's Shoes</p>
                                     <p class="text-secondary mb-2">1 color</p>
                                     <p class="text-secondary mb-2">$597.30</p>
                                 </div>
-                                <div class="card-body" id="new-info" style="display: none;">
+                                <div class="new-info card-body" style="display: none;">
                                     <div class="row">
                                         <div class="col-3">
                                             <img src="{{ asset('images/shoe2.jpg') }}" class="img-thumbnail" alt="Image 1">
@@ -134,13 +133,13 @@
                         <div class="card border-0">
                             <a href="" class="text-dark text-decoration-none">
                                 <img src="{{ asset('images/shoe3.jpg') }}" class="card-img-top" alt="">
-                                <div class="card-body" id="original-info">
+                                <div class="original-info card-body">
                                     <h5 class="card-title">Seasonal color chuck 70</h5>
                                     <p class="card-text mb-2">Men's Shoes</p>
                                     <p class="text-secondary mb-2">1 color</p>
                                     <p class="text-secondary mb-2">$882.20</p>
                                 </div>
-                                <div class="card-body" id="new-info" style="display: none;">
+                                <div class="new-info card-body" style="display: none;">
                                     <div class="row">
                                         <div class="col-3">
                                             <img src="{{ asset('images/shoe3.jpg') }}" class="img-thumbnail" alt="Image 1">

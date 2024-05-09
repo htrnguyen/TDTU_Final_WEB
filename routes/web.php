@@ -19,6 +19,8 @@ use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\MailController;
 use App\Http\Controllers\Client\MenController;
+use App\Http\Controllers\Client\WomenController;
+use App\Http\Controllers\Client\KidsController;
 use App\Http\Controllers\Client\SearchController;
 use App\Http\Controllers\Client\ProductController;
 
@@ -57,6 +59,12 @@ Route::group(['namespace' => 'client'], function () {
     Route::get('/men/show', [ProductController::class, 'showMenPage'])->name('men.products');
 
     // Women
+    Route::get('/women', [WomenController::class, 'index'])->name('women');
+    Route::get('/women/show', [ProductController::class, 'showMenPage'])->name('women.products');
+
+    // Kids
+    Route::get('/kids', [KidsController::class, 'index'])->name('kids');
+    Route::get('/kids/show', [ProductController::class, 'showMenPage'])->name('kids.products');
 
     // Cart 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
