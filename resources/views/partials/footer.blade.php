@@ -1,49 +1,50 @@
 <style>
     table {
-        width: 95%;
+        width: 100%;
+        height: 70%;
         border-radius: 10px;
     }
 
     tr:not(:last-child) {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid lightgray;
     }
+
     td:not(:last-child) {
-        border-right: 1px solid #eee;
+        border-right: 1px solid lightgray;
     }
-    
 </style>
 
-<footer class="text-dark text-center text-lg-start" style="background-color: #e3f4cb;">
+<footer class="text-dark text-center text-lg-start" style="background-color: #E5E1DA;">
 
     <!-- Grid container -->
-    <div class="container p-4">
+    <div class="container py-2 px-4">
         <!--Grid row-->
         <div class="row mt-4">
             <!--Grid column-->
             <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4">About company</h5>
+                <h5 class="text-uppercase mb-4">Shoe Store</h5>
 
-            <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                voluptatum deleniti atque corrupti.
-            </p>
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                    voluptatum deleniti atque corrupti.
+                </p>
 
-            <p>
-                Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
-                molestias.
-            </p>
+                <p>
+                    Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+                    molestias.
+                </p>
 
-            <div class="mt-4">
-                <!-- Facebook -->
-                <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-facebook-f"></i></a>
-                <!-- Dribbble -->
-                <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-dribbble"></i></a>
-                <!-- Twitter -->
-                <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-twitter"></i></a>
-                <!-- Google + -->
-                <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-google-plus-g"></i></a>
-                <!-- Linkedin -->
-            </div>
+                <div class="mt-2">
+                    <!-- Facebook -->
+                    <a type="button" class="btn btn-floating btn-lg"><i class="fab fa-facebook-f"></i></a>
+                    <!-- Dribbble -->
+                    <a type="button" class="btn btn-floating btn-lg"><i class="fab fa-dribbble"></i></a>
+                    <!-- Twitter -->
+                    <a type="button" class="btn btn-floating btn-lg"><i class="fab fa-twitter"></i></a>
+                    <!-- Google + -->
+                    <a type="button" class="btn btn-floating btn-lg"><i class="fab fa-google-plus-g"></i></a>
+                    <!-- Linkedin -->
+                </div>
             </div>
             <!--Grid column-->
 
@@ -52,18 +53,18 @@
                 <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
 
                 <div class="form-outline form-white mb-4">
-                    <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="Search"/>
+                    <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="Search" style="border-radius: 15px; font-size:0.9rem; width: 300px; margin-top:-4px" />
                 </div>
 
                 <ul class="fa-ul" style="margin-left: 1.65em;">
                     <li class="mb-3">
-                    <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967, Poland</span>
+                        <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967, Poland</span>
                     </li>
                     <li class="mb-3">
-                    <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">contact@example.com</span>
+                        <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">contact@example.com</span>
                     </li>
                     <li class="mb-3">
-                    <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567 88</span>
+                        <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567 88</span>
                     </li>
                 </ul>
             </div>
@@ -72,7 +73,7 @@
             <!--Grid column-->
             <div class="col-lg-4 col-md-6 mb-4">
                 <h5 class="text-uppercase mb-4">Opening hours</h5>
-                <table class="bg-white text-dark text-center "  >
+                <table class="bg-white text-dark text-center ">
                     <tr>
                         <td>Mon - Thu:</td>
                         <td>8am - 9pm</td>
@@ -90,17 +91,18 @@
             <!--Grid column-->
         </div>
         <!--Grid row-->
+                <div class="text-center mt-2" style="border-top:1px solid black;">
+            © 2024 Shoe Store - All rights reserved.
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
     </div>
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: #87A922;">
-        © 2024 Shoe Store - All rights reserved.
-        <div class="payment-icons">
-            <i class="fab fa-cc-visa"></i>
-            <i class="fab fa-cc-mastercard"></i>
-            <i class="fab fa-cc-paypal"></i>
-        </div>
-    </div>
+
     <!-- Copyright -->
 </footer>

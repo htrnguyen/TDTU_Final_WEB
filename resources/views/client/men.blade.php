@@ -3,13 +3,12 @@
 @section('title', 'Men Collection')
 @section('content')
     <!-- Main Content -->
-    <div class="container px-5 mt-3">
-        @include('partials.breadcrumbs', ['breadcrumbs' => $breadcrumbs]) 
+    
+    <!-- Banner Section -->
+    <img src="{{ asset('images/men-banner.jpg') }}" class="img-thumbnail banner no-border" alt="Men">
+    
+    <div class="container px-5 mt-3"> 
         <div class="row">
-            <!-- Banner Section -->
-            <div class="col-12 mb-3" style="background-color: #87A922;">
-                <h1 class="text-white py-5 px-3 fw-bold">MEN</h1>
-            </div>
 
             <!-- Filters Sidebar for large screens -->
             <div class="col-md-3 d-none d-md-block">

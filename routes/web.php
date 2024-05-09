@@ -9,14 +9,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCouponController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Admin\AdminTaskListController;
+use App\Http\Controllers\Admin\AdminCustomerController;
+use App\Http\Controllers\Admin\AdminSettingController;
+use App\Http\Controllers\Admin\AdminLoginController;
 
 // Client
 use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\MailController;
 use App\Http\Controllers\Client\MenController;
+use App\Http\Controllers\Client\WomenController;
+use App\Http\Controllers\Client\KidsController;
 use App\Http\Controllers\Client\SearchController;
 use App\Http\Controllers\Client\ProductController;
 
@@ -24,6 +28,7 @@ use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\AccountController;
+use App\Http\Controllers\auth\PasswordController;
 
 Route::group(['namespace' => 'auth'], function () {
     // Login
@@ -53,6 +58,12 @@ Route::group(['namespace' => 'client'], function () {
     Route::get('/men/show', [ProductController::class, 'showMenPage'])->name('men.products');
 
     // Women
+    Route::get('/women', [WomenController::class, 'index'])->name('women');
+    Route::get('/women/show', [ProductController::class, 'showMenPage'])->name('women.products');
+
+    // Kids
+    Route::get('/kids', [KidsController::class, 'index'])->name('kids');
+    Route::get('/kids/show', [ProductController::class, 'showMenPage'])->name('kids.products');
 
     // Cart 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
@@ -80,11 +91,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
     Route::post('/product/createproduct', [AdminProductController::class, 'store']);
 
+    // Counpon
     Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
 
-    Route::get('/product/show', [AdminProductController::class, 'show']);
+    // Task List
+    Route::get('/tasklist', [AdminTaskListController::class, 'index'])->name('tasklist_admin');
 
-    // Others feature ...
+    // Customer
+    Route::get('/customer', [AdminCustomerController::class, 'index'])->name('customer_admin');
+
+    // Setting
+    Route::get('/setting', [AdminSettingController::class, 'index'])->name('setting_admin');
+
+    // Login
+    Route::get('/login', [AdminLoginController::class, 'index'])->name('login_admin');
+
 });
 
 // Use this api to check if server health is good or not
