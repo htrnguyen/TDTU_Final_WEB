@@ -40,11 +40,12 @@ Route::group(['namespace' => 'auth'], function () {
     Route::delete('/delete', [RegisterController::class, 'destroy']);
 
     // Reset-password
-    Route::get('/forgot-password', [PasswordController::class, 'index'])->name('forgot-password');
-    Route::post('/forgot-password', [PasswordController::class, 'reset'])->name('forgot-password');
-    Route::post('/password/update', [PasswordController::class, 'update']);
+    Route::get('/password/forgot', [PasswordController::class, 'index'])->name('forgot-password');
+    Route::post('/password/forgot', [PasswordController::class, 'forgot'])->name('forgot-password');
+    Route::get('password/reset', [PasswordController::class, 'edit'])->name('reset-password');
+    Route::post('/password/update', [PasswordController::class, 'update'])->name('password.update');
+    Route::patch('/password/reset', [PasswordController::class, 'reset'])->name('password.reset');
 
-    Route::get('reset-password', [PasswordController::class, 'resetPassword'])->name('reset-password');
 });
 
 Route::group(['namespace' => 'client'], function () {

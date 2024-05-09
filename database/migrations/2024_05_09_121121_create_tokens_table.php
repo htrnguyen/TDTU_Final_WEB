@@ -10,8 +10,9 @@ class CreateTokensTable extends Migration
     {
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('token')->unique();
-            $table->timestamp('expires_at');
+            $table->timestamp('expires_at')->default(now()->addMinutes(5));
             $table->timestamps();
         });
     }

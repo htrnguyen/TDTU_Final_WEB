@@ -13,7 +13,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
-class VerificationEmail extends Mailable
+class ResetPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,15 +30,15 @@ class VerificationEmail extends Mailable
 
     public function build()
     {
-        $username = $this->user->username;
         $token = Token::create([
             'token' => Str::random(60),
+            'user_id' => $this->user->id,
             'expires_at' => Carbon::now()->addMinutes(5),
         ])->token;
 
-        $verificationUrl = 'http://localhost:8000/reset-password' . "?token=$token&username=$username";
+        $resetPasswordUrl = "http://localhost:8000/password/reset?token=$token";
 
-        return $this->view('mail.reset', compact('verificationUrl'));
+        return $this->view('mail.reset', compact('resetPasswordUrl'));
     }
 
     /**
