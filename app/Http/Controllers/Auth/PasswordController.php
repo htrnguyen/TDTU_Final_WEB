@@ -48,47 +48,54 @@ class PasswordController extends Controller
         ]);
     }
 
-    public function reset($token) {
+    public function reset() {
         $data = request()->validate([
             'password' => 'required|min:8|confirmed',
-            'password_confirmation' => 'required',
+            'token' => 'required'
         ]);
-    
-    
-        $tokenModel = Token::where('token', $token)->first();
-
-        dd($token, $tokenModel, $data);
-    
+        
+        $tokenModel = Token::where('token', $data['token'])->first();
+        
+        // Check if the token exists
         if (!$tokenModel) {
             return response()->json([
                 'success' => false,
                 'message' => 'Invalid token',
             ], 404);
         }
-    
+        
+        // Check if the token has expired
+        if ($tokenModel->expires_at && $tokenModel->expires_at->isPast()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Token has expired',
+            ], 422);
+        }
+        
         $user = User::find($tokenModel->user_id);
-    
+        
+        // Check if the user exists
         if (!$user) {
             return response()->json([
                 'success' => false,
                 'message' => 'User not found',
             ], 404);
         }
-    
+        
+        // Update the user's password
         $user->password = Hash::make($data['password']);
         $user->save();
-    
+        
         $tokenModel->delete();
-    
-        // Return success response
+        
         return response()->json([
             'success' => true,
             'message' => 'Password reset successfully',
         ]);
+        
     }
 
-    public function update()
-    {
+    public function update() {
         // Validate request data
         $data = request()->validate([
             'oldPassword' => 'required',

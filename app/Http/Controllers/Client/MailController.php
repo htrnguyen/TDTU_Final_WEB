@@ -20,7 +20,6 @@ class MailController extends Controller
     public function verify()
     {
         $token = request()->query('token');
-        $username = request()->query('username');
 
         $tokenRecord = Token::where('token', $token)->first();
 
@@ -31,7 +30,7 @@ class MailController extends Controller
             ]);
         }
 
-        $user = User::where('username', $username)->first();
+        $user = User::find($tokenRecord->user_id);
 
         if (!$user) {
             return response()->json([

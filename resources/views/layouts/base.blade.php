@@ -14,22 +14,10 @@
     <link rel="stylesheet" href="{{ asset('css/client/custom.css') }}">
 </head>
 
-<body class="{{ request()->is('login') ? '' : 'd-flex flex-column min-vh-100' }}">
-    {{-- Không sử dụng header khi ở trang đăng nhập hoặc đăng kí hoặc reset-password --}}
-    @if(!request()->is('login') && !request()->is('register') && !request()->is('reset-password')) 
-        @include('partials.header')
-    @endif
-
+<body class="d-flex flex-column min-vh-100">
     <main class="flex-grow-1">
         @yield('content')
     </main>
-
-    {{-- Không sử dụng footer khi ở trang đăng nhập hoặc đăng kí --}}
-    @if(!request()->is('login') && !request()->is('register') && !request()->is('reset-password'))
-        @include('partials.footer') 
-    @endif
-
-
     <script src="{{ asset('js/client/custom.js') }}"></script>
 </body>
 

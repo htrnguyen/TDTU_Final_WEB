@@ -30,13 +30,12 @@ class VerificationEmail extends Mailable
 
     public function build()
     {
-        $username = $this->user->username;
         $token = Token::create([
             'token' => Str::random(60),
             'expires_at' => Carbon::now()->addMinutes(5),
         ])->token;
 
-        $verificationUrl = 'http://localhost:8000/email/verify' . "?token=$token&username=$username";
+        $verificationUrl = 'http://localhost:8000/email/verify' . "?token=$token";
 
         return $this->view('mail.verify', compact('verificationUrl'));
     }

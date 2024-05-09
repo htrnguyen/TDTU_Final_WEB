@@ -35,11 +35,11 @@ class RegisterController extends Controller
         ]);
         
         // Save user avatar
-        if (request()->hasFile('avatar')) {
-            $avatar = request()->file('avatar');
-            $avatar_url = $avatar->storeAs('users', $attributes['username'] . $avatar->getExtension());
-            $attributes['avatar_url'] = Storage::url($avatar_url);
-        } 
+        // if (request()->hasFile('avatar')) {
+        //     $avatar = request()->file('avatar');
+        //     $avatar_url = $avatar->storeAs('users', $attributes['username'] . $avatar->getExtension());
+        //     $attributes['avatar_url'] = Storage::url($avatar_url);
+        // } 
 
         $user = User::create($attributes);
 

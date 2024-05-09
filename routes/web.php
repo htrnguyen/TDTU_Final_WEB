@@ -44,9 +44,9 @@ Route::group(['namespace' => 'auth'], function () {
     // Reset-password
     Route::get('/password/forgot', [PasswordController::class, 'index'])->name('forgot-password');
     Route::post('/password/forgot', [PasswordController::class, 'forgot'])->name('forgot-password');
-    Route::get('password/reset', [PasswordController::class, 'edit'])->name('reset-password');
-    Route::post('/password/update', [PasswordController::class, 'update'])->name('password.update');
+    Route::get('/password/reset', [PasswordController::class, 'edit'])->name('reset-password');
     Route::patch('/password/reset', [PasswordController::class, 'reset'])->name('password.reset');
+    Route::post('/password/change', [PasswordController::class, 'change'])->name('password.change');
 
 });
 

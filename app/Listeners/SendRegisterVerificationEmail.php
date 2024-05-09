@@ -17,6 +17,8 @@ class SendRegisterVerificationEmail
     {
         $user = $event->user;
 
+        dd($user);
+
         dispatch(function () use ($user) {
             Mail::to($user->email)->send(new VerificationEmail($user));
         })->afterResponse(); 
