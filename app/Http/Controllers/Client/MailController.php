@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Token;
 use App\Models\User;
 use Illuminate\Http\Request;
-
 class MailController extends Controller
 {
     /**
@@ -15,6 +14,10 @@ class MailController extends Controller
     public function index()
     {
         //
+    }
+
+    public function testMail() {
+        return view('mail.verify');
     }
 
     public function verify()

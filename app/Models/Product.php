@@ -32,7 +32,7 @@ class Product extends Model
 
     // public function colors()
     // {
-    //     return $this->hasMany(ProductColor::class);
+    //     return $this->belongsToMany(ProductColor::class);
     // }
 
     public function images()

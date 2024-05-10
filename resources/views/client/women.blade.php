@@ -3,7 +3,6 @@
 @section('title', 'Women Collection')
 @section('content')
     <!-- Main Content -->
-    
     <!-- Banner Section -->
     <img src="{{ asset('images/women-banner.jpg') }}" class="img-thumbnail banner no-border" alt="Women">
 

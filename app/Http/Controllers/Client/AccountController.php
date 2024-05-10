@@ -16,14 +16,13 @@ class AccountController extends Controller
      */
     public function index(string $username)
     {
-            $user = Auth::user();
+        $user = Auth::user();
 
-            if ($user->username === $username) {
-                return view('client.profile', $user);
-            }
+        if ($user->username === $username) {
+            return view('client.profile', $user);
+        }
 
-            throw new UnauthorizedException('Unauthorized');
-        
+        throw new UnauthorizedException('Unauthorized');
     }
 
     public function store(Request $request)
@@ -61,5 +60,10 @@ class AccountController extends Controller
         Auth::logout();
 
         return redirect()->route('home');
+    }
+    public function showProfile($username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+        return view('client.profile', ['user' => $user]);
     }
 }
