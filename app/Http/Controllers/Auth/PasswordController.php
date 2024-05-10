@@ -130,4 +130,8 @@ class PasswordController extends Controller
     {
         return view('auth.reset-password');
     }
+
+    public function changePassword(){
+        return view('client.change-password');
+    }
 }

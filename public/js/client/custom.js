@@ -54,3 +54,21 @@ originalInfos.forEach(function(originalInfo, index) {
     originalInfo.style.display = 'block';
   });
 });
+
+// profile
+
+function showMyOrders() {
+  document.getElementById("myOrdersContent").classList.remove("d-none");
+  document.getElementById("myAccountContent").classList.add("d-none");
+}
+
+function showMyAccount() {
+  document.getElementById("myOrdersContent").classList.add("d-none");
+  document.getElementById("myAccountContent").classList.remove("d-none");
+}
+
+function showChangePassword() {
+  document.getElementById("changePassword").classList.add("d-none");
+  document.getElementById("myAccountContent").classList.remove("d-none");
+}
+

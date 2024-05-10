@@ -10,7 +10,7 @@
         <div class="row">
 
             <!-- Filters Sidebar for large screens -->
-            <div class="col-md-3 d-none d-md-block">
+            <div class="col-md-2 d-none d-md-block">
                 <div>
                     <h5 class="mb-4">FILTER BY</h5>
                     <div class="mb-3">
@@ -74,7 +74,7 @@
             </div>
 
             <!-- Main Content Column -->
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <div class="d-flex justify-content-end mb-2 align-items-center">
                     <!-- Sorting Dropdown -->
                     <span class="me-1">Sort By: </span>
@@ -91,7 +91,7 @@
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-md-4 mb-5">
-                                <div class="card border-0 rounded rounded-4 border shadow-lg h-100">
+                                <div class="card border-0 rounded rounded-4 border shadow h-100">
                                     <a href="{{ route('product.show', $product->id) }}"
                                         class="text-dark text-decoration-none">
                                         <img src="{{ asset('images/shoe1-black.jpg') }}" class="card-img-top img-fluid "
