@@ -3,7 +3,7 @@
         <td align="center" style="padding: 20px; color: #B9BBBE; font-size: 12px;">
             © {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
             <br>
-            <a href="#" style="color: #7289DA;">Visit our Website</a>
+            <a href="{{ url('/') }}" style="color: #7289DA;">Visit our Website</a>
         </td>
     </tr>
 </table>

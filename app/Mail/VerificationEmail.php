@@ -32,10 +32,11 @@ class VerificationEmail extends Mailable
     {
         $token = Token::create([
             'token' => Str::random(60),
+            'user_id' => $this->user->id,
             'expires_at' => Carbon::now()->addMinutes(5),
         ])->token;
 
-        $verificationUrl = 'http://localhost:8000/email/verify' . "?token=$token";
+        $verificationUrl = url("/email/verify?token=$token");
 
         return $this->view('mail.verify', compact('verificationUrl'));
     }
@@ -47,6 +48,7 @@ class VerificationEmail extends Mailable
     {
         return new Envelope(
             subject: 'Verify Mail',
+            to: $this->user->email,
         );
     }
 

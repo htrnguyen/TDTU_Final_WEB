@@ -16,10 +16,6 @@ class MailController extends Controller
         //
     }
 
-    public function testMail() {
-        return view('mail.verify');
-    }
-
     public function verify()
     {
         $token = request()->query('token');
@@ -47,10 +43,12 @@ class MailController extends Controller
         $user->save();
         $tokenRecord->delete();
 
-        return response()->json([
+        response()->json([
             'success' => true,
             'message' => 'Verification successfully'
         ]);
+
+        return view('auth.verification-successfully');
     }
 
     public function resetPassword()

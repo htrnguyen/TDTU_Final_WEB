@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\UserForgotPassword;
 use App\Http\Controllers\Controller;
+use App\Listeners\SendResetPasswordEmail;
 use App\Models\Token;
 use App\Models\User;
+use App\Notifications\ResetPasswordEmailNotification;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -39,7 +41,9 @@ class PasswordController extends Controller
             ]);
         }
 
-        event(new UserForgotPassword($user));
+        // event(new UserForgotPassword($user));
+
+        $user->notify(new ResetPasswordEmailNotification($user));
 
         return response()->json([
             'success' => true,
