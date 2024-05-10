@@ -53,18 +53,22 @@
                 <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
 
                 <div class="form-outline form-white mb-4">
-                    <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="Search" style="border-radius: 15px; font-size:0.9rem; width: 300px; margin-top:-4px" />
+                    <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="Search"
+                        style="border-radius: 15px; font-size:0.9rem; width: 300px; margin-top:-4px" />
                 </div>
 
                 <ul class="fa-ul" style="margin-left: 1.65em;">
                     <li class="mb-3">
-                        <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967, Poland</span>
+                        <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967,
+                            Poland</span>
                     </li>
                     <li class="mb-3">
-                        <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">contact@example.com</span>
+                        <span class="fa-li"><i class="fas fa-envelope"></i></span><span
+                            class="ms-2">contact@example.com</span>
                     </li>
                     <li class="mb-3">
-                        <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567 88</span>
+                        <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567
+                            88</span>
                     </li>
                 </ul>
             </div>
@@ -91,7 +95,7 @@
             <!--Grid column-->
         </div>
         <!--Grid row-->
-                <div class="text-center mt-2" style="border-top:1px solid black;">
+        <div class="text-center mt-2" style="border-top:1px solid black;">
             © 2024 Shoe Store - All rights reserved.
             <div class="payment-icons">
                 <i class="fab fa-cc-visa"></i>

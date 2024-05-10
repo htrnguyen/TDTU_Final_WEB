@@ -61,9 +61,22 @@
 
     <div class="container mt-5">
         <h4 class="text-center mb-4">Featured Products</h4>
-        <div class="row">
-
+        <div class="row px-4">
+            @foreach ($products as $product)
+                <div class="col-md-3 d-flex align-items-stretch">
+                    <div class="card border">
+                        <img src="{{ asset('images/Jordan.png') }}" class="card-img-top img-fluid"
+                            style="height: 200px; object-fit: cover;" alt="{{ $product->name }}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title {{ $product->featured ? 'text-danger' : '' }}">{{ $product->name }}</h5>
+                            <p class="card-text small text-truncate" style="max-height: 38px;">{{ $product->description }}
+                            </p>
+                            <p class="card-text mt-auto fw-bold">${{ number_format($product->price, 2) }}</p>
+                            <a href="{{ url('/product/' . $product->id) }}" class="btn btn-dark mt-auto">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
-
 @endsection

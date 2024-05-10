@@ -52,11 +52,12 @@ Route::group(['namespace' => 'auth'], function () {
 
 Route::group(['namespace' => 'client'], function () {
     //Home
-    Route::view('/', 'client.home')->name('home');
+    // Route::view('/', 'client.home')->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
     // Men
     Route::get('/men', [MenController::class, 'index'])->name('men');
-    Route::get('/men/show', [ProductController::class, 'showMenPage'])->name('men.products');
+    // Route::get('/men/show', [ProductController::class, 'showMenPage'])->name('men.products');
 
     // Women
     Route::get('/women', [WomenController::class, 'index'])->name('women');

@@ -3,11 +3,11 @@
 @section('title', 'Men Collection')
 @section('content')
     <!-- Main Content -->
-    
+
     <!-- Banner Section -->
     <img src="{{ asset('images/men-banner.jpg') }}" class="img-thumbnail banner no-border" alt="Men">
-    
-    <div class="container px-5 mt-3"> 
+
+    <div class="container px-5 mt-3">
         <div class="row">
 
             <!-- Filters Sidebar for large screens -->
@@ -22,8 +22,10 @@
                                 <span class="thumb" id="thumbMin" style="left: 0%;"></span>
                                 <span class="thumb" id="thumbMax" style="left: 100%;"></span>
                             </div>
-                            <input id="rangeMin" type="range" max="2000" min="50" step="10" value="50">
-                            <input id="rangeMax" type="range" max="2000" min="20" step="10" value="1000">
+                            <input id="rangeMin" type="range" max="2000" min="50" step="10"
+                                value="50">
+                            <input id="rangeMax" type="range" max="2000" min="20" step="10"
+                                value="1000">
                         </div>
                         <div class="display">
                             <span class="mb-3" id="min"></span>
@@ -31,21 +33,27 @@
                         </div>
                     </div>
                     <!-- Range Silder -->
-                    
+
                     <div class="mb-3">
                         <p class="form-label border-bottom pb-2">COLOR</p>
                         <div class="form-check mt-3">
-                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter" >
-                            <label for="colorFilter" class="form-check-label mr-2" > White</label><br></br>
-                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter" >
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
+                            <label for="colorFilter" class="form-check-label mr-2"> White</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
                             <label for="colorFilter" class="form-check-label mr-2"> Black</label><br></br>
-                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter" >
-                            <label for="colorFilter" class="form-check-label mr-2" > Grey</label><br></br>
-                            <input class="form-check-input form-check-input-lg border border-dark"  type="checkbox" id="colorFilter" >
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
+                            <label for="colorFilter" class="form-check-label mr-2"> Grey</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
                             <label for="colorFilter" class="form-check-label mr-2"> Blue</label><br></br>
-                            <input class="form-check-input form-check-input-lg border border-dark"  type="checkbox" id="colorFilter" >
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
                             <label for="colorFilter" class="form-check-label mr-2"> Purple</label><br></br>
-                            <input class="form-check-input form-check-input-lg border border-dark"  type="checkbox" id="colorFilter" >
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
                             <label for="colorFilter" class="form-check-label mr-2"> Green</label><br></br>
                         </div>
                     </div>
@@ -77,91 +85,46 @@
                         <option value="?sort=name">Name</option>
                     </select>
                     <a href="" class="text-dark"><i class="fas fa-arrow-down"></i></a>
-                </div>  
-
-                {{-- Load Products --}}
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card border-0">
-                            <a href="" class="text-dark text-decoration-none">
-                                <img src="{{ asset('images/shoe1-purple.jpg') }}" class="card-img-top" alt="">
-                                <div class="original-info card-body" >
-                                    <h5 class="card-title">Strutter shoes</h5>
-                                    <p class="card-text mb-2">Men's Shoes</p>
-                                    <p class="text-secondary mb-2">3 colors</p>
-                                    <p class="text-secondary mb-2">$422.40</p>
-                                </div>
-                                <div class="new-info card-body" style="display: none;">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src="{{ asset('images/shoe1-purple.jpg') }}" class="img-thumbnail" alt="Image 1">
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="{{ asset('images/shoe1-green.jpg') }}" class="img-thumbnail" alt="Image 2">
-                                        </div>
-                                        <div class="col-3">
-                                            <img src="{{ asset('images/shoe1-black.jpg') }}" class="img-thumbnail" alt="Image 3">
-                                        </div>
-                                    </div>
-                                    <p class="text-secondary mt-3 mb-2">$422.40</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card border-0">
-                            <a href="" class="text-dark text-decoration-none">
-                                <img src="{{ asset('images/shoe2.jpg') }}" class="card-img-top" alt="">
-                                <div class="original-info card-body">
-                                    <h5 class="card-title">Nizza trefoil shoes</h5>
-                                    <p class="card-text mb-2">Men's Shoes</p>
-                                    <p class="text-secondary mb-2">1 color</p>
-                                    <p class="text-secondary mb-2">$597.30</p>
-                                </div>
-                                <div class="new-info card-body" style="display: none;">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src="{{ asset('images/shoe2.jpg') }}" class="img-thumbnail" alt="Image 1">
-                                        </div>
-                                    </div>
-                                    <p class="text-secondary mt-3 mb-2">$422.40</p>
-                                </div>
-                            </a>                           
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card border-0">
-                            <a href="" class="text-dark text-decoration-none">
-                                <img src="{{ asset('images/shoe3.jpg') }}" class="card-img-top" alt="">
-                                <div class="original-info card-body">
-                                    <h5 class="card-title">Seasonal color chuck 70</h5>
-                                    <p class="card-text mb-2">Men's Shoes</p>
-                                    <p class="text-secondary mb-2">1 color</p>
-                                    <p class="text-secondary mb-2">$882.20</p>
-                                </div>
-                                <div class="new-info card-body" style="display: none;">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <img src="{{ asset('images/shoe3.jpg') }}" class="img-thumbnail" alt="Image 1">
-                                        </div>
-                                    </div>
-                                    <p class="text-secondary mt-3 mb-2">$422.40</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Pagination -->
-                <nav aria-label="Page navigation example" class="mt-4">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
+                {{-- Load Products --}}
+                <div class="container mt-3">
+                    <div class="row">
+                        @foreach ($products as $product)
+                            <div class="col-md-4 mb-5">
+                                <div class="card border-0 rounded rounded-4 shadow-lg h-100">
+                                    <a href="#" class="text-dark text-decoration-none">
+                                        <img src="{{ asset('images/Jordan.png') }}" class="card-img-top"
+                                            alt="{{ $product->name }}" style="object-fit: cover; height: 250px;">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <p class="text-secondary mb-2 small">
+                                                    {{ $product->category ? $product->category->category_name : 'No Category' }}
+                                                </p>
+                                                <p class="text-secondary mb-2 small">
+                                                    {{ $product->created_at->diffForHumans() }}
+                                                </p>
+                                            </div>
+                                            <h5 class="card-title">{{ Str::limit($product->name, 50) }}</h5>
+                                            <p class="text-secondary mb-2 small text-danger">
+                                                {{ $product->color ? $product->color->color : 'No Color' }}
+                                            </p>
+                                            <p class="text-secondary mb-2 fst-italic">
+                                                {{ Str::limit($product->description, 50) }}</p>
+                                            <p class="text-secondary mb-2 fw-bold">${{ number_format($product->price, 2) }}
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                {{-- End Load Products --}}
+                {{-- Pagination --}}
+                <div class="d-flex justify-content-center mt-2">
+                    {{ $products->links('pagination::bootstrap-4') }}
+                </div>
             </div>
         </div>
     </div>
