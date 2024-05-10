@@ -88,38 +88,6 @@
                 </div>
 
                 {{-- Load Products --}}
-                <div class="container mt-3">
-                    <div class="row">
-                        @foreach ($products as $product)
-                            <div class="col-md-4 mb-5">
-                                <div class="card border-0 rounded rounded-4 shadow-lg h-100">
-                                    <a href="#" class="text-dark text-decoration-none">
-                                        <img src="{{ asset('images/Jordan.png') }}" class="card-img-top"
-                                            alt="{{ $product->name }}" style="object-fit: cover; height: 250px;">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="text-secondary mb-2 small">
-                                                    {{ $product->category ? $product->category->category_name : 'No Category' }}
-                                                </p>
-                                                <p class="text-secondary mb-2 small">
-                                                    {{ $product->created_at->diffForHumans() }}
-                                                </p>
-                                            </div>
-                                            <h5 class="card-title">{{ Str::limit($product->name, 50) }}</h5>
-                                            <p class="text-secondary mb-2 small text-danger">
-                                                {{ $product->color ? $product->color->color : 'No Color' }}
-                                            </p>
-                                            <p class="text-secondary mb-2 fst-italic">
-                                                {{ Str::limit($product->description, 50) }}</p>
-                                            <p class="text-secondary mb-2 fw-bold">${{ number_format($product->price, 2) }}
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
                 {{-- End Load Products --}}
                 {{-- Pagination --}}
                 <div class="d-flex justify-content-center mt-2">
