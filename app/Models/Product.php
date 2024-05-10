@@ -15,6 +15,9 @@ class Product extends Model
         'price',
         'description',
         'stock_quantity',
+        'color',
+        'image',
+        'size',
     ];
 
     public function category()
@@ -22,15 +25,15 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function sizes()
-    {
-        return $this->hasMany(ProductSize::class);
-    }
+    // public function sizes()
+    // {
+    //     return $this->hasMany(ProductSize::class);
+    // }
 
-    public function colors()
-    {
-        return $this->hasMany(ProductColor::class);
-    }
+    // public function colors()
+    // {
+    //     return $this->hasMany(ProductColor::class);
+    // }
 
     public function images()
     {

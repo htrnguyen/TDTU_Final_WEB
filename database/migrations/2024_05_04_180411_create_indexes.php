@@ -17,22 +17,23 @@ class CreateIndexes extends Migration
             $table->index('category_name');
         });
 
-        Schema::table('product_colors', function (Blueprint $table) {
-            $table->index('color');
-        });
+        // Schema::table('product_colors', function (Blueprint $table) {
+        //     $table->index('color');
+        // });
 
-        Schema::table('product_sizes', function (Blueprint $table) {
-            $table->index('size');
-        });
+        // Schema::table('product_sizes', function (Blueprint $table) {
+        //     $table->index('size');
+        // });
 
-        Schema::table('product_images', function (Blueprint $table) {
-            $table->index('product_id');
-        });
+        // Schema::table('product_images', function (Blueprint $table) {
+        //     $table->index('product_id');
+        // });
 
         Schema::table('products', function (Blueprint $table) {
             $table->index('category_id');
-            $table->index('color_id');
-            $table->index('size_id');
+            $table->index('color');
+            $table->index('size');
+            $table->index('image');
         });
 
         Schema::table('carts', function (Blueprint $table) {

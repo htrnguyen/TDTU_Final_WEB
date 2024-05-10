@@ -38,7 +38,7 @@ Route::group(['namespace' => 'auth'], function () {
 
     // Register
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
-    Route::post('/register', [RegisterController::class, 'store']);
+    Route::post('/register', [RegisterController::class, 'store'])->name('submit.register');
     Route::delete('/delete', [RegisterController::class, 'destroy']);
 
     // Reset-password
@@ -88,9 +88,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 
     // Product
     Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
-    Route::get('/product/createproduct', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
+    Route::get('/product/create', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
     Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
-    Route::post('/product/createproduct', [AdminProductController::class, 'store']);
+    Route::post('/product/create', [AdminProductController::class, 'store'])->name('submit.createproduct');
 
     // Counpon
     Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');

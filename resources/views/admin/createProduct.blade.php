@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="form-create-product">
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <div class="form-group-1">
@@ -117,43 +117,88 @@
         </form>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // Upload multiple images and preview them
-let fileInput = document.getElementById('file-input');
-let imageContainer = document.getElementById('images-place');
+    let fileInput = document.getElementById('file-input');
+    let imageContainer = document.getElementById('images-place');
 
-function preview() {
-    for (let i of fileInput.files) {
-        let reader = new FileReader();
-        let div = document.createElement('div');
-        div.classList.add('image-wrapper');
+    function preview() {
+        for (let i of fileInput.files) {
+            let reader = new FileReader();
+            let div = document.createElement('div');
+            div.classList.add('image-wrapper');
 
-        reader.onload = () => {
-            let img = document.createElement('img');
-            img.setAttribute('src', reader.result);
-            div.appendChild(img);
+            reader.onload = () => {
+                let img = document.createElement('img');
+                img.setAttribute('src', reader.result);
+                div.appendChild(img);
 
-            let deleteButton = document.createElement('button');
-            deleteButton.innerHTML = 'Remove';
-            deleteButton.addEventListener('click', function() {
-                div.remove(); // Remove the div element when the delete button is clicked
-            });
-            div.appendChild(deleteButton); // Append the delete button to the div element
-            div.addEventListener('mouseover', function() {
-                deleteButton.style.display = 'block'; // Show the delete button when the mouse is over the div element
-                div.style.scale = '0.9'; // Scale the div element when the mouse is over it
-                div.style.transition = 'all 0.5s ease'; // Add a transition effect to the div element
-            });
-            div.addEventListener('mouseout', function() {
-                deleteButton.style.display = 'none'; // Hide the delete button when the mouse is not over the div element
-                div.style.scale = '1'; // Scale the div element when the mouse is over it
-                div.style.transition = 'all 0.5s ease'; // Add a transition effect to the div element
-            });
+                let deleteButton = document.createElement('button');
+                deleteButton.innerHTML = 'Remove';
+                deleteButton.addEventListener('click', function() {
+                    div.remove(); // Remove the div element when the delete button is clicked
+                });
+                div.appendChild(deleteButton); // Append the delete button to the div element
+                div.addEventListener('mouseover', function() {
+                    deleteButton.style.display = 'block'; // Show the delete button when the mouse is over the div element
+                    div.style.scale = '0.9'; // Scale the div element when the mouse is over it
+                    div.style.transition = 'all 0.5s ease'; // Add a transition effect to the div element
+                });
+                div.addEventListener('mouseout', function() {
+                    deleteButton.style.display = 'none'; // Hide the delete button when the mouse is not over the div element
+                    div.style.scale = '1'; // Scale the div element when the mouse is over it
+                    div.style.transition = 'all 0.5s ease'; // Add a transition effect to the div element
+                });
+            }
+
+            imageContainer.appendChild(div);
+            reader.readAsDataURL(i);
         }
-
-        imageContainer.appendChild(div);
-        reader.readAsDataURL(i);
     }
-}
+
+    $(document).ready(function() {
+        $("#btn-AddProduct").click(function() {
+            // Get values of all form fields
+            var productName = $("input[name='product_name']").val();
+            var description = $("textarea[name='description']").val();
+            var color = $("#sl-color").val();
+            var price = $("input[name='price']").val();
+            var quantity = $("input[name='quantity']").val();
+
+            // Get selected gender and category values
+            var gender = $("#sl-category-1").val();
+            var category = $("#sl-category-2").val();
+
+            // Create an object to store all form data
+            var formData = {
+                name: productName,
+                description: description,
+                color: color,
+                price: price,
+                stock_quantity: quantity,
+                gender: gender,
+                sizer: gender,
+                category: category
+            };
+
+            // Make a POST request to the API endpoint using AJAX
+            $.ajax({
+                url: "{{ route('submit.createproduct') }}",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    // Handle success response
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    // Handle error response
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
 </script>
 @endsection
