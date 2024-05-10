@@ -23,7 +23,6 @@ use App\Http\Controllers\Client\WomenController;
 use App\Http\Controllers\Client\KidsController;
 use App\Http\Controllers\Client\SearchController;
 use App\Http\Controllers\Client\ProductController;
-use App\Http\Controllers\Client\ViewProductController;
 
 // Auth
 use App\Http\Controllers\Auth\SessionController;
@@ -48,7 +47,6 @@ Route::group(['namespace' => 'auth'], function () {
     Route::get('/password/reset', [PasswordController::class, 'edit'])->name('reset-password');
     Route::patch('/password/reset', [PasswordController::class, 'reset'])->name('password.reset');
     Route::post('/password/change', [PasswordController::class, 'change'])->name('password.change');
-
 });
 
 Route::group(['namespace' => 'client'], function () {
@@ -83,7 +81,8 @@ Route::group(['namespace' => 'client'], function () {
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
 
     // View Product details
-    Route::get('/viewproduct', [ViewProductController::class, 'index'])->name('viewproduct');
+    Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+    // Route::get('/viewproduct', [ViewProductController::class, 'index'])->name('viewproduct');
 });
 
 
@@ -111,7 +110,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 
     // Login
     Route::get('/login', [AdminLoginController::class, 'index'])->name('login_admin');
-
 });
 
 // Use this api to check if server health is good or not
