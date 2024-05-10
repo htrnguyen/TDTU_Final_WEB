@@ -83,7 +83,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card border-0">
-                            <a href="" class="text-dark text-decoration-none">
+                            <a href="{{route('viewproduct')}}" class="text-dark text-decoration-none">
                                 <img src="{{ asset('images/shoe1-purple.jpg') }}" class="card-img-top" alt="">
                                 <div class="original-info card-body" >
                                     <h5 class="card-title">Strutter shoes</h5>

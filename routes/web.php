@@ -23,6 +23,7 @@ use App\Http\Controllers\Client\WomenController;
 use App\Http\Controllers\Client\KidsController;
 use App\Http\Controllers\Client\SearchController;
 use App\Http\Controllers\Client\ProductController;
+use App\Http\Controllers\Client\ViewProductController;
 
 // Auth
 use App\Http\Controllers\Auth\SessionController;
@@ -79,6 +80,9 @@ Route::group(['namespace' => 'client'], function () {
     // Profile
     Route::get('/profile/{username}', [AccountController::class, 'index'])->name('account.profile');
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
+
+    // View Product details
+    Route::get('/viewproduct', [ViewProductController::class, 'index'])->name('viewproduct');
 });
 
 
