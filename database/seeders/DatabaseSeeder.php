@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
             OrderDetailSeeder::class,
             CouponSeeder::class,
-            ProductColorSeeder::class,
-            ProductSizeSeeder::class,
-            ProductColorSeeder::class,
-            ProductImageSeeder::class,
+            // ProductColorSeeder::class,
+            // ProductSizeSeeder::class,
+            // ProductColorSeeder::class,
+            // ProductImageSeeder::class,
         ]);
     }
 }

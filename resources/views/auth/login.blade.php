@@ -4,7 +4,7 @@
     <div id="app">
         <div class="container" id="container">
             <div class="form-container sign-up">
-                <form method="POST" action="{{ route('register') }}" class="action">
+                <form method="POST" action="{{ route('submit.register') }}" class="action">
                     @csrf
                     <h1>Create Account</h1>
                     <div class="social-icons">

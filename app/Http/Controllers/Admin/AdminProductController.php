@@ -38,6 +38,8 @@ class AdminProductController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'stock_quantity' => 'required|numeric|min:0',
                 'category_id' => 'required|numeric',
+                'color' => 'required|string',
+                'size' => 'required|string'
             ]);
 
             $product = Product::create($attributes);

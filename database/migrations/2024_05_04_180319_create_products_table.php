@@ -14,11 +14,13 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->decimal('price', 10, 2);
             $table->text('description')->nullable();
-            $table->integer('stock_quantity')->default(0);
-            $table->unsignedBigInteger('color_id')->nullable();
-            $table->unsignedBigInteger('size_id')->nullable();
-            $table->unsignedBigInteger('image_id')->nullable();
+            $table->integer('stock_quantity')->default(1);
+            $table->string('color');
+            $table->string('image')->nullable();
+            $table->string('size');
             $table->timestamps();
+
+            // $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
