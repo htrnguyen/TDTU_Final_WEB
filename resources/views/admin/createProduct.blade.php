@@ -91,14 +91,12 @@
                             <div class="fg-pricing-1">
                                 <p>Product Price</p>
                                 <div class="fg-pricing-input">
-                                    <i class="fa-solid fa-dollar-sign"></i>
                                     <input type="text" placeholder="299$">
                                 </div>
                             </div>
                             <div class="fg-pricing-2">
                                 <p>Product Discount</p>
                                 <div class="fg-pricing-discount-input">
-                                    <i class="fa-solid fa-percent"></i>
                                     <input type="text" placeholder="50">
                                 </div>
                             </div>

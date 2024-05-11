@@ -1030,7 +1030,6 @@ table tr:first-child{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 90;
-    transition: visibility 0.8s ease;
 }
 .view-ordered-details {
     visibility: hidden;
@@ -1551,120 +1550,315 @@ table tr:first-child{
     font-size: 1.2rem;
 }
 
-.setting-content {
+.setting-details {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    gap: 30px;
+    width: 100%;
+}
+
+.sd-edit {
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 25px;
+}
+
+.sd-sidebar {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    margin-top: 30px;
     gap: 20px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 20px;
-}
-.sc-function {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 20px;
+    font-weight: normal;
+    border-right: 2px solid #e7e7e7;
+    padding-right: 20px;
+    height: 100%;
 }
 
-.sc-function a {
-    background-color: #ffffff;
+.sd-sidebar #btn-delete-account {
+    width: 130px;
+    font-size: 1rem;
+    border: none;
+    color: red;
+}
+
+.sd-sidebar #btn-delete-account:hover {
+    color: rgb(199, 0, 0);
+}
+
+.sd-sidebar a {
+    text-align: center;
     padding: 10px;
     border-radius: 15px;
-    border: 2px solid #fff;
+    cursor: pointer;
 }
 
-.sc-function a:hover {
-    border: 2px solid #82d015;
+.sd-sidebar a:hover {
+    color: var(--primary-color);
+    background-color: #e3f4cb;
 }
 
-.form-change-profile {
+.sd-inform {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
-    background-color: #ffffff;
-    padding: 15px;
-    width: 350px;
+    gap: 20px;
+    width: 970px;
+    margin-left: 30px;
+}
+
+.sdi-img-name {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.sdii-name p {
+    color: #737373;
+}
+.sdii-name {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sd-edit button {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
     border-radius: 15px;
-    box-shadow: 10px 7px 10px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #e7e7e7;
+    background-color: transparent;
+    width: 65px;
+    cursor: pointer;
 }
-
-.sc-header-form {
-    margin-bottom: 10px;
-}
-
-.sc-image {
-    margin-top: 20px;
+.sdi-img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    border: 1px solid #e7e7e7;
+    border-radius: 15px;
+    padding: 10px 20px;
+    width: 100%;
 }
 
-.sc-image img {
+.sdi-img img {
     width: 80px;
     height: 80px;
     object-fit: contain;
     border-radius: 50%;
 }
 
-.sc-image label, 
-.sc-image .btn-remove {
-    background-color: #9BCF53;
-    padding: 10px;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-.sc-image .btn-remove {
-    background-color: #ebebeb;
-}
-
-.sc-image input[type="file"] {
-    display: none;
-}
-
-.sc-name, .sc-username, .sc-email {
-    margin-top: 5px;
+.sdi-personal-details {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    padding: 10px;
-    border-radius: 15px;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    border: 1px solid #e7e7e7;
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
 }
 
-.form-change-profile input {
+.sdi-p-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.sdi-pd-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+}
+
+.sdi-pd-details p,
+.sdi-a-details p  {
+    color: #737373;
+    font-size: 0.9rem;
+}
+
+.sdi-a-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.sdi-address {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    border: 1px solid #e7e7e7;
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.adi-fullname,
+.sdi-email-phone {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    gap: 200px;
+}
+
+.adi-fullname p,
+.sdi-email-phone p,
+.sdi-a-details p{
+    width: 200px;
+    margin-bottom: 7px;
+} 
+
+.sdi-a-details {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    gap: 200px;
+}
+
+.setting-details input[type="text"] {
+    margin-top: 7px;
     width: 100%;
     height: 40px;
     border-radius: 10px;
     padding: 0 10px;
     border: 1px solid #e7e7e7;
+
+}
+/* Edit information account */
+.edit-mask {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+}
+.sdi-img-name-display {
+    visibility: hidden;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.form-change-profile input:focus {
-    border: none;
-    outline: none;
+.sdi-img-name-display i {
+    transition: transform 0.5s ease;
+    position: absolute;
+    left: 33px;
+    top: 35px;
+    color: #fff;
 }
 
-.btn-submit {
-    margin-top: 20px;
-}
-
-.btn-submit button {
-    background-color: #9BCF53;
-    padding: 10px 20px;
-    border-radius: 10px;
+.sdi-img-name-display i:hover {
     cursor: pointer;
-    margin-left: 25px;
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
 }
 
-.btn-submit button:first-child {
-    background-color: #ebebeb;
-    margin-right: 15px;
+.sdi-img-name-display img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.change-img {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 100%;
+}
+.btn-confirm-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+}
+
+.btn-confirm-edit button {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.btn-edit, .btn-edit-details {
+    background-color: #9BCF53;
+}
+.change-img input[type="file"] {
+    display: none;
+}
+
+.sdii-name-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+
+}
+
+.sid-personal-details-edit {
+    visibility: hidden;
+    position: fixed;
+    background-color: #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+    z-index: 100;
+}
+
+.adi-fullname-edit,
+.sdi-email-phone-edit,
+.sdi-p-info-confirm-edit{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+}
+
+.sid-personal-details-edit input[type="text"] {
+    width: 190px;
+
 }
 
 /* REPONSIZE FOR MOBILE */
