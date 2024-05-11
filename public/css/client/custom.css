@@ -3,65 +3,115 @@
     border:none;
 }
 
-.range-slide {
+/* range slide */
+.slider-labels {
+    margin-top: 10px;   /* distance between range and labels */
+
+}
+
+.noUi-base {
+    width: 100%;
+    height: 100%;
     position: relative;
-    margin-top: 30px;
-    height: 4px;
-    width: 100%;
+    z-index: 1;
 }
-  
-.slide {
+
+.noUi-origin {
     position: absolute;
-    top: 0;
-    height: 1px;
-    background: black;
-    left: 9px;
-    right: 9px;
-}
-  
-.line {
-    position: absolute;
-    left: 0;
     right: 0;
-    top: 20;
-    height: 1px;
-}
-
-.thumb {
-    position: absolute;
-    z-index: 2;
-    text-align: left;
-    border: 1px solid black;
-    background-color: #fff;
-    border-radius: 50%;
-    outline: none;
-    top: -7px;
-    height: 18px;
-    width: 18px;
-    margin-left: -9px;
-}
-
-.range-slide input {
-    -webkit-appearance: none;
-    appearance: none;
-    position: absolute;
-    pointer-events: none;
-    z-index: 3;
-    height: 1px;
     top: 0;
-    width: 100%;
-    opacity: 0;
-    margin: 0;
+    left: 0;
+    bottom: 0;
 }
 
-.range-slide input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    pointer-events: all;
-    border-radius: 50%;
-    cursor: pointer;
+.noUi-handle {
+    position: relative;
+    z-index: 1;
+}
+
+.noUi-stacking .noUi-handle {
+    z-index: 10;
+}
+
+.noUi-state-tap .noUi-origin {
+    -webkit-transition: left 0.3s,top .3s;
+    transition: left 0.3s,top .3s;
+}
+
+.noUi-state-drag * {
+    cursor: inherit !important;
+}
+
+.noUi-base,.noUi-handle {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.noUi-horizontal {
+    height: 4px;
+}
+
+.noUi-horizontal .noUi-handle {
     width: 18px;
     height: 18px;
+    border-radius: 50%;
+    left: -7px;
+    top: -7px;
+    background-color: white;
+    border: 1px solid black
+}
+
+
+.noUi-background {
+    background: #D6D7D9;
+}
+
+.noUi-connect {
+    background: black;
+    -webkit-transition: background 450ms;
+    transition: background 450ms;
+}
+
+.noUi-origin {
+    border-radius: 2px;
+}
+
+.noUi-target {
+    border-radius: 2px;
+}
+
+.noUi-draggable {
+    cursor: w-resize;
+}
+
+.noUi-vertical .noUi-draggable {
+    cursor: n-resize;
+}
+
+.noUi-handle {
+    cursor: default;
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
+
+.noUi-handle:active {
+    border: 8px solid rgba(0, 0, 0, 0.553);
+    border: 5px solid rgba(232, 232, 232, 0.553);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    left: -14px;
+    top: -14px;
+}
+
+/* Disabled state;
+*/
+[disabled].noUi-connect,[disabled] .noUi-connect {
+    background: #B8B8B8;
+}
+
+[disabled].noUi-origin,[disabled] .noUi-handle {
+    cursor: not-allowed;
 }
 
 .display {
