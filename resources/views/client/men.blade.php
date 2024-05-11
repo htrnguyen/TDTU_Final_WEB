@@ -15,20 +15,18 @@
                     <h5 class="mb-4">FILTER BY</h5>
                     <div class="mb-3">
                         <p class="form-label">PRICE</p>
-                        <div class="range-slide">
-                            <div class="slide">
-                                <div class="line" id="line" style="left: 0%; right: 0%;"></div>
-                                <span class="thumb" id="thumbMin" style="left: 0%;"></span>
-                                <span class="thumb" id="thumbMax" style="left: 100%;"></span>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="slider-range"></div>
                             </div>
-                            <input id="rangeMin" type="range" max="2000" min="50" step="10"
-                                value="50">
-                            <input id="rangeMax" type="range" max="2000" min="20" step="10"
-                                value="1000">
                         </div>
-                        <div class="display">
-                            <span class="mb-3" id="min"></span>
-                            <span id="max"></span>
+                        <div class="row slider-labels">
+                            <div class="col-sm-7 caption">
+                                <span id="slider-range-value1"></span>
+                            </div>
+                            <div class="col-sm-5 caption">
+                                <span id="slider-range-value2"></span>
+                            </div>
                         </div>
                     </div>
                     <!-- Range Silder -->
