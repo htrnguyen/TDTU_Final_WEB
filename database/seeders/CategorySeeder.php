@@ -9,6 +9,15 @@ class CategorySeeder extends Seeder
 {
     public function run()
     {
-        Category::factory()->count(5)->create();
+        // Category::factory()->count(3)->create();
+        Category::create([
+            'category_name' => 'men'
+        ]);
+        Category::create([
+            'category_name' => 'women'
+        ]);
+        Category::create([
+            'category_name' => 'kid'
+        ]);
     }
 }

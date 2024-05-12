@@ -33,17 +33,17 @@
                                 <option value="Sporty">Women</option>
                                 <option value="Performance">Kids</option>
                             </select>
-                            <p>Product Category</p>
+                            <p>Size</p>
                             <select name="" id="sl-category-2">
-                                <option value="Stylish">Stylish</option>
-                                <option value="Modern">Modern</option>
-                                <option value="Active">Active</option>
-                                <option value="Fashionable">Fashionable</option>
-                                <option value="Classic">Classic</option>
-                                <option value="Retro">Retro</option>
-                                <option value="Iconic">Iconic</option>
-                                <option value="Versatile">Versatile</option>
-                                <option value="Innovative">Innovative</option>
+                                <option value="5.5">5.5</option>
+                                <option value="6">6</option>
+                                <option value="6.5">6.5</option>
+                                <option value="7">7</option>
+                                <option value="7.5">7.5</option>
+                                <option value="8">8</option>
+                                <option value="8.5">8.5</option>
+                                <option value="9">9</option>
+                                <option value="9.5">9.5</option>
                             </select>
                         </div>
                     </div>
@@ -91,14 +91,12 @@
                             <div class="fg-pricing-1">
                                 <p>Product Price</p>
                                 <div class="fg-pricing-input">
-                                    <i class="fa-solid fa-dollar-sign"></i>
                                     <input type="text" placeholder="299$">
                                 </div>
                             </div>
                             <div class="fg-pricing-2">
                                 <p>Product Discount</p>
                                 <div class="fg-pricing-discount-input">
-                                    <i class="fa-solid fa-percent"></i>
                                     <input type="text" placeholder="50">
                                 </div>
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -14,7 +15,9 @@ class AdminProductController extends Controller
 {
     public function index()
     {
-        return view('admin.product');
+        $products = Product::all();
+
+        return view('admin.product')->with('products', $products);
     }
 
     public function productCreate()

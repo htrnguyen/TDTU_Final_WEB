@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\VerifyEmailNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -50,7 +51,10 @@ class RegisterController extends Controller
             ]);
         }
 
-        event(new UserRegisteredSuccessfully($user));
+        $user->notify(new VerifyEmailNotification($user));
+
+        // event(new UserRegisteredSuccessfully($user));
+
 
         return redirect()->route('login')->with('message', 'Your account have been created. Please check your email to verify your accout');
     }
