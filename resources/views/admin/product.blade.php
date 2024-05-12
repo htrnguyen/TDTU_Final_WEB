@@ -10,7 +10,7 @@
             <a href="{{route('createproduct_admin')}}" id="ph-create">
                 <button>
                     <i class="fa-solid fa-plus"></i>
-                    <p>Add Product</p>
+                    <p>Create</p>
                 </button>
             </a>
             <a href="{{route('orderproduct_admin')}}" id="ph-order">
