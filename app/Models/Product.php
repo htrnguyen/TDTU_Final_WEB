@@ -25,8 +25,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function getCategoryNameFromId($id) {
-        $category = Category::find($id);
+    public function getCategoryNameFromId() {
+        $category = Category::find($this->category_id);
 
         return $category ? $category->category_name : 'Uncategorized';
     }

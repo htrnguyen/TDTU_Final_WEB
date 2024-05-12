@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'phone_number' => $this->faker->phoneNumber,
             'role' => 'user', // Default role is 'user'
             'avatar_url' => '/storage/images/users/default_avatar.jpg',
-            'is_active' => true,
+            'status' => 'unverified',
         ];
     }
 }

@@ -87,7 +87,7 @@
                     </td>
                     <td>
                         <div class="lpc-category">
-                            <p>{{ $product->getCategoryNameFromId($product->category_id) }}</p>
+                            <p>{{ $product->getCategoryNameFromId() }}</p>
                         </div>
                     </td>
                     <td>
@@ -96,7 +96,7 @@
                         </div>
                     </td>
                     <td>
-                        <p>{{'$' . $product->price }}</p>
+                        <p>{{ '$' . $product->price }}</p>
                     </td>
                     <td>
                         <p>{{ $product->stock_quantity }}</p>

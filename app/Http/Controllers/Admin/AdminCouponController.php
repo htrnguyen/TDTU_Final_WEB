@@ -17,6 +17,6 @@ class AdminCouponController extends Controller
     {
         $coupons = Coupon::all();
 
-        return view('admin.coupon');
+        return view('admin.coupon')->with('coupons', $coupons);
     }
 }

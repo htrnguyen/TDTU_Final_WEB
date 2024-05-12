@@ -4,7 +4,7 @@
         <!-- Login -->
         <div class="form-container sign-in">
             <img src="{{asset('images/admin-login.png')}}" alt="">
-            <form method="POST" action="#" class="action">
+            <form method="POST" action="{{ route('submit.login_admin') }}" class="action">
                 @csrf
                 <h1>Login</h1>
                 <div class="social-icons">
@@ -24,6 +24,7 @@
             </form>
         </div>
     </div>
+    
     <style>
         #app {
             display: flex;
@@ -117,6 +118,7 @@
         }
 
     </style>
+    
     <script>
         const eye = document.querySelector('.fa-eye');
         const password = document.querySelector('#password');

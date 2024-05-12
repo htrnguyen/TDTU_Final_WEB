@@ -12,8 +12,9 @@ class CouponFactory extends Factory
     public function definition()
     {
         return [
-            'coupon_code' => $this->faker->unique()->regexify('[A-Za-z0-9]{10}'),
-            'discount' => $this->faker->randomFloat(2, 5, 50),
+            'code' => $this->faker->unique()->regexify('[A-Z0-9]{10}'),
+            'discount' => $this->faker->randomElement([10, 20, 30, 40, 50]),
+            'title' => $this->faker->word,
             'start_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'expiration_date' => $this->faker->dateTimeBetween('now', '+1 year')
         ];

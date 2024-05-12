@@ -12,8 +12,7 @@ use App\Http\Controllers\Admin\AdminCouponController;
 use App\Http\Controllers\Admin\AdminTaskListController;
 use App\Http\Controllers\Admin\AdminCustomerController;
 use App\Http\Controllers\Admin\AdminSettingController;
-use App\Http\Controllers\Admin\AdminLoginController;
-use App\Http\Controllers\Admin\AdminLogoutController;
+use App\Http\Controllers\Admin\AdminSessionController;
 
 // Client
 use App\Http\Controllers\Client\CartController;
@@ -92,30 +91,32 @@ Route::group(['namespace' => 'client'], function () {
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
-    // Home
-    Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
-
-    // Product
-    Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
-    Route::get('/product/create', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
-    Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
-    Route::post('/product/create', [AdminProductController::class, 'store'])->name('submit.createproduct');
-
-    // Counpon
-    Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
-
-    // Task List
-    Route::get('/tasklist', [AdminTaskListController::class, 'index'])->name('tasklist_admin');
-
-    // Customer
-    Route::get('/customer', [AdminCustomerController::class, 'index'])->name('customer_admin');
-
-    // Setting
-    Route::get('/setting', [AdminSettingController::class, 'index'])->name('setting_admin');
-
     // Login
-    Route::get('/login', [AdminLoginController::class, 'index'])->name('login_admin');
+    Route::get('/login', [AdminSessionController::class, 'index'])->name('login_admin');
+    Route::post('/login', [AdminSessionController::class, 'store'])->name('submit.login_admin');
 
+    // Route::middleware(['admin'])->group(function () {
+        // Home
+        Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
+
+        // Product
+        Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
+        Route::get('/product/create', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
+        Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
+        Route::post('/product/create', [AdminProductController::class, 'store'])->name('submit.createproduct');
+
+        // Counpon
+        Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
+
+        // Task List
+        Route::get('/tasklist', [AdminTaskListController::class, 'index'])->name('tasklist_admin');
+
+        // Customer
+        Route::get('/customer', [AdminCustomerController::class, 'index'])->name('customer_admin');
+
+        // Setting
+        Route::get('/setting', [AdminSettingController::class, 'index'])->name('setting_admin');
+    // });
 });
 
 // Use this api to check if server health is good or not
