@@ -4,7 +4,7 @@
     <div class="product-header">
         <div class="ph-search">
             <input type="text" placeholder="Search">
-                <i class="fa-solid fa-search"></i>
+            <i class="fa-solid fa-search"></i>
         </div>
         <div class="ph-createOrder">
             <a href="{{route('createproduct_admin')}}" id="ph-create">
@@ -56,54 +56,61 @@
             <table>
                 <tr>
                     <th>
-                        <input type="checkbox" name="check" id="checkAllProduct" >
+                        <input type="checkbox" name="check" id="checkAllProduct">
+                        ID
+                    </th>
+                    <th>
                         PRODUCT DETAILS
                     </th>
                     <th>CATEGORY</th>
                     <th>COLOR</th>
                     <th>PRICE</th>
                     <th>SIZE</th>
-                    <th>CODE</th>
+                    <!-- <th>CODE</th> -->
                     <th>ACTION</th>
                 </tr>
-                <tr> {{--Cho foreach chạy tại đây--}}
+
+                @foreach($products as $key => $product)
+                <tr>
+                    <td>
+                        <input type="checkbox" name="check" id="check" class="Select-product">
+                        <p>{{ $key }}</p>
+                    </td>
                     <td>
                         <div class="lpc-product">
-                            <input type="checkbox" name="check" id="check" class="Select-product">
-                            <img src="{{asset('images/product-nike.png')}}" alt="nike">
+                            <img src="{{ $product->image }}" alt="nike">
                             <div class="lpc-name-description">
-                                <h3>Nike Air Max 270c</h3>
-                                <p>Fresh, Comfortable, New item</p>
+                                <h3>{{ $product->name }}</h3>
+                                <p>{{ $product->description }}</p>
                             </div>
                         </div>
                     </td>
                     <td>
                         <div class="lpc-category">
-                            <p>Sneaker</p>
-                            <p>Sport</p>
+                            <p>{{ $product->getCategoryNameFromId($product->category_id) }}</p>
                         </div>
                     </td>
                     <td>
                         <div class="lpc-color">
-                            <p>Blue</p>
-                            <p>Yellow</p>
-                            <p>White</p>
+                            <p>{{ $product->color }}</p>
                         </div>
                     </td>
                     <td>
-                        <p>199$</p>
+                        <p>{{'$' . $product->price }}</p>
                     </td>
                     <td>
-                        <p>40</p>
+                        <p>{{ $product->stock_quantity }}</p>
                     </td>
-                    <td>
-                        <p>UY37494</p>
-                    </td>
+                    <!-- <td>
+                        <p>asdfsd</p>
+                    </td> -->
                     <td>
                         <button type="button" class="edit">Edit</button>
                     </td>
                 </tr>
-                
+                @endforeach
+
+
             </table>
         </div>
     </div>
@@ -114,7 +121,7 @@
     checkbox.addEventListener('click', function() {
         let checkboxes = document.querySelectorAll('.Select-product');
         for (let i of checkboxes) {
-            if(checkbox.checked) {
+            if (checkbox.checked) {
                 i.checked = true;
             } else {
                 i.checked = false;

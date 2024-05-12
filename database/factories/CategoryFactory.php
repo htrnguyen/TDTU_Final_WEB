@@ -11,8 +11,9 @@ class CategoryFactory extends Factory
 
     public function definition()
     {
+        $words = ['men', 'women', 'kid'];
         return [
-            'category_name' => $this->faker->unique()->word
+            'category_name' => $this->faker->randomElement($words)
         ];
     }
 }
