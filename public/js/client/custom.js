@@ -10,11 +10,11 @@ $(document).ready(function() {
     prefix: '$'
   });
   noUiSlider.create(rangeSlider, {
-    start: [500000, 1000000],
+    start: [0, 10000],
     step: 1,
     range: {
-      'min': [100000],
-      'max': [1000000]
+      'min': [0],
+      'max': [10000]
     },
     format: moneyFormat,
     connect: true
@@ -1993,19 +1993,82 @@ originalInfos.forEach(function(originalInfo, index) {
 });
 
 // profile
+function showMyAccount() {
+  document.getElementById("myAccount").classList.remove("d-none");
+  document.getElementById("changePassword").classList.add("d-none");
+  document.getElementById("myOrders").classList.add("d-none");
 
-function showMyOrders() {
-  document.getElementById("myOrdersContent").classList.remove("d-none");
-  document.getElementById("myAccountContent").classList.add("d-none");
 }
 
-function showMyAccount() {
-  document.getElementById("myOrdersContent").classList.add("d-none");
-  document.getElementById("myAccountContent").classList.remove("d-none");
+function showMyOrders() {
+  document.getElementById("myOrders").classList.remove("d-none");
+  document.getElementById("myAccount").classList.add("d-none");
+  document.getElementById("changePassword").classList.add("d-none");
 }
 
 function showChangePassword() {
-  document.getElementById("changePassword").classList.add("d-none");
-  document.getElementById("myAccountContent").classList.remove("d-none");
+    document.getElementById("changePassword").classList.remove("d-none");
+    document.getElementById("myAccount").classList.add("d-none");
+    document.getElementById("myOrders").classList.add("d-none");
 }
 
+
+// Click Edit in profile
+function enableEdit() {
+  // Enable input fields
+  document.getElementById('name').readOnly = false;
+  document.getElementById('dob').readOnly = false;
+  document.getElementById('male').disabled = false;
+  document.getElementById('female').disabled = false;
+  document.getElementById('phone').readOnly = false;
+  document.getElementById('email').readOnly = false;
+
+  // Change Edit button to Save and Cancel buttons
+  var editButton = document.getElementById('editButton');
+  editButton.innerHTML = 'Save';
+  editButton.setAttribute('onclick', 'saveChanges()');
+
+  // Show Cancel button
+  var cancelButton = document.getElementById('cancelButton');
+  cancelButton.style.display = 'inline-block';
+}
+
+function saveChanges() {
+  // Save changes logic here
+
+  // Disable input fields
+  document.getElementById('name').readOnly = true;
+  document.getElementById('dob').readOnly = true;
+  document.getElementById('male').disabled = true;
+  document.getElementById('female').disabled = true;
+  document.getElementById('phone').readOnly = true;
+  document.getElementById('email').readOnly = true;
+
+  // Change Save button back to Edit button
+  var editButton = document.getElementById('editButton');
+  editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit';
+  editButton.setAttribute('onclick', 'enableEdit()');
+
+  // Hide Cancel button
+  var cancelButton = document.getElementById('cancelButton');
+  cancelButton.style.display = 'none';
+}
+
+function cancelEdit() {
+  // Disable input fields
+  document.getElementById('name').readOnly = true;
+  document.getElementById('dob').readOnly = true;
+  document.getElementById('male').disabled = true;
+  document.getElementById('female').disabled = true;
+  document.getElementById('phone').readOnly = true;
+  document.getElementById('email').readOnly = true;
+
+  // Change Save button back to Edit button
+  var editButton = document.getElementById('editButton');
+  editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit';
+  editButton.setAttribute('onclick', 'enableEdit()');
+
+  // Hide Cancel button
+  var cancelButton = document.getElementById('cancelButton');
+  cancelButton.style.display = 'none';
+}
