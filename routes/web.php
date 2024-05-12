@@ -70,7 +70,8 @@ Route::group(['namespace' => 'client'], function () {
     Route::get('/kids/show', [ProductController::class, 'showMenPage'])->name('kids.products');
 
     // Cart 
-    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::get('/carts', [CartController::class, 'index'])->name('cart');
+    Route::get('carts/{id}', [CartController::class, 'store'])->name('cart.add');
 
     //Search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
