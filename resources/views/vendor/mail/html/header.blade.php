@@ -1,7 +1,5 @@
-<table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-        <td align="center" style="padding: 20px; color: black; font-size: 24px; font-weight: bold;">
-            {{ config('app.name') }}
-        </td>
-    </tr>
-</table>
+<div class="wrapper">
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="https://images.pexels.com/photos/23956983/pexels-photo-23956983.png" alt="LOGO" style="margin: auto; width: 200px; height: auto;">
+    </div>
+</div>
