@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::orderBy('created_at', 'desc')  // Sắp xếp theo thời gian tạo, mới nhất đầu tiên
-            ->take(10)  // Lấy 5 sản phẩm
+            ->take(12)  // Lấy 5 sản phẩm
             ->get();  // Thực thi truy vấn
         if (!$products) {
             return response()->json([

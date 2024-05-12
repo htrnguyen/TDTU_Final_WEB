@@ -21,7 +21,7 @@ class User extends Authenticatable
         'phone_number',
         'avatar_url',
         'role',
-        'is_active'
+        'status'
     ];
 
     

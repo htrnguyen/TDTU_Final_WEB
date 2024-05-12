@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Coupon;
 use App\Models\Product;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -14,6 +15,8 @@ class AdminCouponController extends Controller
 {
     public function index()
     {
-        return view('admin.coupon');
+        $coupons = Coupon::all();
+
+        return view('admin.coupon')->with('coupons', $coupons);
     }
 }

@@ -59,24 +59,57 @@
         </div>
     </div>
 
-    <div class="container mt-5">
-        <h4 class="text-center mb-4">Featured Products</h4>
-        <div class="row px-4">
-            @foreach ($products as $product)
-                <div class="col-md-3 d-flex align-items-stretch">
-                    <div class="card border">
-                        <img src="{{ asset('images/Jordan.png') }}" class="card-img-top img-fluid"
-                            style="height: 200px; object-fit: cover;" alt="{{ $product->name }}">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title {{ $product->featured ? 'text-danger' : '' }}">{{ $product->name }}</h5>
-                            <p class="card-text small text-truncate" style="max-height: 38px;">{{ $product->description }}
-                            </p>
-                            <p class="card-text mt-auto fw-bold">${{ number_format($product->price, 2) }}</p>
-                            <a href="{{ url('/product/' . $product->id) }}" class="btn btn-dark mt-auto">View Details</a>
+    <div class="container px-4">
+        <h3 class="text-center mb-4">Featured Products</h3>
+        <div class="row">
+            
+            {{-- Carousel loop --}}
+            <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach ($products->chunk(3) as $chunk)
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                            <div class="row ms-2 me-2 mb-5">
+                                @foreach ($chunk as $product)
+                                    <div class="col-md-4">
+                                        <div class="card border-0 rounded rounded-4 border shadow h-100">
+                                            <a href="{{ route('product.show', $product->id) }}"
+                                                class="text-dark text-decoration-none">
+                                                <img src="{{ asset('images/shoe3.jpg') }}" class="card-img-top img-fluid "
+                                                    alt="{{ $product->name }}" style="object-fit: cover; height: 250px;">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between">
+                                                        <p class="text-secondary mb-2 small">
+                                                            {{ $product->category ? $product->category->category_name : 'No Category' }}
+                                                        </p>
+                                                        <p class="text-secondary mb-2 small">
+                                                            {{ $product->created_at->diffForHumans() }}
+                                                        </p>
+                                                    </div>
+                                                    <h5 class="card-title
+                                                        {{-- ">{{ Str::limit($product->name, 50) }}</h5> --}}
+                                                    <p class="text-secondary mb-2 fw-bold">${{ number_format($product->price, 2) }}
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-            @endforeach
+                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
         </div>
     </div>
+
 @endsection

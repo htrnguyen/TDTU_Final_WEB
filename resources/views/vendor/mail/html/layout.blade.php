@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="color-scheme" content="light">
     <meta name="supported-color-schemes" content="light">
+
     <style>
         @media only screen and (max-width: 600px) {
             .inner-body {
@@ -24,12 +25,20 @@
                 width: 100% !important;
             }
         }
+
+        .content-cell {
+            padding: 15px;
+        }
+
+        .body {
+            padding: 20px;
+        }
     </style>
 </head>
 
 <body>
 
-    <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+    <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin: 10px">
         <tr>
             <td align="center">
                 <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation">

@@ -16,4 +16,19 @@ class CartController extends Controller
 
         return view('client.cart', compact('breadcrumbs'));
     }
+
+    public function store($id)
+    {
+        dd($id);
+    }
+
+    public function destroy($id)
+    {
+        //
+    }
+
+    public function update()
+    {
+        //
+    }
 }

@@ -51,7 +51,7 @@ class CreateIndexes extends Migration
         });
 
         Schema::table('coupons', function (Blueprint $table) {
-            $table->index('coupon_code');
+            $table->index('code');
         });
     }
 

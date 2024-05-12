@@ -14,8 +14,7 @@
     }
 </style>
 
-<footer class="text-dark text-center text-lg-start" style="background-color: #E5E1DA;">
-
+{{-- <footer class="text-dark text-center text-lg-start" style="background-color: #E5E1DA;"> --}}
     <!-- Grid container -->
     <div class="container py-2 px-4">
         <!--Grid row-->
