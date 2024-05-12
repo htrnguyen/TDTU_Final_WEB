@@ -4,8 +4,7 @@
             <img src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 50px; margin-right: 10px">
             <h3>Shoe Store</h3>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
@@ -37,10 +36,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body px-5">
-                        <form action="{{ route('search') }}" method="GET" class="d-flex justify-content-center">
-                            <input type="text" id="search-input"
-                                class="form-control border-0 shadow-sm bg-secondary-subtle" placeholder="Search"
-                                style="width: 80%; height: 40px;">
+                        <form id="search-form" action="{{ route('search') }}" method="GET" class="d-flex justify-content-center">
+                            <input type="text" id="search-input" class="form-control border-0 shadow-sm bg-secondary-subtle" placeholder="Search" style="width: 80%; height: 40px;">
                         </form>
                     </div>
 
@@ -51,29 +48,35 @@
     </nav>
 
 </header>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('search-input');
-        if (searchInput) {
-            searchInput.addEventListener('keyup', function(event) {
-                const query = event.target.value;
-                if (query.length > 2) {
-                    fetch(`/search?q=${encodeURIComponent(query)}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            const resultsContainer = document.querySelector('.modal-body');
-                            resultsContainer.innerHTML = ''; // Clear previous results
-                            data.forEach(item => {
-                                const div = document.createElement('div');
-                                div.textContent = item
-                                    .name; // Giả sử kết quả trả về có trường 'name'
-                                resultsContainer.appendChild(div);
-                            });
-                        })
-                        .catch(error => console.error('Error:', error));
-                }
-            });
-        }
+        const form = document.getElementById('search-form')
+        const searchInput = document.querySelector('form #search-input');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = searchInput.value;
+            if (query.length > 0) {
+                fetch(`/search?q=${query}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        const resultsContainer = document.querySelector('.modal-body');
+                        resultsContainer.innerHTML = ''; // Clear previous results
+                        data.forEach(item => {
+                            const div = document.createElement('div');
+                            div.textContent = item.name; // Assuming the response has a 'name' field
+                            resultsContainer.appendChild(div);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        });
     });
 </script>

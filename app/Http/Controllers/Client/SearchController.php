@@ -8,11 +8,16 @@ use App\Models\Product; // Giả sử bạn tìm kiếm sản phẩm
 
 class SearchController extends Controller
 {
-    public function search(Request $request)
+    public function search()
     {
-        $query = $request->input('q');
-        $results = Product::where('name', 'LIKE', '%' . $query . '%')->get();
+        $key = request()->input('q');
+        // $results = Product::where('name', 'LIKE', '%' . $key . '%')->get();
 
-        return view('search-results', compact('results', 'query'));
+        return response()->json([
+            'success' => true,
+            'data' => $key
+        ]);
+
+        // return view('search-results', compact('results', 'query'));
     }
 }
