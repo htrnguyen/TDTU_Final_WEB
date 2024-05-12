@@ -91,7 +91,7 @@ CREATE TABLE coupons (
     coupon_code VARCHAR(20) UNIQUE NOT NULL,
     discount DECIMAL(5, 2) NOT NULL,
     start_date TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
-    expiration_date TIMESTAMP,
+    expiration_date TIMESTAMP DEFAULT (CURRENT_TIMESTAMP),
     created_at TIMESTAMP DEFAULT (CURRENT_TIMESTAMP),
     updated_at TIMESTAMP DEFAULT (CURRENT_TIMESTAMP)
 );
@@ -205,7 +205,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (1, '/storage/images/products/nike_air_max_1.jpg', true),
 (1, '/storage/images/products/nike_air_max_2.jpg', false),
 (1, '/storage/images/products/nike_air_max_3.jpg', false),
-(1, '/storage/images/products/nike_air_max_4.jpg', false),
+(1, '/storage/images/products/nike_air_max_4.jpg', false);
 
 -- Adidas Samba variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -220,7 +220,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (2, '/storage/images/products/adidas_samba_1.jpg', true),
 (2, '/storage/images/products/adidas_samba_2.jpg', false),
 (2, '/storage/images/products/adidas_samba_3.jpg', false),
-(2, '/storage/images/products/adidas_samba_4.jpg', false),
+(2, '/storage/images/products/adidas_samba_4.jpg', false);
 
 -- Jordan B. Fly variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -235,7 +235,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (3, '/storage/images/products/jordan_b_fly_1.jpg', true),
 (3, '/storage/images/products/jordan_b_fly_2.jpg', false),
 (3, '/storage/images/products/jordan_b_fly_3.jpg', false),
-(3, '/storage/images/products/jordan_b_fly_4.jpg', false),
+(3, '/storage/images/products/jordan_b_fly_4.jpg', false);
 
 -- Under Armour Curry 7 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -250,7 +250,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (4, '/storage/images/products/under_armour_curry_7_1.jpg', true),
 (4, '/storage/images/products/under_armour_curry_7_2.jpg', false),
 (4, '/storage/images/products/under_armour_curry_7_3.jpg', false),
-(4, '/storage/images/products/under_armour_curry_7_4.jpg', false),
+(4, '/storage/images/products/under_armour_curry_7_4.jpg', false);
 
 -- New Balance Runners variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -265,7 +265,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (5, '/storage/images/products/new_balance_runners_1.jpg', true),
 (5, '/storage/images/products/new_balance_runners_2.jpg', false),
 (5, '/storage/images/products/new_balance_runners_3.jpg', false),
-(5, '/storage/images/products/new_balance_runners_4.jpg', false),
+(5, '/storage/images/products/new_balance_runners_4.jpg', false);
 
 -- Brooks Ghost variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -280,7 +280,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (6, '/storage/images/products/brooks_ghost_1.jpg', true),
 (6, '/storage/images/products/brooks_ghost_2.jpg', false),
 (6, '/storage/images/products/brooks_ghost_3.jpg', false),
-(6, '/storage/images/products/brooks_ghost_4.jpg', false),
+(6, '/storage/images/products/brooks_ghost_4.jpg', false);
 
 -- Asics Gel-Kayano variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -295,7 +295,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (7, '/storage/images/products/asics_gel_kayano_1.jpg', true),
 (7, '/storage/images/products/asics_gel_kayano_2.jpg', false),
 (7, '/storage/images/products/asics_gel_kayano_3.jpg', false),
-(7, '/storage/images/products/asics_gel_kayano_4.jpg', false),
+(7, '/storage/images/products/asics_gel_kayano_4.jpg', false);
 
 -- Reebok Print Run variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -310,7 +310,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (8, '/storage/images/products/reebok_print_run_1.jpg', true),
 (8, '/storage/images/products/reebok_print_run_2.jpg', false),
 (8, '/storage/images/products/reebok_print_run_3.jpg', false),
-(8, '/storage/images/products/reebok_print_run_4.jpg', false),
+(8, '/storage/images/products/reebok_print_run_4.jpg', false);
 
 -- Adidas ZX Flux variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -325,7 +325,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (9, '/storage/images/products/adidas_zx_flux_1.jpg', true),
 (9, '/storage/images/products/adidas_zx_flux_2.jpg', false),
 (9, '/storage/images/products/adidas_zx_flux_3.jpg', false),
-(9, '/storage/images/products/adidas_zx_flux_4.jpg', false),
+(9, '/storage/images/products/adidas_zx_flux_4.jpg', false);
 
 -- Nike React Miler variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -340,7 +340,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (10, '/storage/images/products/nike_react_miler_1.jpg', true),
 (10, '/storage/images/products/nike_react_miler_2.jpg', false),
 (10, '/storage/images/products/nike_react_miler_3.jpg', false),
-(10, '/storage/images/products/nike_react_miler_4.jpg', false),
+(10, '/storage/images/products/nike_react_miler_4.jpg', false);
 
 -- Puma Ignite variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -355,7 +355,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (11, '/storage/images/products/puma_ignite_1.jpg', true),
 (11, '/storage/images/products/puma_ignite_2.jpg', false),
 (11, '/storage/images/products/puma_ignite_3.jpg', false),
-(11, '/storage/images/products/puma_ignite_4.jpg', false),
+(11, '/storage/images/products/puma_ignite_4.jpg', false);
 
 -- Saucony Guide 13 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -370,7 +370,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (12, '/storage/images/products/saucony_guide_13_1.jpg', true),
 (12, '/storage/images/products/saucony_guide_13_2.jpg', false),
 (12, '/storage/images/products/saucony_guide_13_3.jpg', false),
-(12, '/storage/images/products/saucony_guide_13_4.jpg', false),
+(12, '/storage/images/products/saucony_guide_13_4.jpg', false);
 
 -- Hoka One One Bondi 6 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -385,7 +385,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (13, '/storage/images/products/hoka_one_one_bondi_6_1.jpg', true),
 (13, '/storage/images/products/hoka_one_one_bondi_6_2.jpg', false),
 (13, '/storage/images/products/hoka_one_one_bondi_6_3.jpg', false),
-(13, '/storage/images/products/hoka_one_one_bondi_6_4.jpg', false),
+(13, '/storage/images/products/hoka_one_one_bondi_6_4.jpg', false);
 
 -- La Sportiva Bushido II variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -400,7 +400,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (14, '/storage/images/products/la_sportiva_bushido_2_1.jpg', true),
 (14, '/storage/images/products/la_sportiva_bushido_2_2.jpg', false),
 (14, '/storage/images/products/la_sportiva_bushido_2_3.jpg', false),
-(14, '/storage/images/products/la_sportiva_bushido_2_4.jpg', false),
+(14, '/storage/images/products/la_sportiva_bushido_2_4.jpg', false);
 
 -- Mizuno Wave Inspire 16 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -415,7 +415,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (15, '/storage/images/products/mizuno_wave_inspire_16_1.jpg', true),
 (15, '/storage/images/products/mizuno_wave_inspire_16_2.jpg', false),
 (15, '/storage/images/products/mizuno_wave_inspire_16_3.jpg', false),
-(15, '/storage/images/products/mizuno_wave_inspire_16_4.jpg', false)
+(15, '/storage/images/products/mizuno_wave_inspire_16_4.jpg', false);
 -- 
 -- Women's shoes
 -- 
@@ -432,7 +432,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (16, '/storage/images/products/puma_cali_1.jpg', true),
 (16, '/storage/images/products/puma_cali_2.jpg', false),
 (16, '/storage/images/products/puma_cali_3.jpg', false),
-(16, '/storage/images/products/puma_cali_4.jpg', false),
+(16, '/storage/images/products/puma_cali_4.jpg', false);
 
 -- Reebok Classic variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -447,7 +447,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (17, '/storage/images/products/reebok_classic_1.jpg', true),
 (17, '/storage/images/products/reebok_classic_2.jpg', false),
 (17, '/storage/images/products/reebok_classic_3.jpg', false),
-(17, '/storage/images/products/reebok_classic_4.jpg', false),
+(17, '/storage/images/products/reebok_classic_4.jpg', false);
 
 -- Nike Flex 2021 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -462,7 +462,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (18, '/storage/images/products/nike_flex_2021_1.jpg', true),
 (18, '/storage/images/products/nike_flex_2021_2.jpg', false),
 (18, '/storage/images/products/nike_flex_2021_3.jpg', false),
-(18, '/storage/images/products/nike_flex_2021_4.jpg', false),
+(18, '/storage/images/products/nike_flex_2021_4.jpg', false);
 
 -- Adidas Cloudfoam variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -477,7 +477,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (19, '/storage/images/products/adidas_cloudfoam_1.jpg', true),
 (19, '/storage/images/products/adidas_cloudfoam_2.jpg', false),
 (19, '/storage/images/products/adidas_cloudfoam_3.jpg', false),
-(19, '/storage/images/products/adidas_cloudfoam_4.jpg', false),
+(19, '/storage/images/products/adidas_cloudfoam_4.jpg', false);
 
 -- Skechers D'Lites variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -492,7 +492,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (20, '/storage/images/products/skechers_dlites_1.jpg', true),
 (20, '/storage/images/products/skechers_dlites_2.jpg', false),
 (20, '/storage/images/products/skechers_dlites_3.jpg', false),
-(20, '/storage/images/products/skechers_dlites_4.jpg', false),
+(20, '/storage/images/products/skechers_dlites_4.jpg', false);
 
 -- Asics Gel-Venture variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -507,7 +507,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (21, '/storage/images/products/asics_gel_venture_1.jpg', true),
 (21, '/storage/images/products/asics_gel_venture_2.jpg', false),
 (21, '/storage/images/products/asics_gel_venture_3.jpg', false),
-(21, '/storage/images/products/asics_gel_venture_4.jpg', false),
+(21, '/storage/images/products/asics_gel_venture_4.jpg', false);
 
 -- Salomon Speedcross variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -522,7 +522,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (22, '/storage/images/products/salomon_speedcross_1.jpg', true),
 (22, '/storage/images/products/salomon_speedcross_2.jpg', false),
 (22, '/storage/images/products/salomon_speedcross_3.jpg', false),
-(22, '/storage/images/products/salomon_speedcross_4.jpg', false),
+(22, '/storage/images/products/salomon_speedcross_4.jpg', false);
 
 -- Merrell Trail Glove variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -537,7 +537,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (23, '/storage/images/products/merrell_trail_glove_1.jpg', true),
 (23, '/storage/images/products/merrell_trail_glove_2.jpg', false),
 (23, '/storage/images/products/merrell_trail_glove_3.jpg', false),
-(23, '/storage/images/products/merrell_trail_glove_4.jpg', false),
+(23, '/storage/images/products/merrell_trail_glove_4.jpg', false);
 
 -- Brooks Adrenaline GTS variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -552,7 +552,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (24, '/storage/images/products/brooks_adrenaline_gts_1.jpg', true),
 (24, '/storage/images/products/brooks_adrenaline_gts_2.jpg', false),
 (24, '/storage/images/products/brooks_adrenaline_gts_3.jpg', false),
-(24, '/storage/images/products/brooks_adrenaline_gts_4.jpg', false),
+(24, '/storage/images/products/brooks_adrenaline_gts_4.jpg', false);
 
 -- Hoka Clifton 7 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -567,7 +567,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (25, '/storage/images/products/hoka_clifton_7_1.jpg', true),
 (25, '/storage/images/products/hoka_clifton_7_2.jpg', false),
 (25, '/storage/images/products/hoka_clifton_7_3.jpg', false),
-(25, '/storage/images/products/hoka_clifton_7_4.jpg', false),
+(25, '/storage/images/products/hoka_clifton_7_4.jpg', false);
 
 -- New Balance Fresh Foam variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -582,7 +582,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (26, '/storage/images/products/new_balance_fresh_foam_1.jpg', true),
 (26, '/storage/images/products/new_balance_fresh_foam_2.jpg', false),
 (26, '/storage/images/products/new_balance_fresh_foam_3.jpg', false),
-(26, '/storage/images/products/new_balance_fresh_foam_4.jpg', false),
+(26, '/storage/images/products/new_balance_fresh_foam_4.jpg', false);
 
 -- Altra Torin 4.5 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -597,7 +597,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (27, '/storage/images/products/altra_torin_4.5_1.jpg', true),
 (27, '/storage/images/products/altra_torin_4.5_2.jpg', false),
 (27, '/storage/images/products/altra_torin_4.5_3.jpg', false),
-(27, '/storage/images/products/altra_torin_4.5_4.jpg', false),
+(27, '/storage/images/products/altra_torin_4.5_4.jpg', false);
 
 -- Saucony Peregrine 10 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -612,7 +612,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (28, '/storage/images/products/saucony_peregrine_10_1.jpg', true),
 (28, '/storage/images/products/saucony_peregrine_10_2.jpg', false),
 (28, '/storage/images/products/saucony_peregrine_10_3.jpg', false),
-(28, '/storage/images/products/saucony_peregrine_10_4.jpg', false),
+(28, '/storage/images/products/saucony_peregrine_10_4.jpg', false);
 
 -- Under Armour Hovr Sonic 3 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -627,7 +627,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (29, '/storage/images/products/under_armour_hovr_sonic_3_1.jpg', true),
 (29, '/storage/images/products/under_armour_hovr_sonic_3_2.jpg', false),
 (29, '/storage/images/products/under_armour_hovr_sonic_3_3.jpg', false),
-(29, '/storage/images/products/under_armour_hovr_sonic_3_4.jpg', false),
+(29, '/storage/images/products/under_armour_hovr_sonic_3_4.jpg', false);
 
 -- Vibram FiveFingers variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -667,7 +667,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (31, '/storage/images/products/converse_all_star_kids_1.jpg', true),
 (31, '/storage/images/products/converse_all_star_kids_2.jpg', false),
 (31, '/storage/images/products/converse_all_star_kids_3.jpg', false),
-(31, '/storage/images/products/converse_all_star_kids_4.jpg', false),
+(31, '/storage/images/products/converse_all_star_kids_4.jpg', false);
 
 -- Nike Kids Revolution variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -682,7 +682,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (32, '/storage/images/products/nike_kids_revolution_1.jpg', true),
 (32, '/storage/images/products/nike_kids_revolution_2.jpg', false),
 (32, '/storage/images/products/nike_kids_revolution_3.jpg', false),
-(32, '/storage/images/products/nike_kids_revolution_4.jpg', false),
+(32, '/storage/images/products/nike_kids_revolution_4.jpg', false);
 
 -- Adidas Kids Duramo variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -697,7 +697,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (33, '/storage/images/products/adidas_kids_duramo_1.jpg', true),
 (33, '/storage/images/products/adidas_kids_duramo_2.jpg', false),
 (33, '/storage/images/products/adidas_kids_duramo_3.jpg', false),
-(33, '/storage/images/products/adidas_kids_duramo_4.jpg', false),
+(33, '/storage/images/products/adidas_kids_duramo_4.jpg', false);
 
 -- Reebok Kids Road Supreme variations  
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -712,7 +712,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (34, '/storage/images/products/reebok_kids_road_supreme_1.jpg', true),
 (34, '/storage/images/products/reebok_kids_road_supreme_2.jpg', false),
 (34, '/storage/images/products/reebok_kids_road_supreme_3.jpg', false),
-(34, '/storage/images/products/reebok_kids_road_supreme_4.jpg', false),
+(34, '/storage/images/products/reebok_kids_road_supreme_4.jpg', false);
 
 -- Puma Kids Carina variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -727,7 +727,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (35, '/storage/images/products/puma_kids_carina_1.jpg', true),
 (35, '/storage/images/products/puma_kids_carina_2.jpg', false),
 (35, '/storage/images/products/puma_kids_carina_3.jpg', false),
-(35, '/storage/images/products/puma_kids_carina_4.jpg', false),
+(35, '/storage/images/products/puma_kids_carina_4.jpg', false);
 
 -- Skechers Kids Lightstorm variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -742,7 +742,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (36, '/storage/images/products/skechers_kids_lightstorm_1.jpg', true),
 (36, '/storage/images/products/skechers_kids_lightstorm_2.jpg', false),
 (36, '/storage/images/products/skechers_kids_lightstorm_3.jpg', false),
-(36, '/storage/images/products/skechers_kids_lightstorm_4.jpg', false),
+(36, '/storage/images/products/skechers_kids_lightstorm_4.jpg', false);
 
 -- Under Armour Kids Assert variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -757,7 +757,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (37, '/storage/images/products/under_armour_kids_assert_1.jpg', true),
 (37, '/storage/images/products/under_armour_kids_assert_2.jpg', false),
 (37, '/storage/images/products/under_armour_kids_assert_3.jpg', false),
-(37, '/storage/images/products/under_armour_kids_assert_4.jpg', false),
+(37, '/storage/images/products/under_armour_kids_assert_4.jpg', false);
 
 -- Brooks Kids Ghost 12 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -772,7 +772,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (38, '/storage/images/products/brooks_kids_ghost_12_1.jpg', true),
 (38, '/storage/images/products/brooks_kids_ghost_12_2.jpg', false),
 (38, '/storage/images/products/brooks_kids_ghost_12_3.jpg', false),
-(38, '/storage/images/products/brooks_kids_ghost_12_4.jpg', false),
+(38, '/storage/images/products/brooks_kids_ghost_12_4.jpg', false);
 
 -- Asics Kids GT-1000 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -787,7 +787,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (39, '/storage/images/products/asics_kids_gt_1000_1.jpg', true),
 (39, '/storage/images/products/asics_kids_gt_1000_2.jpg', false),
 (39, '/storage/images/products/asics_kids_gt_1000_3.jpg', false),
-(39, '/storage/images/products/asics_kids_gt_1000_4.jpg', false),
+(39, '/storage/images/products/asics_kids_gt_1000_4.jpg', false);
 
 -- Hoka One One Kids variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -802,7 +802,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (40, '/storage/images/products/hoka_one_one_kids_1.jpg', true),
 (40, '/storage/images/products/hoka_one_one_kids_2.jpg', false),
 (40, '/storage/images/products/hoka_one_one_kids_3.jpg', false),
-(40, '/storage/images/products/hoka_one_one_kids_4.jpg', false),
+(40, '/storage/images/products/hoka_one_one_kids_4.jpg', false);
 
 -- New Balance Kids 860v10 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -817,7 +817,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (41, '/storage/images/products/new_balance_kids_860v10_1.jpg', true),
 (41, '/storage/images/products/new_balance_kids_860v10_2.jpg', false),
 (41, '/storage/images/products/new_balance_kids_860v10_3.jpg', false),
-(41, '/storage/images/products/new_balance_kids_860v10_4.jpg', false),
+(41, '/storage/images/products/new_balance_kids_860v10_4.jpg', false);
 
 -- Saucony Kids Guide ISO 2 variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -832,13 +832,13 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (42, '/storage/images/products/saucony_kids_guide_iso_2_1.jpg', true),
 (42, '/storage/images/products/saucony_kids_guide_iso_2_2.jpg', false),
 (42, '/storage/images/products/saucony_kids_guide_iso_2_3.jpg', false),
-(42, '/storage/images/products/saucony_kids_guide_iso_2_4.jpg', false),
+(42, '/storage/images/products/saucony_kids_guide_iso_2_4.jpg', false);
 
 INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (43, '/storage/images/products/merrell_kids_trail_chaser_1.jpg', true),
 (43, '/storage/images/products/merrell_kids_trail_chaser_2.jpg', false),
 (43, '/storage/images/products/merrell_kids_trail_chaser_3.jpg', false),
-(43, '/storage/images/products/merrell_kids_trail_chaser_4.jpg', false),
+(43, '/storage/images/products/merrell_kids_trail_chaser_4.jpg', false);
 
 -- Merrell Kids Trail Chaser variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -853,7 +853,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (44, '/storage/images/products/merrell_kids_trail_chaser_1.jpg', true),
 (44, '/storage/images/products/merrell_kids_trail_chaser_2.jpg', false),
 (44, '/storage/images/products/merrell_kids_trail_chaser_3.jpg', false),
-(44, '/storage/images/products/merrell_kids_trail_chaser_4.jpg', false),
+(44, '/storage/images/products/merrell_kids_trail_chaser_4.jpg', false);
 
 -- Altra Kids One Jr variations
 INSERT INTO products (name, category_id, price, description, stock_quantity, color_id, size_id) VALUES
@@ -868,7 +868,7 @@ INSERT INTO product_images (product_id, image_path, is_main_image) VALUES
 (45, '/storage/images/products/altra_kids_one_jr_1.jpg', true),
 (45, '/storage/images/products/altra_kids_one_jr_2.jpg', false),
 (45, '/storage/images/products/altra_kids_one_jr_3.jpg', false),
-(45, '/storage/images/products/altra_kids_one_jr_4.jpg', false),
+(45, '/storage/images/products/altra_kids_one_jr_4.jpg', false);
 
 -- User 
 INSERT INTO users (last_name, first_name, username, email, password, address, phone_number, role) VALUES
@@ -896,83 +896,83 @@ INSERT INTO users (last_name, first_name, username, email, password, address, ph
 
 -- Inserting orders
 INSERT INTO orders (user_id, total_amount) VALUES
-(1, 195.00);
-(2, 130.00);
-(3, 90.00);
-(4, 140.00);
-(5, 120.00);
-(6, 110.00);
-(7, 130.00);
-(8, 90.00);
-(9, 140.00);
-(10, 120.00);
-(11, 110.00);
-(12, 130.00);
-(13, 90.00);
-(14, 140.00);
-(15, 120.00);
-(16, 110.00);
-(17, 130.00);
-(18, 90.00);
-(19, 140.00);
-(20, 120.00);
-(21, 110.00);
-(22, 130.00);
-(23, 90.00);
-(24, 140.00);
+(1, 195.00),
+(2, 130.00),
+(3, 90.00),
+(4, 140.00),
+(5, 120.00),
+(6, 110.00),
+(7, 130.00),
+(8, 90.00),
+(9, 140.00),
+(10, 120.00),
+(11, 110.00),
+(12, 130.00),
+(13, 90.00),
+(14, 140.00),
+(15, 120.00),
+(16, 110.00),
+(17, 130.00),
+(18, 90.00),
+(19, 140.00),
+(20, 120.00),
+(21, 110.00),
+(22, 130.00),
+(23, 90.00),
+(24, 140.00),
 (25, 120.00);
 
 
 -- Assuming order_id increments
 INSERT INTO order_details (order_id, product_id, quantity, price) VALUES
 (1, 1, 1, 110.00),
-(1, 2, 2, 85.00);
-(1, 3, 1, 90.00);
-(2, 4, 1, 140.00);
-(2, 5, 1, 120.00);
-(2, 6, 1, 130.00);
-(3, 7, 1, 90.00);
-(3, 8, 1, 140.00);
-(3, 9, 1, 120.00);
-(4, 10, 1, 110.00);
-(4, 11, 1, 130.00);
-(4, 12, 1, 90.00);
-(5, 13, 1, 140.00);
-(5, 14, 1, 120.00);
-(5, 15, 1, 110.00);
-(6, 16, 1, 130.00);
-(6, 17, 1, 90.00);
-(6, 18, 1, 140.00);
-(7, 19, 1, 120.00);
-(7, 20, 1, 110.00);
-(7, 21, 1, 130.00);
-(8, 22, 1, 90.00);
-(8, 23, 1, 140.00);
-(8, 24, 1, 120.00);
-(9, 25, 1, 110.00);
-(9, 26, 1, 130.00);
-(9, 27, 1, 90.00);
-(10, 28, 1, 140.00);
-(10, 29, 1, 120.00);
-(10, 30, 1, 110.00);
-(11, 31, 1, 130.00);
-(11, 32, 1, 90.00);
-(11, 33, 1, 140.00);
-(12, 34, 1, 120.00);
-(12, 35, 1, 110.00);
-(12, 36, 1, 130.00);
-(13, 37, 1, 90.00);
-(13, 38, 1, 140.00);
-(13, 39, 1, 120.00);
-(14, 40, 1, 110.00);
-(14, 41, 1, 130.00);
-(14, 42, 1, 90.00);
-(15, 43, 1, 140.00);
-(15, 44, 1, 120.00);
+(1, 2, 2, 85.00),
+(1, 3, 1, 90.00),
+(2, 4, 1, 140.00),
+(2, 5, 1, 120.00),
+(2, 6, 1, 130.00),
+(3, 7, 1, 90.00),
+(3, 8, 1, 140.00),
+(3, 9, 1, 120.00),
+(4, 10, 1, 110.00),
+(4, 11, 1, 130.00),
+(4, 12, 1, 90.00),
+(5, 13, 1, 140.00),
+(5, 14, 1, 120.00),
+(5, 15, 1, 110.00),
+(6, 16, 1, 130.00),
+(6, 17, 1, 90.00),
+(6, 18, 1, 140.00),
+(7, 19, 1, 120.00),
+(7, 20, 1, 110.00),
+(7, 21, 1, 130.00),
+(8, 22, 1, 90.00),
+(8, 23, 1, 140.00),
+(8, 24, 1, 120.00),
+(9, 25, 1, 110.00),
+(9, 26, 1, 130.00),
+(9, 27, 1, 90.00),
+(10, 28, 1, 140.00),
+(10, 29, 1, 120.00),
+(10, 30, 1, 110.00),
+(11, 31, 1, 130.00),
+(11, 32, 1, 90.00),
+(11, 33, 1, 140.00),
+(12, 34, 1, 120.00),
+(12, 35, 1, 110.00),
+(12, 36, 1, 130.00),
+(13, 37, 1, 90.00),
+(13, 38, 1, 140.00),
+(13, 39, 1, 120.00),
+(14, 40, 1, 110.00),
+(14, 41, 1, 130.00),
+(14, 42, 1, 90.00),
+(15, 43, 1, 140.00),
+(15, 44, 1, 120.00),
 (15, 45, 1, 110.00);
 
 -- Coupons
 INSERT INTO coupons (coupon_code, discount, start_date, expiration_date) VALUES
-('25OFF', 25.00, '2024-05-01 00:00:00', '2024-10-31 23:59:59');
-('FREESHIP', 0.00, '2024-05-01 00:00:00', '2024-10-31 23:59:59');
+('25OFF', 25.00, '2024-05-01 00:00:00', '2024-10-31 23:59:59'),
+('FREESHIP', 0.00, '2024-05-01 00:00:00', '2024-10-31 23:59:59'),
 ('10OFF', 10.00, '2024-05-01 00:00:00', '2024-10-31 23:59:59');
