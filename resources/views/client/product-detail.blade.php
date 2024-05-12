@@ -20,10 +20,12 @@
                 </ul>
 
                 <!-- Add to Cart Button -->
-                <form action="{{ route('cart', $product->id) }}" method="POST">
+                {{-- <form action="{{ route('cart', $product->id) }}" method="POST"> --}}
+                <form action="{{ route('cart')}}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
                 </form>
+
 
                 <!-- Color and Size Options -->
                 <div class="mt-3">

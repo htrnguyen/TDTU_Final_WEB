@@ -23,19 +23,19 @@
             <div class="collapse navbar-collapse d-flex justify-content-center ps-5" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ url('#') }}">New & Featured</a>
+                        <a class="nav-link text-dark" href="{{ route('home') }}">New & Featured</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ url('/men') }}">Men</a>
+                        <a class="nav-link text-dark" href="{{ route('men') }}">Men</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ url('/women') }}">Women</a>
+                        <a class="nav-link text-dark" href="{{ route('women') }}">Women</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ url('/kids') }}">Kids</a>
+                        <a class="nav-link text-dark" href="{{ route('kids') }}">Kids</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ url('#') }}">Sale</a>
+                        <a class="nav-link text-dark" href="{{ route('home') }}">Sale</a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
                         aria-label="Search" aria-describedby="button-addon2" style="background-color: #f5f5f5">
                 </div>
                 
-                <a class="nav-item nav-link fas fa-shopping-cart m-auto fs-4" href="{{ url('/cart') }}"></a>
+                <a class="nav-item nav-link fas fa-shopping-cart m-auto fs-4" href="{{ route('cart') }}"></a>
             </div>
         </div>
     </nav>

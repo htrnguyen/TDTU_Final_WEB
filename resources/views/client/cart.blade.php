@@ -1,4 +1,6 @@
-@extends('layouts.client')
+{{-- Đang sửa, đừng xoá --}}
+
+{{-- @extends('layouts.client')
 
 @section('content')
     <div class="container mt-4">
@@ -35,11 +37,11 @@
             <!-- ... -->
         </div>
     </div>
-@endsection
+@endsection --}}
 
 
 
-{{-- 
+
 @extends('layouts.client')
 
 @section('title', 'Shoe Store Home')
@@ -161,4 +163,4 @@
             </div>
         </div>
 
-    @endsection --}}
+    @endsection

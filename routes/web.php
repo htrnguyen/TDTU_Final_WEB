@@ -85,9 +85,6 @@ Route::group(['namespace' => 'client'], function () {
     // View Product details
     Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.product-detail');
     // Route::get('/viewproduct', [ViewProductController::class, 'index'])->name('viewproduct');
-
-    // Add to cart
-    Route::post('/cart/add/{product_id}', [CartController::class, 'add'])->name('cart.add');
 });
 
 
