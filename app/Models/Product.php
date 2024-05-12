@@ -25,6 +25,12 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function getCategoryNameFromId($id) {
+        $category = Category::find($id);
+
+        return $category ? $category->category_name : 'Uncategorized';
+    }
+
     // public function sizes()
     // {
     //     return $this->hasMany(ProductSize::class);
@@ -35,8 +41,8 @@ class Product extends Model
     //     return $this->belongsToMany(ProductColor::class);
     // }
 
-    public function images()
-    {
-        return $this->hasMany(ProductImage::class);
-    }
+    // public function images()
+    // {
+    //     return $this->hasMany(ProductImage::class);
+    // }
 }

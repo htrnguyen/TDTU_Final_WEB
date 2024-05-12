@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,42 @@
     <link rel="stylesheet" href="{{asset('css/admin/admin.css') }}">
     <title>Admin shoe</title>
 </head>
+
 <body>
     <div class="container">
         @if(!request()->is('admin/login'))
-            @yield('header-admin')
-            <div class="container-sidebar-child">
-                @yield('container-sidebar-dashboard')
-            </div>
-               @include('partials.adminsidebar')
+        @yield('header-admin')
+        <div class="container-sidebar-child">
+            @yield('container-sidebar-dashboard')
+        </div>
+        @include('partials.adminsidebar')
         @endif
         <main>
             @yield('container-main')
+            <div class="mask-logout" id="mask-logout"></div>
+            <div id="confirmDialog" class="confirmDialog">
+                <p>Are you sure logout?</p>
+                <div class="confirmDialog-content">
+                    <button id="confirmLogout" class="confirmDialog-button">Logout</button>
+                    <button id="cancelLogout" class="confirmDialog-button">Cancel</button>
+                </div>
+            </div>
         </main>
     </div>
 </body>
+<script>
+    function logout(event) {
+        event.preventDefault();
+        document.getElementById('confirmDialog').style.visibility = 'visible';
+        document.getElementById('mask-logout').style.visibility = 'visible';
+        document.getElementById('confirmLogout').addEventListener('click', function() {
+            window.location.href = "{{route('login_admin')}}";
+        });
+        document.getElementById('cancelLogout').addEventListener('click', function() {
+            document.getElementById('confirmDialog').style.visibility = 'hidden';
+            document.getElementById('mask-logout').style.visibility = 'hidden';
+        });
+    }
+</script>
+
 </html>

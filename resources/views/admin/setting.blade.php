@@ -79,7 +79,7 @@
                     <div class="sdi-address">
                         <div class="sdi-a-edit">
                             <h3>Address</h3>
-                            <button class="sdi-a-edit-btn">
+                            <button class="sdi-a-edit-btn" onclick="editAddress()">
                                 Edit
                                 <i class="fa-solid fa-pen"></i>
                             </button>
@@ -87,11 +87,11 @@
                         <div class="sdi-a-details">
                             <div class="sdi-a-street">
                                 <p>Country</p>
-                                VietNam
+                                <h5 id="country">VietNam</h5>
                             </div>
                             <div class="sdi-a-city">
                                 <p>City/State</p>
-                                District 7
+                                <h5 id="city">District 7</h5>
                             </div>
                     </div>
                 </div>
@@ -150,11 +150,27 @@
                 <div class="sdi-p-bio-edit">
                         <p>Bio</p>
                         <input type="text" value="Amin Say Hi" id="bio-input">
-                    </div>
-                    <div class="btn-confirm-edit">
+                </div>
+                <div class="btn-confirm-edit">
                     <button class="btn-cancel-details">Cancel</button>
                     <button class="btn-edit-details">Done</button>
                 </div>
+            </div>
+        </div>
+        <div class="sdi-address-edit">
+            <div class="sdi-address-group">
+                <div class="sdi-a-street-edit">
+                    <p>Country</p>
+                    <input type="text" value="VietNam" id="country-input">
+                </div>
+                <div class="sdi-a-city-edit">
+                    <p>City/State</p>
+                    <input type="text" value="District 7" id="city-input">
+                </div>
+            </div>
+            <div class="btn-confirm-edit">
+                <button class="btn-cancel-address">Cancel</button>
+                <button class="btn-edit-address">Done</button>
             </div>
         </div>
     </div>
@@ -231,6 +247,30 @@
                     var emailDiv = document.getElementById('email').innerText = newEmail;
                     var phoneDiv = document.getElementById('phone').innerText = newPhone;
                     var bioDiv = document.getElementById('bio').innerText = newBio;
+                });
+            }
+        }
+
+        function editAddress () {
+            var mask = document.querySelector('.edit-mask');
+            var display = document.querySelector('.sdi-address-edit');
+            mask.style.visibility = 'visible';
+            display.style.visibility = 'visible';
+            var cancel = document.querySelector('.btn-cancel-address');
+            var confirm = document.querySelector('.btn-edit-address');
+            if(mask.style.visibility === 'visible' && display.style.visibility === 'visible') {
+                cancel.addEventListener('click', function() {
+                    mask.style.visibility = 'hidden';
+                    display.style.visibility = 'hidden';
+                });
+                confirm.addEventListener('click', function() {
+                    mask.style.visibility = 'hidden';
+                    display.style.visibility = 'hidden';
+                    var newCountry = document.getElementById('country-input').value;
+                    var newCity = document.getElementById('city-input').value;
+
+                    var countryDiv = document.getElementById('country').innerText = newCountry;
+                    var cityDiv = document.getElementById('city').innerText = newCity;
                 });
             }
         }

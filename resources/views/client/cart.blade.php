@@ -1,4 +1,4 @@
-@extends('layouts.client')
+{{-- @extends('layouts.client')
 
 @section('content')
 <div class="container mt-3">
@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-12">
             <hr>
-            @if(session('cart') && count(session('cart')) > 0)
+            @if (session('cart') && count(session('cart')) > 0)
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -20,7 +20,7 @@
                         </thead>
                         <tbody>
                             @php $total = 0; @endphp
-                            @foreach(session('cart') as $id => $details)
+                            @foreach (session('cart') as $id => $details)
                                 @php $total += $details['price'] * $details['quantity']; @endphp
                                 <tr>
                                     <td>
@@ -55,16 +55,15 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
 
-{{-- @extends('layouts.client')
+@extends('layouts.client')
 
 @section('title', 'Shoe Store Home')
 
 @section('content')
 
-    {{-- Content --}}
-    {{-- <div class="container mt-4">
+    <div class="container mt-4">
         <div class="row">
             <div class="col-md-8">
                 <h3>Cart</h3>
@@ -90,7 +89,6 @@
                                 </select>
                             </p>
                             <button type="button" class="btn btn-light"><i class="far fa-trash-alt"></i></button>
-                            <a href="#" class="btn btn-dark rounded-pill ">Buy</a>
                         </div>
                     </div>
 
@@ -99,9 +97,9 @@
 
 
             <div class="col-md-4">
-                <div class="card no-border">
-                    <div class="card-body">
-                        <h3 class="card-title">Summary</h3>
+                <h3 class="card-title">Summary</h3>
+                    <div class="card mt-3 no-border">
+
                         <ul class="list-group list-group-flush pb-3">
                             <li class="pt-2 d-flex justify-content-between align-items-center">
                                 Subtotal
@@ -180,5 +178,4 @@
             </div>
         </div>
 
-    @endsection --}} 
-
+    @endsection
