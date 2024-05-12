@@ -62,7 +62,7 @@
     <div class="container px-4">
         <h3 class="text-center mb-4">Featured Products</h3>
         <div class="row">
-            
+
             {{-- Carousel loop --}}
             <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -72,7 +72,7 @@
                                 @foreach ($chunk as $product)
                                     <div class="col-md-4">
                                         <div class="card border-0 rounded rounded-4 border shadow h-100">
-                                            <a href="{{ route('product.show', $product->id) }}"
+                                            <a href="{{ route('product.product-detail', $product->id) }}"
                                                 class="text-dark text-decoration-none">
                                                 <img src="{{ asset('images/shoe3.jpg') }}" class="card-img-top img-fluid "
                                                     alt="{{ $product->name }}" style="object-fit: cover; height: 250px;">
@@ -85,9 +85,12 @@
                                                             {{ $product->created_at->diffForHumans() }}
                                                         </p>
                                                     </div>
-                                                    <h5 class="card-title
-                                                        {{-- ">{{ Str::limit($product->name, 50) }}</h5> --}}
-                                                    <p class="text-secondary mb-2 fw-bold">${{ number_format($product->price, 2) }}
+                                                    <h5
+                                                        class="card-title
+                                                        ">
+                                                        {{ Str::limit($product->name, 50) }}</h5>
+                                                    <p class="text-secondary mb-2 fw-bold">
+                                                        ${{ number_format($product->price, 2) }}
                                                     </p>
                                                 </div>
                                             </a>

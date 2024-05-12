@@ -60,12 +60,9 @@ Route::group(['namespace' => 'client'], function () {
 
     // Men
     Route::get('/men', [MenController::class, 'index'])->name('men');
-    // Route::get('/men/show', [ProductController::class, 'showMenPage'])->name('men.products');
 
     // Women
     Route::get('/women', [WomenController::class, 'index'])->name('women');
-    Route::get('/women/show', [ProductController::class, 'showMenPage'])->name('women.products');
-
     // Kids
     Route::get('/kids', [KidsController::class, 'index'])->name('kids');
     Route::get('/kids/show', [ProductController::class, 'showMenPage'])->name('kids.products');
@@ -86,8 +83,11 @@ Route::group(['namespace' => 'client'], function () {
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
 
     // View Product details
-    Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+    Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.product-detail');
     // Route::get('/viewproduct', [ViewProductController::class, 'index'])->name('viewproduct');
+
+    // Add to cart
+    Route::post('/cart/add/{product_id}', [CartController::class, 'add'])->name('cart.add');
 });
 
 
@@ -115,7 +115,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 
     // Login
     Route::get('/login', [AdminLoginController::class, 'index'])->name('login_admin');
-
 });
 
 // Use this api to check if server health is good or not

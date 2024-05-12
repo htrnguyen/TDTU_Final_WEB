@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -15,5 +16,10 @@ class CartController extends Controller
         ];
 
         return view('client.cart', compact('breadcrumbs'));
+    }
+
+    public function add($product_id)
+    {
+        // Get the product from sku or id
     }
 }

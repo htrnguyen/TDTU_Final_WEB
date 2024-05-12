@@ -18,7 +18,7 @@ class MenController extends Controller
             'Men' => null
         ];
 
-        $products = Product::with('category')->paginate(12);
+        $products = Product::where('category_id', '1')->paginate(12);
 
         return view('client.men', compact('breadcrumbs', 'products'));
     }
