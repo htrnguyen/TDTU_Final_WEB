@@ -125,6 +125,8 @@ body {
 }
 
 .cs-create-new-task i {
+    width: 40px;
+    height: 40px;
     font-size: 1.4rem;
     color: #fff;
     padding: 10px;
@@ -306,23 +308,23 @@ body {
 
 .dashboard-image {
     margin-top: 40px;
-    width: 100%;
+    max-width: 100%;
     height: 190px;
-    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+    justify-content: space-around;
+    align-items: center;
     background-color: var(--tertiary-color);
-    padding-left: 450px;
     border-radius: 30px;
+    padding: 0 20px;
 }
+
 
 .dashboard-image h2 {
     margin-bottom: 10px;
 }
+
+
 .dashboard-image img {
-    position: absolute;
     width: 150px;
     height: 300px;
     object-fit: contain;
@@ -359,60 +361,73 @@ body {
 /* chart-activity-progress */
 .chart-activity-progress {
     margin-top: 50px;
-    position: relative;
     display: grid;
     max-width: 100%;
-    height: 290px;
-    grid-template-columns: 3fr 2fr;
-    grid-column-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Sử dụng auto-fill để tự động wrap các cột */
+    grid-column-gap: 30px;
+    gap: 20px;
+    justify-content: center; /* Căn giữa các cột theo chiều ngang */
+    align-content: center;
 }
 
 .chart-activity-progress .chart {
-    background-color: #fff;
     position: relative;
     padding: 20px;
     width: 100%;
     box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
+    background-color: #fff;
 }
 
+.chart-activity canvas {
+    max-width: 470px;
+}
+
+.chart-progress canvas {
+    max-width: 170px;
+}
+
+.chart-activity-progress .chart-activity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .chart-activity-progress .chart-progress {
-    padding: 0;
     position: relative;
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10px;
-    
+    grid-template-columns: 49% 49%;
+    justify-content: space-between;
+    padding: 0;
 }
+
 .chart-progress .cp-child:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
     line-height: 50px;
     padding: 10px;
-    position: relative;
     width: 100%;
-    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08);
 }
 
 .chart-progress .cp-child:nth-child(2) {
-    position: relative;
     width: 100%;
-    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08);
     display: grid;
     grid-template-rows: 1fr 1fr;
     border-radius: 20px;
-    grid-row-gap: 15px;
 }
 
 
 .cp-child .cp-child-1 {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 30px;
-    position: relative;
     width: 100%;
     box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08);
     border-radius: 20px;
@@ -437,11 +452,14 @@ body {
     margin-top: 60px;
     border-radius: 30px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
+    gap: 20px;
 }
 
 .tracking {
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -457,6 +475,11 @@ body {
 }
 
 .tracking-barchart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
     margin-top: 20px;
     background-color: #fff;
     border-radius: 20px;
@@ -485,6 +508,11 @@ body {
     justify-content: space-between;
     align-items: start;
     border-radius: 20px;
+    background-color: #fff;
+    max-width: 100%;
+    padding: 20px;
+    gap: 10px;
+    box-shadow: 10px 7px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .most-tracking-content-child {
@@ -521,6 +549,7 @@ body {
 }
 
 .product-header {
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -584,8 +613,10 @@ body {
     width: 100%;
     margin-top: 40px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .classify-product h3 {
@@ -605,22 +636,23 @@ select {
     border-radius: 20px;
     padding: 0 10px;
     border: 1px solid #000;
+    font-size: 0.8rem;
 }
 
 .cp-sort select {
-    width: 90px;
-    height: 40px;
+    width: 70px;
+    height: 30px;
 }
 
 .cp-collection select {
     margin: 0 10px;
-    width: 135px;
-    height: 40px;
+    width: 95px;
+    height: 30px;
 }
 
 .cp-price select {
-    width: 120px;
-    height: 40px;
+    width: 100px;
+    height: 30px;
 } 
 
 .list-product-created {
@@ -629,31 +661,45 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 table {
-    width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
 }
 
 table tr:first-child{
     border: none;
     box-shadow: none;
-    text-align: left;
+    background-color: transparent;
 }
 
 
 table tr th {
-    padding: 8px 0 8px 25px;
+    padding: 8px 0 8px 10px;
     background-color: transparent;
+    width: fit-content;
+
 }
 
 table tr td{
-    padding: 20px 0 20px 25px;
-    background-color: #fff;
-    
+    padding: 20px 0 20px 10px;
 }
+
+table tr {
+    background-color: #fff;
+}
+
+.list-product-created tr th:nth-child(1),
+.list-product-created tr td:nth-child(1) {
+    width: 70px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 15px;
+}
+
+
 .lpc-product {
     display: flex;
     justify-content: start;
@@ -671,6 +717,7 @@ table tr td{
 .lpc-category {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
     justify-content: start;
     align-items: center;
 }
@@ -684,6 +731,8 @@ table tr td{
 
 .lpc-color {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: start;
     align-items: center;
 }
@@ -706,8 +755,9 @@ td .edit {
 }
 
 input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
+    max-width: 20px;
     margin-right: 20px;
     cursor: pointer;
 }
@@ -754,10 +804,12 @@ input[type="checkbox"] {
 
 .form-group {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: #fff;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 30px;
+    background-color: #fffefe;
     padding: 30px;
     border-radius: 20px;
+    justify-content: space-between;
 }
 
 .form-group-1 {
@@ -910,9 +962,11 @@ textarea:focus,
 
 .fg-pricing-details {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
 }
 
 
@@ -957,6 +1011,8 @@ textarea:focus,
 .header-order-product {
     margin-top: 30px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
     align-items: center;
 }
@@ -1939,9 +1995,218 @@ input[type="text"]:focus {
 /* REPONSIZE FOR MOBILE */
 @media only screen and (max-width: 740px) {
 
+    /* Dashboard */
+    .container-main-dashboard,
+    .container-main-product {
+        padding: 20px 20px;
+        position: relative;
+        left: 80px;
+        width: calc(100% - 80px);
+        color: black;
+        z-index: 10;
+    }
+
+    .container-sidebar-dashboard {
+        display: none;
+    }
+    .container-sidebar {
+        align-items: center;
+        width: 80px;
+        padding-left: 0;
+    }
+
+    .container-sidebar p {
+        display: none;
+    }
+
+    .container-sidebar a {
+        justify-content: center;
+        align-items: center;
+        padding: 7px 0;
+        width: 60px;
+    }
+
+    .container-sidebar a i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+    }
+
+    .cs-create-new-task {
+        background-color: transparent;
+        margin: 0;
+    }
+    .cs-create-new-task i {
+        box-shadow: none;
+    }
+
+    .dashboard-image h2 {
+        font-size: 1.2rem;
+    }
+    
+    
+    .dashboard-image p {
+        font-size: 0.7rem;
+    }
+
+    .chart-activity-progress .chart {
+        width: 90%;
+    }
+
+    .chart-activity-progress {
+        justify-content: start;
+        max-width: 100%;
+    }
+    .chart-activity canvas {
+        max-width: 200px;
+    }
+    .tracking-barchart canvas {
+        max-width: 320px;
+    }
+
+    /* Product */
+    table tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
+
+    .list-product-created tr td,
+    .list-product-created tr th {
+        display: none;
+    }
+
+    .list-product-created tr th:nth-child(1),
+    .list-product-created tr td:nth-child(1) {
+        display: none;
+    }
+
+    table tr{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+    }
+
+    table tr th:nth-child(2),
+    table tr th:last-child,
+    table tr td:nth-child(2),
+    table tr td:last-child {
+        display: block;
+    }
+
+    table tr th:nth-child(2) {
+        display: flex;
+        align-items: center;
+    }
+    table tr th:last-child,
+    table tr td:last-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-items: center;
+    }
+
+    /* Order product */
+    .container-main-order-product {
+        padding: 20px 20px;
+        position: relative;
+        left: 80px;
+        width: calc(100% - 80px);
+        color: black;
+        z-index: 10;
+    }
+    .list-product-ordered tr th,
+    .list-product-ordered tr td,
+    .list-product-ordered tr th:nth-child(2),
+    .list-product-ordered tr td:nth-child(2) {
+        display: none;
+    }
+
+    .list-product-ordered tr th:nth-child(1),
+    .list-product-ordered tr th:last-child,
+    .list-product-ordered tr td:nth-child(1) {
+        display: block;
+    }
+
+    /* Create order */
+    .container-main-create-product {
+        padding: 20px 20px;
+        position: relative;
+        left: 80px;
+        width: calc(100% - 80px);
+        color: black;
+        z-index: 10;
+    }
+
 }
 
 /*REPONSIVE FOR TABLET */
 @media only screen and (min-width: 740px) and (max-width: 1024px) {
-    
+    /* Dashboard */
+    .container-sidebar-dashboard {
+        display: none;
+    }
+    .container-main-dashboard {
+        padding: 20px 20px;
+        position: relative;
+        left: 250px;
+        width: calc(100% - 250px);
+        color: black;
+        z-index: 10;
+    }
+
+    /* Product */
+    table tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
+
+    .list-product-created tr td,
+    .list-product-created tr th {
+        display: none;
+    }
+
+    table tr{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+    }
+
+    table tr th:nth-child(2),
+    table tr th:last-child,
+    table tr td:nth-child(2),
+    table tr td:last-child {
+        display: block;
+    }
+
+    table tr th:nth-child(2) {
+        display: flex;
+        align-items: center;
+    }
+    table tr th:last-child,
+    table tr td:last-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-items: center;
+    }
+
+    /* Order product */
+    .list-product-ordered tr th,
+    .list-product-ordered tr td,
+    .list-product-ordered tr th:nth-child(2),
+    .list-product-ordered tr td:nth-child(2) {
+        display: none;
+    }
+
+    .list-product-ordered tr th:nth-child(1),
+    .list-product-ordered tr th:last-child,
+    .list-product-ordered tr td:nth-child(1) {
+        display: block;
+    }
+
 }

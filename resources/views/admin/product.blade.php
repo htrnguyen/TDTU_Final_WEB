@@ -10,7 +10,7 @@
             <a href="{{route('createproduct_admin')}}" id="ph-create">
                 <button>
                     <i class="fa-solid fa-plus"></i>
-                    <p>Add Product</p>
+                    <p>Create</p>
                 </button>
             </a>
             <a href="{{route('orderproduct_admin')}}" id="ph-order">
@@ -87,7 +87,7 @@
                     </td>
                     <td>
                         <div class="lpc-category">
-                            <p>{{ $product->getCategoryNameFromId($product->category_id) }}</p>
+                            <p>{{ $product->getCategoryNameFromId() }}</p>
                         </div>
                     </td>
                     <td>
@@ -96,21 +96,16 @@
                         </div>
                     </td>
                     <td>
-                        <p>{{'$' . $product->price }}</p>
+                        <p>{{ '$' . $product->price }}</p>
                     </td>
                     <td>
                         <p>{{ $product->stock_quantity }}</p>
                     </td>
-                    <!-- <td>
-                        <p>asdfsd</p>
-                    </td> -->
                     <td>
                         <button type="button" class="edit">Edit</button>
                     </td>
                 </tr>
                 @endforeach
-
-
             </table>
         </div>
     </div>
