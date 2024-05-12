@@ -13,7 +13,7 @@
     </div>
     <div class="coupon-body">
         <div class="coupod-child">
-            <img src="{{asset('images/counpon-1.png')}}" alt="Coupon">
+            <img src="{{asset('images/counpon.jpg')}}" alt="Coupon">
             <div class="coupon-details">
                 <div class="cd-day">
                     <h3>Black Friday Voucher</h3>

@@ -25,6 +25,56 @@ body {
     
 }
 
+/* logout */
+
+.mask-logout {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+}
+
+.confirmDialog {
+    visibility: hidden;
+    position: fixed;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.confirmDialog-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.confirmDialog-content button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #9BCF53;
+    color: #000000;
+    cursor: pointer;
+}
+
+.confirmDialog-content button:nth-child(2) {
+    background-color: #ebebeb;
+}
+
 /* Container-sidebar */
 .container-sidebar {
     position: fixed;
@@ -1811,7 +1861,9 @@ table tr:first-child{
     padding: 10px;
     cursor: pointer;
 }
-.btn-edit, .btn-edit-details {
+.btn-edit,
+.btn-edit-details, 
+.btn-edit-address {
     background-color: #9BCF53;
 }
 .change-img input[type="file"] {
@@ -1859,6 +1911,29 @@ input[type="text"]:focus {
 .sid-personal-details-edit input[type="text"] {
     width: 190px;
 
+}
+
+.sdi-address-edit {
+    visibility: hidden;
+    position: fixed;
+    background-color: #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    z-index: 100;
+}
+.sdi-address-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
 /* REPONSIZE FOR MOBILE */

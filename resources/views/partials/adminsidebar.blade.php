@@ -34,7 +34,7 @@
         <i class="fa-solid fa-cog"></i>
         <p>Setting</p>
     </a>
-    <a href="{{route('login_admin')}}" class="logout">
+    <a href="{{route('login_admin')}}" class="logout" id="logout" onclick="logout(event)">
         <i class="fa-solid fa-right-from-bracket"></i>
         <p>Logout</p>
     </a>
