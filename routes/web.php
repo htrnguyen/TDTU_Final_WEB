@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminTaskListController;
 use App\Http\Controllers\Admin\AdminCustomerController;
 use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminLogoutController;
 
 // Client
 use App\Http\Controllers\Client\CartController;
@@ -114,6 +115,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
 
     // Login
     Route::get('/login', [AdminLoginController::class, 'index'])->name('login_admin');
+
 });
 
 // Use this api to check if server health is good or not
