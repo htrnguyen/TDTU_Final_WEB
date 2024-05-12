@@ -613,8 +613,10 @@ body {
     width: 100%;
     margin-top: 40px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .classify-product h3 {
@@ -644,12 +646,12 @@ select {
 
 .cp-collection select {
     margin: 0 10px;
-    width: 100px;
+    width: 95px;
     height: 30px;
 }
 
 .cp-price select {
-    width: 120px;
+    width: 100px;
     height: 30px;
 } 
 
@@ -669,27 +671,35 @@ table {
 table tr:first-child{
     border: none;
     box-shadow: none;
-    text-align: left;
+    background-color: transparent;
 }
 
 
 table tr th {
-    padding: 8px 0 8px 25px;
+    padding: 8px 0 8px 10px;
     background-color: transparent;
+    width: fit-content;
+
 }
 
 table tr td{
-    padding: 20px 0 20px 25px;
+    padding: 20px 0 20px 10px;
+}
+
+table tr {
     background-color: #fff;
 }
 
-.list-product-created tr th:nth-child(1) {
+.list-product-created tr th:nth-child(1),
+.list-product-created tr td:nth-child(1) {
+    width: 70px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 15px;
 }
 
 
-.list-product-created tr th:nth-child(3) {
-    width: 100px;
-}
 .lpc-product {
     display: flex;
     justify-content: start;
@@ -745,6 +755,8 @@ td .edit {
 }
 
 input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
     max-width: 20px;
     margin-right: 20px;
     cursor: pointer;
@@ -792,10 +804,12 @@ input[type="checkbox"] {
 
 .form-group {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 30px;
     background-color: #fffefe;
     padding: 30px;
     border-radius: 20px;
+    justify-content: space-between;
 }
 
 .form-group-1 {
@@ -948,9 +962,11 @@ textarea:focus,
 
 .fg-pricing-details {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
 }
 
 
@@ -995,6 +1011,8 @@ textarea:focus,
 .header-order-product {
     margin-top: 30px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
     align-items: center;
 }
@@ -2050,8 +2068,78 @@ input[type="text"]:focus {
     }
 
     /* Product */
+    table tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
 
+    .list-product-created tr td,
+    .list-product-created tr th {
+        display: none;
+    }
 
+    .list-product-created tr th:nth-child(1),
+    .list-product-created tr td:nth-child(1) {
+        display: none;
+    }
+
+    table tr{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+    }
+
+    table tr th:nth-child(2),
+    table tr th:last-child,
+    table tr td:nth-child(2),
+    table tr td:last-child {
+        display: block;
+    }
+
+    table tr th:nth-child(2) {
+        display: flex;
+        align-items: center;
+    }
+    table tr th:last-child,
+    table tr td:last-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-items: center;
+    }
+
+    /* Order product */
+    .container-main-order-product {
+        padding: 20px 20px;
+        position: relative;
+        left: 80px;
+        width: calc(100% - 80px);
+        color: black;
+        z-index: 10;
+    }
+    .list-product-ordered tr th,
+    .list-product-ordered tr td,
+    .list-product-ordered tr th:nth-child(2),
+    .list-product-ordered tr td:nth-child(2) {
+        display: none;
+    }
+
+    .list-product-ordered tr th:nth-child(1),
+    .list-product-ordered tr th:last-child,
+    .list-product-ordered tr td:nth-child(1) {
+        display: block;
+    }
+
+    /* Create order */
+    .container-main-create-product {
+        padding: 20px 20px;
+        position: relative;
+        left: 80px;
+        width: calc(100% - 80px);
+        color: black;
+        z-index: 10;
+    }
 
 }
 
@@ -2077,18 +2165,25 @@ input[type="text"]:focus {
         justify-content: center;
     }
 
-    table tr td,
-    table tr th {
+    .list-product-created tr td,
+    .list-product-created tr th {
         display: none;
     }
 
-    table tr th:first-child,
+    table tr{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+    }
+
+    table tr th:nth-child(2),
     table tr th:last-child,
-    table tr td:first-child,
+    table tr td:nth-child(2),
     table tr td:last-child {
         display: block;
     }
-    table tr th:first-child {
+
+    table tr th:nth-child(2) {
         display: flex;
         align-items: center;
     }
@@ -2098,6 +2193,20 @@ input[type="text"]:focus {
         justify-content: center;
         align-items: center;
         align-items: center;
+    }
+
+    /* Order product */
+    .list-product-ordered tr th,
+    .list-product-ordered tr td,
+    .list-product-ordered tr th:nth-child(2),
+    .list-product-ordered tr td:nth-child(2) {
+        display: none;
+    }
+
+    .list-product-ordered tr th:nth-child(1),
+    .list-product-ordered tr th:last-child,
+    .list-product-ordered tr td:nth-child(1) {
+        display: block;
     }
 
 }

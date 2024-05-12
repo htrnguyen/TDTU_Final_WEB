@@ -101,16 +101,11 @@
                     <td>
                         <p>{{ $product->stock_quantity }}</p>
                     </td>
-                    <!-- <td>
-                        <p>asdfsd</p>
-                    </td> -->
                     <td>
                         <button type="button" class="edit">Edit</button>
                     </td>
                 </tr>
                 @endforeach
-
-
             </table>
         </div>
     </div>

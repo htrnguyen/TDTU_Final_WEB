@@ -16,16 +16,14 @@
             @component('coupon-card', ['coupon' => $coupon])
             @endcomponent
         @endforeach
-
-
-        <div class="coupon-action">
+        {{-- <div class="coupon-action">
             <button class="ca-edit">
                 <p>View Details</p>
             </button>
             <button class="ca-delete">
                 <p>Delete</p>
             </button>
-        </div>
+        </div> --}}
     </div>
 
 </div>
