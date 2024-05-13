@@ -32,4 +32,10 @@ class CartController extends Controller
     {
         //
     }
+
+    public function add($product_id)
+    {
+        // Get the product from sku or id
+    }
+
 }
