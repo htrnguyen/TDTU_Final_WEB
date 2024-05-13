@@ -7,7 +7,7 @@
         <!-- Breadcrumbs -->
         @include('partials.breadcrumbs', ['pages' => ['Home', 'home']])
         <!-- Banner Section -->
-        <img src="{{ asset('images/men-banner.jpg') }}" class="img-fluid" alt="Men">
+        <img src="{{ asset('images/banner/men-banner.jpg') }}" class="img-fluid" alt="Men">
     </div>
 
 

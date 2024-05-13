@@ -100,67 +100,9 @@
                             <span>$432.40</span>
                         </li>
                     </ul>
-                    <a href="#" class="btn btn-dark mt-3 rounded-pill btn-lg w-100">Checkout</a>
+                    <a href="{{ route('checkout')}}" class="btn btn-dark mt-3 rounded-pill btn-lg w-100">Checkout</a>
                 </div>
             </div>
         </div>
-
-    </div>
-    </div>
-    <div class="container mt-4">
-        <h3>Shopping now!</h3>
-
-        <div class="container px-5 mt-3 md-5">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('images/men-shoes.jpg') }}" class="card-img-top" alt="Men Shoes">
-                        <div class="card-body">
-                            <h5 class="card-title">Men Shoes Collection</h5>
-                            <p class="card-text small">Constructed from luxury nylons, leathers, and custom
-                                hardware,
-                                featuring
-                                sport
-                                details such as hidden breathing vents, waterproof + antimicrobial linings, and
-                                more.
-                            </p>
-                            <a href="{{ url('/men') }}" class="btn btn-dark">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('images/women-shoes.jpg') }}" class="card-img-top" alt="Women Shoes">
-                        <div class="card-body">
-                            <h5 class="card-title">Women Shoes Collection</h5>
-                            <p class="card-text small">Constructed from luxury nylons, leathers, and custom
-                                hardware,
-                                featuring
-                                sport
-                                details such as hidden breathing vents, waterproof + antimicrobial linings, and
-                                more.
-                            </p>
-                            <a href="{{ url('/women') }}" class="btn btn-dark">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0">
-                        <img src="{{ asset('images/kid-shoes.jpg') }}" class="card-img-top" alt="Kids Shoes">
-                        <div class="card-body">
-                            <h5 class="card-title">Kids Shoes Collection</h5>
-                            <p class="card-text small">Constructed from luxury nylons, leathers, and custom
-                                hardware,
-                                featuring
-                                sport
-                                details such as hidden breathing vents, waterproof + antimicrobial linings, and
-                                more.
-                            </p>
-                            <a href="{{ url('/kids') }}" class="btn btn-dark">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    @endsection
+    </div>      
+@endsection

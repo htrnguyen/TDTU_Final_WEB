@@ -2,58 +2,47 @@
 document.addEventListener("DOMContentLoaded", function () {
     const colorButtons = document.querySelectorAll("[data-color]");
     const sizeButtons = document.querySelectorAll("[data-size]");
-    const skuElement = document.getElementById("sku");
+    const codeElement = document.getElementById("code");
 
-    // Function to update SKU
-    function updateSKU(color, size) {
-        const baseSKU = window.productId;
-        skuElement.textContent = `${baseSKU}-${color}-${size}`;
+    // Function to update CODE
+    function updateCODE(color, size) {
+        codeElement.textContent = `${window.productId}-${color}-${size}`;
 
         // Update color and size
         document.getElementById("color").textContent = color;
         document.getElementById("size").textContent = size;
     }
 
-    // Update SKU with default values
-    const defaultColor =
-        document.querySelector("[data-color].btn-success")?.dataset.color || "";
-    const defaultSize =
-        document.querySelector("[data-size].btn-success")?.dataset.size || "";
-    updateSKU(defaultColor, defaultSize);
-
     // Function to handle button click
     function handleButtonClick(event, isColor) {
         event.preventDefault();
 
-        // Remove active class from all buttons
+        // Remove active class from all buttons and add to clicked button
         const buttons = isColor ? colorButtons : sizeButtons;
         buttons.forEach((button) => button.classList.remove("btn-success"));
+        event.target.classList.add("btn-success");
 
-        // Add active class to clicked button
-        const button = event.target;
-        button.classList.add("btn-success");
-
-        // Update SKU
+        // Update CODE
         const selectedColor =
             document.querySelector("[data-color].btn-success")?.dataset.color ||
             "";
         const selectedSize =
             document.querySelector("[data-size].btn-success")?.dataset.size ||
             "";
-        updateSKU(selectedColor, selectedSize);
+        updateCODE(selectedColor, selectedSize);
     }
 
     // Event listeners
-    colorButtons.forEach((button) => {
+    colorButtons.forEach((button) =>
         button.addEventListener("click", (event) =>
             handleButtonClick(event, true)
-        );
-    });
-    sizeButtons.forEach((button) => {
+        )
+    );
+    sizeButtons.forEach((button) =>
         button.addEventListener("click", (event) =>
             handleButtonClick(event, false)
-        );
-    });
+        )
+    );
 });
 
 // Initialize slider:
