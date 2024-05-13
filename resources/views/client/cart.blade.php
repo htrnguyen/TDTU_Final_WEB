@@ -1,51 +1,6 @@
-{{-- Đang sửa, đừng xoá --}}
-
-{{-- @extends('layouts.client')
-
-@section('content')
-    <div class="container mt-4">
-        @include('partials.breadcrumbs', ['pages' => ['Home', 'home']])
-        <div class="row">
-            <div class="col-md-8">
-                <h3>Cart</h3>
-                @if (session('cart') && count(session('cart')) > 0)
-                    @foreach (session('cart') as $id => $details)
-                        <div class="card mb-3 mt-3 no-border">
-                            <div class="row no-gutters align-items-center ">
-                                <div class="col-md-3">
-                                    <img src="{{ asset('images/Jordan.png') }}" alt="{{ $details['name'] }}"
-                                        style="width: 90%; height: 100%">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="card-title">{{ $details['name'] }}</h5>
-                                        <p class="ml-auto" style="font-weight: bold">${{ $details['price'] }}</p>
-                                    </div>
-                                    <p class="card-text">Quantity: {{ $details['quantity'] }}</p>
-                                    <button type="button" class="btn btn-light"><i class="far fa-trash-alt"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    <div class="alert alert-warning" role="alert">
-                        Your cart is empty!
-                        <a href="{{ url('/') }}" class="alert-link">Continue Shopping</a>
-                    </div>
-                @endif
-            </div>
-            <!-- ... -->
-        </div>
-    </div>
-@endsection --}}
-
-
-
 
 @extends('layouts.client')
-
 @section('title', 'Shoe Store Home')
-
 @section('content')
 
     <div class="container mt-4">

@@ -11,7 +11,7 @@
                 <div class="card shadow-lg border-0 rounded rounded-3">
                     <div class="card-body px-5">
                         {{-- Form inout email --}}
-                        <form id="formForgotPassword" method="POST" action="{{ route('forgot-password') }}">
+                        <form id="formForgotPassword" method="POST" action="{{ route('password.forgot.submit') }}">
                             <h2 class="card-title text-center pt-5 pb-2">Enter your email address</h2>
                             @csrf
                             <div class="mb-4">
