@@ -66,8 +66,4 @@ class AccountController extends Controller
         $user = User::where('username', $username)->firstOrFail();
         return view('client.profile', ['user' => $user]);
     }
-
-    public function s() {
-        return view('client.profile');
-    }
 }

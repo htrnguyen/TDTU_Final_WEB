@@ -35,11 +35,11 @@ Route::group(['namespace' => 'auth'], function () {
     // Login
     Route::get('/login', [SessionController::class, 'index'])->name('login');
     Route::post('/login', [SessionController::class, 'store'])->name('login.submit');
-    Route::post('/logout', [SessionController::class, 'destroy']);
+    Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
 
     // Register
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
-    Route::post('/register', [RegisterController::class, 'store'])->name('submit.register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.submit');
     Route::delete('/delete', [RegisterController::class, 'destroy']);
 
     // Reset-password
@@ -69,7 +69,7 @@ Route::group(['namespace' => 'client'], function () {
 
     // Cart 
     Route::get('/carts', [CartController::class, 'index'])->name('cart');
-    Route::get('carts/{id}', [CartController::class, 'store'])->name('cart.add');
+    Route::post('carts/{id}', [CartController::class, 'store'])->name('cart.add')->middleware('auth');
 
     // Checkout
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
@@ -82,8 +82,7 @@ Route::group(['namespace' => 'client'], function () {
     Route::get('test-reset-password', [MailController::class, 'resetPassword']);
 
     // Profile
-    Route::get('/profile', [AccountController::class, 's']);
-    Route::get('/profile/{username}', [AccountController::class, 'index'])->name('account.profile');
+    Route::get('/{username}', [AccountController::class, 'index'])->name('profile');
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
 
     // View Product details

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -19,7 +20,7 @@ class CartController extends Controller
 
     public function store($id)
     {
-        dd($id);
+        dd($id, Auth::user()->id ?? null);
     }
 
     public function destroy($id)
