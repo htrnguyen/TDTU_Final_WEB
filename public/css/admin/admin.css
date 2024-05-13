@@ -843,7 +843,7 @@ input[type="checkbox"] {
     background-color: #fff;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 7px 7px 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .fg-description-details p, 
