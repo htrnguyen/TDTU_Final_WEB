@@ -20,16 +20,16 @@
                             </div>
                             <button type="submit" class="btn btn-dark w-100 btn-hover">RESET PASSWORD</button>
                         </form>
-                        {{-- Back to login --}}
-                        <div class="text-center">
-                            <a href="{{ route('login') }}" class="text-decoration-none">Back to Login</a>
-                        </div>
                         {{-- Message --}}
                         <div id="message" class="alert alert-success text-center d-none" role="alert">
                             <h4 class="alert-heading">Email sent</h4>
                             <p>
                                 We have sent you an email with instructions on how to reset your password.
                             </p>
+                        </div>
+                        {{-- Back to login --}}
+                        <div class="text-center">
+                            <a href="{{ route('login') }}" class="text-decoration-none">Back to Login</a>
                         </div>
 
                     </div>
