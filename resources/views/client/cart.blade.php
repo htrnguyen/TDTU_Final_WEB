@@ -1,63 +1,93 @@
-
 @extends('layouts.client')
 @section('title', 'Shoe Store Home')
 @section('content')
-
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5 px-5">
         @include('partials.breadcrumbs', ['pages' => ['Home', 'home']])
-        <div class="row">
-            <div class="col-md-8">
-                <h3>Cart</h3>
-                <div class="card mb-3 mt-3 no-border">
-                    <div class="row no-gutters align-items-center ">
-                        <div class="col-md-3">
-                            <img src="{{ asset('images/shoe1-black.jpg') }}" alt="Strutter shoe"
-                                style="width: 90%; height: 100%">
+        <div class="cart page-width">
+            <div class="cart-page-top"></div>
+            <div class="cart-page-middle">
+                <div class="row">
+                    {{-- Column Shopping Cart --}}
+                    <div class="col-md-8">
+                        <div id="shopping-cart-items">
+                            <table class="table table-borderless">
+                                <thead class="border-bottom">
+                                    <tr>
+                                        <th scope="col">Product</th>
+                                        <th scope="col" class="text-center">Price</th>
+                                        <th scope="col" class="text-center">Quantity</th>
+                                        <th scope="col" class="text-center">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border-0">
+                                            <div class="d-flex align-items-center">
+                                                <img src="{{ asset('images/Jordan.png') }}" alt="Nike air zoom pegasus 35"
+                                                    class="img-fluid shadow-lg me-4" width="20%" height="20%">
+                                                <div>
+                                                    <a href="/men/nike-air-zoom-pegasus-35-143"
+                                                        class="font-weight-bold text-decoration-none">Nike air zoom pegasus
+                                                        35</a>
+                                                    <div>Color: Blue</div>
+                                                    <div>Size: 39</div>
+                                                    <a type="button" class="btn btn-delete"><i class="far fa-trash-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="border-0 text-center">$411.00</td>
+                                        <td class="border-0 text-center">1</td>
+                                        <td class="border-0 text-center">$411.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="border-0">
+                                            <div class="d-flex align-items-center">
+                                                <img src="{{ asset('images/shoe2.jpg') }}" alt="New Product"
+                                                    class="img-fluid shadow-lg me-4" width="20%" height="20%">
+                                                <div>
+                                                    <a href="/men/new-product"
+                                                        class="font-weight-bold text-decoration-none">New Product</a>
+                                                    <div>Color: Red</div>
+                                                    <div>Size: 38</div>
+                                                    <a type="button" class="btn btn-delete"><i class="far fa-trash-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="border-0 text-center">$500.00</td>
+                                        <td class="border-0 text-center">2</td>
+                                        <td class="border-0 text-center">$1000.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="col-md-8">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="card-title">Nike Air Max Pulse</h5>
-                                <p class="ml-auto" style="font-weight: bold">$422.40</p>
-                            </div>
-                            <p class="card-text">Women's Shoes<br>
-                                White/Green/Black<br>
-                                Size
-                                <select class="custom-select no-border">
-                                    <option selected>S</option>
-                                    <option selected>M</option>
-                                    <option selected>L</option>
-                                    <option selected>XL</option>
-                                </select>
-                            </p>
-                            <button type="button" class="btn btn-light"><i class="far fa-trash-alt"></i></button>
+                        <div class="mt-5">
+                            <p class="fw-bold">Promotion code?</p>
+                            <form id="couponForm" action="#" method="POST"
+                                class="form-inline d-flex justify-content-between">
+                                <div class="input-group mb-2 w-50">
+                                    <input type="text" class="form-control" name="coupon"
+                                        placeholder="Enter coupon code" value="">
+                                    <div class="input-group-append  ms-3">
+                                        <button type="button" class="btn btn-secondary m-auto">Apply</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
+                    {{-- Column Checkout --}}
+                    <div class="col-md-4 px-5">
+                        <div class="card border-0">
+                            <h4 class="card-title">Order summary</h4>
+                            <hr>
+                            <p class="card-text">Sub total: $1,129.00</p>
+                            <p class="card-text">Total: $1,129.00</p>
+                            <a href="/checkout" class="btn btn-secondary w-100">CHECKOUT</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
-            <div class="col-md-4">
-                <h3 class="card-title">Summary</h3>
-                <div class="card mt-3 no-border">
-
-                    <ul class="list-group list-group-flush pb-3">
-                        <li class="pt-2 d-flex justify-content-between align-items-center">
-                            Subtotal
-                            <span>$422.40</span>
-                        </li>
-                        <li class="py-2 d-flex justify-content-between align-items-center border-bottom">
-                            Estimated Delivery & Handling
-                            <span>$10</span>
-                        </li>
-                        <li class="py-2 d-flex justify-content-between align-items-center font-weight-bold border-bottom">
-                            Total
-                            <span>$432.40</span>
-                        </li>
-                    </ul>
-                    <a href="{{ route('checkout')}}" class="btn btn-dark mt-3 rounded-pill btn-lg w-100">Checkout</a>
-                </div>
-            </div>
+            <div class="cart-page-bottom"></div>
         </div>
-    </div>      
+    </div>
 @endsection
