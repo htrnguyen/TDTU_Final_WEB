@@ -14,9 +14,9 @@ class ProductDetailFactory extends Factory
         return [
             'product_id' => $this->faker->numberBetween(1, 12),
             'stock_quantity' => $this->faker->numberBetween(0, 100),
-            'color' => 'red',
+            'color' => $this->faker->randomElement(['red', 'blue', 'green']),
             'image' => $this->faker->imageUrl(),
-            'size' => '38',
+            'size' => $this->faker->randomElement(['38', '39', '40', '41', '42']),
         ];
     }
 }

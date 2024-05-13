@@ -23,6 +23,10 @@ class ProductDetail extends Model
         return $this->belongsTo(Product::class);
     }
 
+    public function carts() {
+        return $this->belongsToMany(Cart::class);
+    }
+
     public function getFullInformation()
     {
         $product = $this->product;
@@ -30,6 +34,7 @@ class ProductDetail extends Model
         $product->color = $this->color;
         $product->size = $this->size;
         $product->image = $this->image;
+        $product->product_detail_id = $this->id;
 
         return $product;
     }

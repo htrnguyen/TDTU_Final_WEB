@@ -36,9 +36,9 @@ use App\Models\ProductDetail;
 use App\Models\User;
 
 Route::get('/test', function() {
-    $cart = Cart::where('user_id', 22)->get();
+    $user = User::find(22);
 
-    dd($cart[0]->getFullProductInformation());
+    $user->getTotalPrice();
 
 });
 
@@ -85,6 +85,7 @@ Route::group(['namespace' => 'client'], function () {
     // Cart 
     Route::get('/carts', [CartController::class, 'index'])->name('cart');
     Route::post('carts/{id}', [CartController::class, 'store'])->name('cart.add')->middleware('auth');
+    Route::delete('carts/{id}', [CartController::class, 'destroy'])->name('cart.delete')->middleware('auth');
 
     // Checkout
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');

@@ -55,6 +55,12 @@ class Product extends Model
         return explode(',', $images);
     }
 
+    public function getNumberOfColors() {
+        $count = count($this->colorFromStringToArray());
+
+        return $count > 1 ? $count . ' colors' : $count . ' color';
+    }
+
     // public function sizes()
     // {
     //     return $this->hasMany(ProductSize::class);

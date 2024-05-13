@@ -20,27 +20,29 @@ class CartController extends Controller
         ];
 
         $user = User::find(Auth::user()->id);
-        // $productDetailIds = $user->getProductDetailIds();
-        // $productDetails = ProductDetail::whereIn('id', $productDetailIds)->get();
-
-
         $carts = $user->carts;
+        $total = $user->getTotalPrice();
 
         $productDetails = [];
-
         foreach ($carts as $index => $cart) {
             array_push($productDetails, $cart->getFullProductInformation());
         }
 
-        // dd($productDetails);
-
-        return view('client.cart', compact('breadcrumbs', 'productDetails'));
+        return view('client.cart', compact('breadcrumbs', 'productDetails', 'total'));
     }
 
     public function store($id)
     {
+        $attributes = request()->validate([
+            'color' => 'required|string',
+            'size' => 'required|string'
+        ]);
+
         $product = Product::find($id);
-        $productDetail = ProductDetail::find($id);
+        $productDetail = ProductDetail::where('product_id', $id)
+                ->where('color', $attributes['color'])
+                ->where('size', $attributes['size'])
+                ->first();
         $userId = Auth::user()->id;
 
         // Check if the product detail already exists in the user's cart
@@ -62,13 +64,19 @@ class CartController extends Controller
             ]);
         }
 
-        dd($cart);
+        return redirect()->intended("product/$productDetail->id")->with('message', 'add product to cart successfully');
     }
 
 
     public function destroy($id)
     {
-        //
+        $cartItem = Cart::where('product_detail_id', $id)
+            ->where('user_id', Auth::user()->id)
+            ->delete();
+
+        
+
+        return redirect()->route('cart')->with('success', 'Cart item deleted successfully');
     }
 
     public function update()

@@ -8,6 +8,7 @@
         <div class="cart-page-middle">
             <div class="row">
                 {{-- Column Shopping Cart --}}
+                @if ($productDetails && count($productDetails) > 0)
                 <div class="col-md-8">
                     <div id="shopping-cart-items">
                         <table class="table table-borderless">
@@ -44,14 +45,22 @@
                     <div class="card border-0">
                         <h4 class="card-title">Order summary</h4>
                         <hr>
-                        <p class="card-text">Sub total: $1,129.00</p>
+                        <p class="card-text">Sub total: $ {{ $total }}</p>
                         <p class="card-text">Total: $1,129.00</p>
                         <a href="/checkout" class="btn btn-secondary w-100">CHECKOUT</a>
                     </div>
                 </div>
+                @else
+                <div class="text-center">
+                    <p class="h3">Your cart is empty</p>
+                    <a href="{{ route('home') }}" class="btn btn-dark">Go shop here</a>
+                </div>
+                @endif
             </div>
         </div>
         <div class="cart-page-bottom"></div>
     </div>
 </div>
+
+
 @endsection

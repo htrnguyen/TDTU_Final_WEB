@@ -24,13 +24,13 @@ class User extends Authenticatable
         'status'
     ];
 
-    
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    
+
     protected function casts(): array
     {
         return [
@@ -39,7 +39,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function carts() {
+    public function carts()
+    {
         return $this->hasMany(Cart::class);
     }
 
@@ -51,5 +52,18 @@ class User extends Authenticatable
         }
 
         return $productDetailIds;
+    }
+
+    public function getTotalPrice()
+    {
+        $carts = $this->carts;
+        $total = 0;
+
+        foreach ($carts as $index => $cart) {
+            $productDetail = $cart->getFullProductInformation();
+            $total += $productDetail->quantity * $productDetail->price;
+        }
+
+        return $total;
     }
 }

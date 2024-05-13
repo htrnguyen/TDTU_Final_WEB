@@ -2,16 +2,30 @@
 <tr>
     <td class="border-0">
         <div class="d-flex align-items-center">
-            <img src="{{ asset('images/Jordan.png') }}" alt="Nike air zoom pegasus 35" class="img-fluid shadow-lg me-4" width="20%" height="20%">
+            <div class="col-md-3">
+                <!-- TODO: product img link -->
+                <img src="{{ asset('images/shoe1-black.jpg') }}" alt="Strutter shoe" style="width: 90%; height: 100%">
+            </div>
             <div>
-                <a href="/men/nike-air-zoom-pegasus-35-143" class="font-weight-bold text-decoration-none">{{ $productDetail->name }}</a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="card-title">{{ $productDetail->name }}</h5>
+                </div>
+                <!-- <a href="/men/nike-air-zoom-pegasus-35-143" class="font-weight-bold text-decoration-none">{{ $productDetail->name }}</a> -->
                 <div>Color: {{ $productDetail->color }}</div>
                 <div>Size: {{ $productDetail->size }}</div>
-                <a type="button" class="btn btn-delete"><i class="far fa-trash-alt"></i></a>
+                <form method="POST" action="{{ route('cart.delete', ['id' => $productDetail->product_detail_id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-delete"><i class="far fa-trash-alt"></i></button>
+                </form>
             </div>
         </div>
     </td>
-    <td class="border-0 text-center">$ {{ $productDetail->price }}</td>
+    <td class="border-0 text-center">${{ $productDetail->price }}</td>
     <td class="border-0 text-center">{{ $productDetail->quantity }}</td>
-    <td class="border-0 text-center">{{ $productDetail->price * $productDetail->quantity }}</td>
+    <td class="border-0 text-center">${{ $productDetail->price * $productDetail->quantity }}</td>
 </tr>
+
+
+
+

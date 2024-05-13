@@ -96,7 +96,7 @@
                                         </div>
                                         <h5 class="card-title">{{ Str::limit($product->name, 50) }}</h5>
                                         <p class="text-secondary mb-2 small text-danger">
-                                            {{ $product->color }}
+                                            {{ $product->getNumberOfColors()  }}
                                         </p>
                                         <p class="text-secondary mb-2 fst-italic">
                                             {{ Str::limit($product->description, 100) }}</p>
