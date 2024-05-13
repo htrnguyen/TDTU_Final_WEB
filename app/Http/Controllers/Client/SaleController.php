@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\product;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -13,7 +13,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        return view('client.sale');
+        $products = Product::all()->paginate(12);
+        return view('client.sale')->with('products', $products);
     }
 
     /**

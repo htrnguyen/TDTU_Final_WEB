@@ -42,7 +42,7 @@ use Illuminate\Support\Facades\Auth;
                         <a class="nav-link text-dark me-4" href="{{ route('kids') }}">Kids</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('home') }}">Sale</a>
+                        <a class="nav-link text-dark" href="{{ route('sale') }}">Sale</a>
                     </li>
                 </ul>
             </div>
