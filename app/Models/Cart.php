@@ -30,4 +30,11 @@ class Cart extends Model
     {
         return $this->belongsTo(ProductDetail::class);
     }
+
+    public function getFullProductInformation() {
+        $infor = ProductDetail::find($this->product_detail_id)->getFullInformation();
+        $infor->quantity = $this->quantity;
+
+        return $infor;
+    }
 }
