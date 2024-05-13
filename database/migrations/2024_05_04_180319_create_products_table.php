@@ -14,7 +14,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->decimal('price', 10, 2);
             $table->text('description')->nullable();
-            $table->integer('stock_quantity')->default(1);
+            $table->integer('total_quantity')->default(1000);
             $table->string('color');
             $table->string('image')->nullable();
             $table->string('size');

@@ -1,7 +1,5 @@
 @extends('layouts.client')
-
 @section('title', 'Shoe Store Home')
-
 @section('content')
     <div class="container mt-4 mb-5 px-5">
         @include('partials.breadcrumbs', ['pages' => ['Home', 'home']])

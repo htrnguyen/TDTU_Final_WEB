@@ -21,10 +21,4 @@ class ProductController extends Controller
 
         return view('client.product-detail', compact('breadcrumbs', 'product'));
     }
-    // public function showMenPage()
-    // {
-    //     $products = Product::all();
-
-    //     return view('client.men', ['products' => $products]);
-    // }
 }

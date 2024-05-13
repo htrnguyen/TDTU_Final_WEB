@@ -31,9 +31,6 @@ class CreateIndexes extends Migration
 
         Schema::table('products', function (Blueprint $table) {
             $table->index('category_id');
-            $table->index('color');
-            $table->index('size');
-            $table->index('image');
         });
 
         Schema::table('carts', function (Blueprint $table) {

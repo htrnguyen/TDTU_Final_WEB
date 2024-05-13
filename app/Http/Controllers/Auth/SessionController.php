@@ -26,7 +26,6 @@ class SessionController extends Controller
             'password' => ['required'],
         ]);
 
-        // dd($credentials);
 
         if (Auth::attempt($credentials)) {
             // Authentication passed

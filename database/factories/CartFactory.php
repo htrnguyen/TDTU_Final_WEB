@@ -18,6 +18,9 @@ class CartFactory extends Factory
             'product_id' => function () {
                 return \App\Models\Product::factory()->create()->id;
             },
+            'product_detail_id' => function () {
+                return \App\Models\ProductDetail::factory()->create()->id;
+            },
             'quantity' => $this->faker->numberBetween(1, 10),
             // Add other fields as needed
         ];

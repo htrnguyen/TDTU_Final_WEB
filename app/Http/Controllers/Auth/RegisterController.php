@@ -8,7 +8,9 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Notifications\VerifyEmailNotification;
+use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
@@ -25,40 +27,44 @@ class RegisterController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'last_name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'address' => ['nullable', 'string', 'max:255'],
-            'phone_number' => ['nullable', 'string', 'max:20'],
-        ]);
+        try {
+            $attributes = request()->validate([
+                'last_name' => ['required', 'string', 'max:255'],
+                'first_name' => ['required', 'string', 'max:255'],
+                'username' => ['required', 'string', 'max:255', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'address' => ['nullable', 'string', 'max:255'],
+                'phone_number' => ['nullable', 'string', 'max:20'],
+            ]);
 
-        // dd($attributes);     
-        
-        // Save user avatar
-        // if (request()->hasFile('avatar')) {
-        //     $avatar = request()->file('avatar');
-        //     $avatar_url = $avatar->storeAs('users', $attributes['username'] . $avatar->getExtension());
-        //     $attributes['avatar_url'] = Storage::url($avatar_url);
-        // } 
+            $user = User::create($attributes);
 
-        $user = User::create($attributes);
+            if (!$user) {
+                Log::error('Cannot create account');
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Cannot create account'
+                ]);
+            }
+            
+            $user->notify(new VerifyEmailNotification($user));
 
-        if (!$user) {
+            if (Auth::attempt($attributes)) {
+                // Authentication passed
+                request()->session()->regenerate();
+                return redirect()->intended();
+            }
+
+
+            return redirect()->route('login')->with('message', 'Your account have been created. Please check your email to verify your accout');
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
             return response()->json([
                 'success' => false,
-                'message' => 'Cannot create account'
+                'message' => $e->getMessage()
             ]);
         }
-
-        $user->notify(new VerifyEmailNotification($user));
-
-        // event(new UserRegisteredSuccessfully($user));
-
-
-        return redirect()->route('login')->with('message', 'Your account have been created. Please check your email to verify your accout');
     }
 
     public function update()
@@ -71,7 +77,7 @@ class RegisterController extends Controller
             // User::destroy($user->id);
             dd($user);
         }
-        
+
 
         // Optionally, logout the user after deletion
         Auth::logout();

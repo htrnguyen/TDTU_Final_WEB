@@ -30,6 +30,16 @@ use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\AccountController;
 use App\Http\Controllers\auth\PasswordController;
+use App\Models\ProductDetail;
+use App\Models\User;
+
+Route::get('/test', function() {
+    $pd = ProductDetail::find(2);
+    $p = $pd->getFullInformation();
+
+    dd($p);
+
+});
 
 Route::group(['namespace' => 'auth'], function () {
     // Login
@@ -44,7 +54,7 @@ Route::group(['namespace' => 'auth'], function () {
 
     // Reset-password
     Route::get('/password/forgot', [PasswordController::class, 'index'])->name('forgot-password');
-    Route::post('/password/forgot', [PasswordController::class, 'forgot'])->name('forgot-password');
+    Route::post('/password/forgot', [PasswordController::class, 'forgot'])->name('password.forgot.submit');
     Route::get('/password/reset', [PasswordController::class, 'edit'])->name('reset-password');
     Route::patch('/password/reset', [PasswordController::class, 'reset'])->name('password.reset');
     Route::post('/password/change', [PasswordController::class, 'change'])->name('password.change');
@@ -63,6 +73,7 @@ Route::group(['namespace' => 'client'], function () {
 
     // Women
     Route::get('/women', [WomenController::class, 'index'])->name('women');
+
     // Kids
     Route::get('/kids', [KidsController::class, 'index'])->name('kids');
     Route::get('/kids/show', [ProductController::class, 'showMenPage'])->name('kids.products');

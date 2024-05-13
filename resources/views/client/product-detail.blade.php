@@ -19,13 +19,13 @@
                 <!-- Color and Size Options -->
                 <div class="mt-3">
                     <p><strong>Color:</strong><br>
-                        @foreach (explode(',', $product->size) as $index => $size)
+                        @foreach ($product->colorFromStringToArray() as $index => $size)
                             <a href="#" class=" btn border {{ $index === 0 ? 'btn-success' : '' }}"
                                 role="button" data-size="{{ trim($size) }}">{{ trim($size) }}</a>
                         @endforeach
                     </p>
                     <p><strong>Size:</strong><br>
-                        @foreach (explode(',', $product->color) as $index => $color)
+                        @foreach ($product->sizeFromStringToArray() as $index => $color)
                             <a href="#" class="btn border {{ $index === 0 ? 'btn-success' : '' }}"
                                 role="button" data-color="{{ trim($color) }}">{{ trim($color) }}</a>
                         @endforeach

@@ -14,7 +14,7 @@ class Product extends Model
         'category_id',
         'price',
         'description',
-        'stock_quantity',
+        'total_quantity',
         'color',
         'image',
         'size',
@@ -25,10 +25,34 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function productDetail() {
+        return $this->hasMany(ProductDetail::class);
+    }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
     public function getCategoryNameFromId() {
         $category = Category::find($this->category_id);
 
         return $category ? $category->category_name : 'Uncategorized';
+    }
+
+    public function colorFromStringToArray() {
+        $colors = $this->color;
+        return explode(',', $colors);
+    }
+
+    public function sizeFromStringToArray() {
+        $sizes = $this->size;
+        return explode(',', $sizes);
+    }
+
+    public function imageFromStringToArray() {
+        $images = $this->image;
+        return explode(',', $images);
     }
 
     // public function sizes()
