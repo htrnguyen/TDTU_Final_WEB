@@ -1,6 +1,6 @@
 @props(['coupon'])
 <div class="coupod-child">
-    <img src="{{asset('images/counpon-1.png')}}" alt="Coupon">
+    <img src="{{asset('images/counpon.png')}}" alt="Coupon">
     <div class="coupon-details">
         <div class="cd-day">
             <h3>{{ $coupon->title }}</h3>
