@@ -24,20 +24,21 @@ use App\Http\Controllers\Client\KidsController;
 use App\Http\Controllers\Client\SearchController;
 use App\Http\Controllers\Client\ProductController;
 use App\Http\Controllers\Client\CheckoutController;
+use App\Http\Controllers\Client\SaleController;
 
 // Auth
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\AccountController;
 use App\Http\Controllers\auth\PasswordController;
+use App\Models\Cart;
 use App\Models\ProductDetail;
 use App\Models\User;
 
 Route::get('/test', function() {
-    $pd = ProductDetail::find(2);
-    $p = $pd->getFullInformation();
+    $cart = Cart::where('user_id', 22)->get();
 
-    dd($p);
+    dd($cart[0]->getFullProductInformation());
 
 });
 
@@ -77,6 +78,9 @@ Route::group(['namespace' => 'client'], function () {
     // Kids
     Route::get('/kids', [KidsController::class, 'index'])->name('kids');
     Route::get('/kids/show', [ProductController::class, 'showMenPage'])->name('kids.products');
+
+    // Sale
+    Route::get('/sale', [SaleController::class, 'index'])->name('sale');
 
     // Cart 
     Route::get('/carts', [CartController::class, 'index'])->name('cart');
