@@ -2313,3 +2313,22 @@ function cancelEdit() {
     var cancelButton = document.getElementById("cancelButton");
     cancelButton.style.display = "none";
 }
+
+// Show dropdown
+$(document).ready(function(){
+    $('#genderDropdown').click(function(){
+        $('#genderContent').slideToggle();
+    });
+
+    $('#colorDropdown').click(function(){
+        $('#colorContent').slideToggle();
+    });
+
+    $('#sizeDropdown').click(function(){
+        $('#sizeContent').slideToggle();
+    }); 
+
+    $('#priceDropdown').click(function(){
+        $('#priceContent').slideToggle();
+    }); 
+});

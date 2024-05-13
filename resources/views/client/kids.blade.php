@@ -1,6 +1,6 @@
 @extends('layouts.client')
 
-@section('title', 'Men Collection')
+@section('title', 'Kids Collection')
 @section('content')
     <!-- Main Content -->
     <div class="container mt-3">

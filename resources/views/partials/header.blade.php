@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
             <a class="text-dark fa-regular fa-user fs-5 ms-2" href="{{ route('profile', ['username' => @auth::user()->username]) }}"></a>
             @else
             <a class="nav-item m-auto text-dark" href="{{ route('register') }}">Sign up</a>
+            <span>&nbsp;&nbsp;&nbsp;</span> {{-- Distance between 2 links Sign up and Login --}}
             <a class="nav-item m-auto text-dark" href="{{ route('login') }}">Login</a>
             @endauth
         </div>

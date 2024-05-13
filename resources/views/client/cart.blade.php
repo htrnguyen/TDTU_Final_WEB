@@ -48,7 +48,7 @@
 
 @section('content')
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-4">
         @include('partials.breadcrumbs', ['pages' => ['Home', 'home']])
         <div class="row">
             <div class="col-md-8">
@@ -72,15 +72,24 @@
                                     <option selected>M</option>
                                     <option selected>L</option>
                                     <option selected>XL</option>
-                                </select>
+                                </select><br>
+                                Quantity
+                                <input type="number" value="1" min="1" style="width:5%">
                             </p>
                             <button type="button" class="btn btn-light"><i class="far fa-trash-alt"></i></button>
                         </div>
                     </div>
 
                 </div>
-            </div>
+                
+                <p style="font-weight:bold; font-size:20px">Promotion code?</p>
+                <div class="d-inline-flex ">
+                    <input type="text" id="formControlLg" class="form-control form-control-lg me-3" placeholder="Enter coupon code"
+                        style="border-radius: 5px; font-size:0.9rem; height: 100%; " />
+                    <button class="btn btn-dark rounded-2 " style="height:100%;">Apply</button>
+                </div>
 
+            </div>
 
             <div class="col-md-4">
                 <h3 class="card-title">Summary</h3>
@@ -100,9 +109,9 @@
                             <span>$432.40</span>
                         </li>
                     </ul>
-                    <a href="{{ route('checkout')}}" class="btn btn-dark mt-3 rounded-pill btn-lg w-100">Checkout</a>
+                    <a href="{{ route('checkout') }}" class="btn btn-dark mt-3 rounded-pill btn-lg w-100">Checkout</a>
                 </div>
             </div>
         </div>
-    </div>      
+    </div>
 @endsection

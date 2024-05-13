@@ -1,0 +1,151 @@
+@extends('layouts.client')
+
+@section('title', 'Sale')
+
+@section('content')
+
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-3">
+                <h2 class="mb-4">Sale (45)</h2>
+                <div class="list-products" style="overflow-y: auto; height:500px">
+                    <div class="mt-3 border-top pt-3">
+                        <p class="d-flex justify-content-between align-items-center text-right" type="button"
+                            id="genderDropdown">
+                            Gender <i class="fa-solid fa-chevron-down"></i>
+                        </p>
+                        <div id="genderContent" class="mt-4" style="display: none;">
+
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
+                            <label for="colorFilter" class="form-check-label mr-2"> Men</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
+                            <label for="colorFilter" class="form-check-label mr-2"> Women</label><br></br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter">
+                            <label for="colorFilter" class="form-check-label mr-2"> Kids</label><br></br>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 border-top pt-3">
+                        <p id="colorDropdown" class="d-flex justify-content-between align-items-center text-right"
+                            type="button">
+                            Color <i class="fa-solid fa-chevron-down"></i>
+                        </p>
+                        <div id="colorContent" class="form-check mt-3" style="display: none;">
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter1">
+                            <label for="colorFilter1" class="form-check-label mr-2">White</label><br><br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter2">
+                            <label for="colorFilter2" class="form-check-label mr-2">Black</label><br><br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="colorFilter3">
+                            <label for="colorFilter3" class="form-check-label mr-2">Grey</label><br><br>
+                        </div>
+                    </div>
+                    <div class="mt-3 border-top pt-3">
+                        <p id="sizeDropdown" class="d-flex justify-content-between align-items-center text-right"
+                            type="button">
+                            Size <i class="fa-solid fa-chevron-down"></i>
+                        </p>
+                        <div id="sizeContent" class="form-check mt-3" style="display: none;">
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="sizeFilter1">
+                            <label for="sizeFilter1" class="form-check-label mr-2">S</label><br><br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="sizeFilter2">
+                            <label for="sizeFilter2" class="form-check-label mr-2">M</label><br><br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="sizeFilter3">
+                            <label for="sizeFilter3" class="form-check-label mr-2">L</label><br><br>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 border-top pt-3">
+                        <p id="priceDropdown" class="d-flex justify-content-between align-items-center text-right"
+                            type="button">
+                            Price <i class="fa-solid fa-chevron-down"></i>
+                        </p>
+                        <div id="priceContent" class="form-check mt-3" style="display: none;">
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="sizeFilter1">
+                            <label for="sizeFilter1" class="form-check-label mr-2">Under $500</label><br><br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="sizeFilter2">
+                            <label for="sizeFilter2" class="form-check-label mr-2">$500 - $1,000</label><br><br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="sizeFilter3">
+                            <label for="sizeFilter3" class="form-check-label mr-2">$1,000 - $5,000</label><br><br>
+                            <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
+                                id="sizeFilter3">
+                            <label for="sizeFilter3" class="form-check-label mr-2">Over $5,000</label><br><br>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-end mb-2 align-items-center">
+                        <!-- Sorting Dropdown -->
+                        <span class="me-1">Sort By: </span>
+                        <select class="form-select w-auto me-2" onchange="location = this.value;">
+                            <option value="?sort=default" selected>Default</option>
+                            <option value="?sort=price">Price</option>
+                            <option value="?sort=name">Name</option>
+                        </select>
+                        <a href="" class="text-dark"><i class="fas fa-arrow-down"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{{ asset('images/shoe3.jpg') }}" class="card-img-top" alt="Nike ACG Moc Premium">
+                            <div class="card-body">
+                                <h5 class="card-title">Just In</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Nike ACG Moc Premium</h6>
+                                <p class="card-text">Men's Shoes<br>1 Colour</p>
+                                <p class="card-text text-danger font-weight-bold">$812,56 <span
+                                        class="text-muted"><del>$650,048</del></span></p>
+                                <p class="card-text text-success">20% off</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{{ asset('images/shoe2.jpg') }}" class="card-img-top"
+                                alt="Nike Air Force 1 '07 Next Nature">
+                            <div class="card-body">
+                                <h5 class="card-title">Sustainable Materials</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Nike Air Force 1 '07 Next Nature</h6>
+                                <p class="card-text">Women's Shoes<br>1 Colour</p>
+                                <p class="card-text text-danger font-weight-bold">$458,66 <span
+                                        class="text-muted"><del>$413,66</del></span></p>
+                                <p class="card-text text-success">10% off</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{{ asset('images/shoe1-black.jpg') }}" class="card-img-top"
+                                alt="Nike Air Force 1 '07 Next Nature">
+                            <div class="card-body">
+                                <h5 class="card-title">Sustainable Materials</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Nike Air Force 1 '07 Next Nature</h6>
+                                <p class="card-text">Women's Shoes<br>1 Colour</p>
+                                <p class="card-text text-danger font-weight-bold">$458,66 <span
+                                        class="text-muted"><del>$413,66</del></span></p>
+                                <p class="card-text text-success">10% off</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

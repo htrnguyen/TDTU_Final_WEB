@@ -1,8 +1,8 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container mt-5">
-        <div class="row justify-content-center pt-5">
+    <div class="container mt-4">
+        <div class="row justify-content-center pt-2">
             <div class="col-12 col-md-6">
                 <a href=" {{ route('home') }}" class="d-flex align-items-center justify-content-center text-decoration-none">
                     <img src="{{ asset('images/logo.png') }}" class="img-fluid" alt="Logo" width="100">
@@ -12,7 +12,7 @@
                     <div class="card-body px-5">
                         {{-- Form inout email --}}
                         <form id="formForgotPassword" method="POST" action="{{ route('forgot-password') }}">
-                            <h2 class="card-title text-center pt-5 pb-2">Enter your email address</h2>
+                            <h2 class="card-title text-center pt-4 pb-2">Enter your email address</h2>
                             @csrf
                             <div class="mb-4">
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email"

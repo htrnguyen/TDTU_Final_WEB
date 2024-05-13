@@ -3,7 +3,6 @@
 @section('title', 'Women Collection')
 @section('content')
     <!-- Main Content -->
-    <!-- Main Content -->
     <div class="container mt-3">
         <!-- Breadcrumbs -->
         @include('partials.breadcrumbs', ['pages' => ['Home', 'home']])

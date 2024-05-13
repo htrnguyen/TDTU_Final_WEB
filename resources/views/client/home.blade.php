@@ -5,7 +5,7 @@
 @section('content')
     {{-- Banner --}}
     <div class="main-banner-home d-flex align-items-center justify-content-end"
-        style="background: url('{{ asset('images/banner/home_banner.png') }}') no-repeat center left / cover; height: 500px;">
+        style="background: url('{{ asset('images/Banner/home_banner.png') }}') no-repeat center left / cover; height: 500px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-6 text-right">
@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-
+    
 
     {{-- Content --}}
     <div class="container px-5 mt-3 md-5">

@@ -1,8 +1,8 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="container mt-5">
-    <div class="row justify-content-center pt-5">
+<div class="container mt-4">
+    <div class="row justify-content-center pt-2">
         <div class="col-12 col-md-6">
             <a href=" {{ route('home') }}" class="d-flex align-items-center justify-content-center text-decoration-none">
                 <img src="{{ asset('images/logo.png') }}" class="img-fluid" alt="Logo" width="100">
@@ -37,7 +37,7 @@
                             <input type="text" class="form-control" name="address" placeholder="Address">
                         </div>
                         <div class="mt-3 mb-3">
-                            <input type="text" class="form-control" " name=" phone_number" placeholder="Phone number">
+                            <input type="text" class="form-control" name=" phone_number" placeholder="Phone number">
                         </div>
                         <button type="submit" class="btn btn-dark w-100 btn-hover">SIGN UP</button>
                     </form>
