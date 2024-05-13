@@ -35,38 +35,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('formLogin').addEventListener('submit', function(event) {
-            event.preventDefault();
-            let email = document.getElementById('email').value;
-            let password = document.getElementById('password').value;
-
-            // Check password length
-            if (password.length < 8) {
-                document.querySelector('.messageError').innerHTML = 'Password must be at least 8 characters';
-                return;
-            } else {
-                document.querySelector('.messageError').innerHTML = '';
-            }
-
-            // Check data in database using AJAX request 
-            $.ajax({
-                url: "{{ route('login.submit') }}",
-                type: 'POST',
-                data: {
-                    email: email,
-                    password: password,
-                    _token: "{{ csrf_token() }}"
-                },
-                success: function(response) {
-                    if (response.status == 'success') {
-                        window.location.href = "{{ route('home') }}";
-                    } else {
-                        document.querySelector('.messageError').innerHTML = response.message;
-                    }
-                }
-            });
-        });
-    </script>
 @endsection
