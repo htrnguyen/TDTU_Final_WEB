@@ -38,4 +38,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function carts() {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function getProductDetailIds()
+    {
+        $productDetailIds = [];
+        foreach ($this->carts as $index => $item) {
+            array_push($productDetailIds, $item->product_detail_id);
+        }
+
+        return $productDetailIds;
+    }
 }
