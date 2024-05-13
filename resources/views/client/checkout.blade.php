@@ -1,46 +1,225 @@
 @extends('layouts.client')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5">
         <div class="row px-5">
             @include('partials.breadcrumbs', ['pages' => ['Home', 'home']])
 
             <!-- Column 1: Contact Information -->
-            <div class="col-md-6 mt-4">
-                <h4>Contact Information</h4>
-                <form>
+            <div class="col-md-6 mt-2 bg-light">
+
+                <div class="row mb-3 informationInput px-2 d-none">
+                    <div class="col-12 border rounded px-2">
+                        <div class="row align-items-center py-2 px-3 justify-content-center">
+                            <div class="col-3 text-start"><span>Contact</span></div>
+                            <div class="col-6 text-center content-email"><span></span></div>
+                            <div class="col-3 d-flex justify-content-end"><a href="#"
+                                    class="text-decoration-none change-contact">Change</a></div>
+                        </div>
+                        <div class="d-none row infor-address align-items-center py-2 px-3 justify-content-center">
+                            <hr>
+                            <div class="col-3 text-start"><span>Ship to</span></div>
+                            <div class="col-6 text-center content-address"><span></span></div>
+                            <div class="col-3 d-flex justify-content-end"><a href="#"
+                                    class="text-decoration-none change-shipping">Change</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Form input Contact Information --}}
+                <form id="contactInfoForm">
+                    <h4>Contact Information</h4>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        <input type="email" class="form-control email-contact" id="email"
+                            placeholder="Enter your email" required>
                     </div>
                     <div class="mb-3 text-end">
-                        <button href="#" class="btn btn-secondary py-2">Continue to Shipping</button>
+                        <button type="button" id="continueButton" class="btn btn-secondary py-2">Continue to
+                            Shipping</button>
                     </div>
                 </form>
-            </div>
 
-            <!-- Column 2: Order Summary -->
-            <div class="col-md-6 px-5">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-start mb-2">
-                            <img src="{{ asset('images/shoe3.jpg') }}" alt="Nike Air Zoom Pegasus 35"
-                                style="width: 100px; height: 100px; margin-right: 10px;">
-                            <div>
-                                <h5 class="card-title">Nike Air Zoom Pegasus 35</h5>
-                                <p>Color: Blue</p>
-                                <p>Size: M</p>
+                {{-- Form input Shipping Address --}}
+                <form id="additionalForm" class="d-none mt-5 mb-4">
+                    <h4>Shipping Address</h4>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <input type="text" class="form-control" id="fullname" name="fullname"
+                                placeholder="Full Name" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="telephone" name="telephone"
+                                placeholder="Telephone" required>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Address"
+                            required>
+                    </div>
+                    <div class="mb-2">
+                        <input type="text" class="form-control" id="note" name="note"
+                            placeholder="Note (optional)">
+                    </div>
+
+                    <h4 class="mt-4">Shipping Method</h4>
+                    <div class="pt-1 ps-2">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="shippingMethod" id="shippingMethod1"
+                                value="1" checked>
+                            <label class="form-check-label" for="shippingMethod1">
+                                Standard Shipping (2-3 days)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="shippingMethod" id="shippingMethod2"
+                                value="2">
+                            <label class="form-check-label" for="shippingMethod2">
+                                Express Shipping (1-2 days)
+                            </label>
+                        </div>
+                        <div class="mb-3 text-end">
+                            <button type="button" id="shippingButton" class="btn btn-secondary py-2">Continue to
+                                Payment</button>
+                        </div>
+                    </div>
+                </form>
+
+                {{-- Form input Payment Method --}}
+                <form id="paymentInput" class="mt-2 d-none">
+                    <h4>Payment Method</h4>
+                    <div class="pt-1 ps-2">
+                        <!-- Phương thức thanh toán bằng tiền mặt -->
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod1"
+                                value="coc" checked>
+                            <label class="form-check-label" for="paymentMethod1">
+                                <img src="{{ asset('images/payment/COC.png') }}" alt="COC Payment"
+                                    style="width: 30px; height: 30px;" class="me-2">
+                                Cash on Delivery
+                            </label>
+                        </div>
+                        <!-- Phương thức thanh toán qua MoMo -->
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod2"
+                                value="momo">
+                            <label class="form-check-label" for="paymentMethod2">
+                                <img src="{{ asset('images/Payment/Momo-2.png') }}" alt="MoMo Payment"
+                                    style="width: 30px; height: 30px;" class="me-2">
+                                MoMo Payment
+                            </label>
+                        </div>
+                        <form action="" method="POST">
+                            <div class="mb-3 text-end">
+                                <button type="submit" class="btn btn-secondary py-2 placeOrder">Place Order</button>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+
+                {{-- Bill Order --}}
+                <div id="sucesssOrder" class="row mt-5 d-none">
+                    <div class="col-12">
+                        <h4><i class="fas fa-receipt"></i> Your Order</h4>
+                    </div>
+
+                    <!-- Recipient Information -->
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <p><i class="fas fa-user"></i> Recipient</p>
+                            </div>
+                            <div class="col-6 text-end" id="nameOrder">
+                                <p></p>
                             </div>
                         </div>
+                        <hr>
+                    </div>
+
+                    <!-- Shipping Method -->
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <p><i class="fas fa-shipping-fast"></i> Shipping Method</p>
+                            </div>
+                            <div class="col-6 text-end" id="shippingOrder">
+                                <p></p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <p><i class="fas fa-map-marker-alt"></i> Address</p>
+                            </div>
+                            <div class="col-6 text-end" id="addressOrder">
+                                <p></p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6">
+                                <p><i class="fas fa-credit-card"></i> Payment Method</p>
+                            </div>
+                            <div class="col-6 text-end" id="paymentOrder">
+                                <p></p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="mb-3 text-end">
+                        <a href="{{ route('home') }}" class="btn btn-secondary w-100 py-2">Continue Shopping </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Column 2: Order Summary -->
+            <div class="col-md-6 px-5">
+                <div class="card border-0 bg-light">
+                    <div class="card-body" style="font-size:0.8em">
+                        <!-- Item 1 -->
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <img src="{{ asset('images/shoe2.jpg') }}" alt="Nike Air Zoom Pegasus 35"
+                                    class="img-fluid shadow-lg me-4" width="100%">
+                            </div>
+                            <div class="col-9">
+                                <h5 class="card-title">Nike Air Zoom Pegasus 35</h5>
+                                <p>Color: Blue</p>
+                                <p>Size: 38</p>
+                                <p class="text-end"><strong>$411.00</strong></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- Item 2 -->
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <img src="{{ asset('images/shoe3.jpg') }}" alt="Nike React Phantom Run Flyknit 2"
+                                    class="img-fluid shadow-lg me-4" width="100%">
+                            </div>
+                            <div class="col-9">
+                                <h5 class="card-title">Nike React Phantom Run Flyknit 2</h5>
+                                <p>Color: Black</p>
+                                <p>Size: 40</p>
+                                <p class="text-end"><strong>$718.00</strong></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- Total -->
                         <div class="mb-3">
-                            <p class="mb-1">Sub total <span class="float-end">$411.00</span></p>
+                            <p class="mb-1">Sub total <span class="float-end">$1,129.00</span></p>
                             <p class="mb-1">Discount <span class="float-end">$0.00</span></p>
                             <hr>
-                            <h5>Total <span class="float-end">$411.00</span></h5>
+                            <h5>Total <span class="float-end">$1,129.00</span></h5>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
