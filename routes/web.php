@@ -71,7 +71,7 @@ Route::group(['namespace' => 'client'], function () {
 
     // Cart 
     Route::get('/carts', [CartController::class, 'index'])->name('cart');
-    Route::get('carts/{id}', [CartController::class, 'store'])->name('cart.add');
+    Route::post('carts/{id}', [CartController::class, 'store'])->name('cart.add')->middleware('auth');
 
     //Search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
