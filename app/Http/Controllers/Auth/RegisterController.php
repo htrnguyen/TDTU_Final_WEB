@@ -34,6 +34,8 @@ class RegisterController extends Controller
             'address' => ['nullable', 'string', 'max:255'],
             'phone_number' => ['nullable', 'string', 'max:20'],
         ]);
+
+        // dd($attributes);     
         
         // Save user avatar
         // if (request()->hasFile('avatar')) {

@@ -23,6 +23,7 @@ use App\Http\Controllers\Client\WomenController;
 use App\Http\Controllers\Client\KidsController;
 use App\Http\Controllers\Client\SearchController;
 use App\Http\Controllers\Client\ProductController;
+use App\Http\Controllers\Client\CheckoutController;
 
 // Auth
 use App\Http\Controllers\Auth\SessionController;
@@ -34,11 +35,11 @@ Route::group(['namespace' => 'auth'], function () {
     // Login
     Route::get('/login', [SessionController::class, 'index'])->name('login');
     Route::post('/login', [SessionController::class, 'store'])->name('login.submit');
-    Route::post('/logout', [SessionController::class, 'destroy']);
+    Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
 
     // Register
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
-    Route::post('/register', [RegisterController::class, 'store'])->name('submit.register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.submit');
     Route::delete('/delete', [RegisterController::class, 'destroy']);
 
     // Reset-password
@@ -59,19 +60,19 @@ Route::group(['namespace' => 'client'], function () {
 
     // Men
     Route::get('/men', [MenController::class, 'index'])->name('men');
-    // Route::get('/men/show', [ProductController::class, 'showMenPage'])->name('men.products');
 
     // Women
     Route::get('/women', [WomenController::class, 'index'])->name('women');
-    Route::get('/women/show', [ProductController::class, 'showMenPage'])->name('women.products');
-
     // Kids
     Route::get('/kids', [KidsController::class, 'index'])->name('kids');
     Route::get('/kids/show', [ProductController::class, 'showMenPage'])->name('kids.products');
 
     // Cart 
     Route::get('/carts', [CartController::class, 'index'])->name('cart');
-    Route::get('carts/{id}', [CartController::class, 'store'])->name('cart.add');
+    Route::post('carts/{id}', [CartController::class, 'store'])->name('cart.add')->middleware('auth');
+
+    // Checkout
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
     //Search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
@@ -81,12 +82,11 @@ Route::group(['namespace' => 'client'], function () {
     Route::get('test-reset-password', [MailController::class, 'resetPassword']);
 
     // Profile
-    Route::get('/profile', [AccountController::class, 's']);
-    Route::get('/profile/{username}', [AccountController::class, 'index'])->name('account.profile');
+    Route::get('/{username}', [AccountController::class, 'index'])->name('profile');
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
 
     // View Product details
-    Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+    Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.product-detail');
     // Route::get('/viewproduct', [ViewProductController::class, 'index'])->name('viewproduct');
 });
 
@@ -115,9 +115,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
         // Customer
         Route::get('/customer', [AdminCustomerController::class, 'index'])->name('customer_admin');
 
-        // Setting
-        Route::get('/setting', [AdminSettingController::class, 'index'])->name('setting_admin');
-    // });
+    // Setting
+    Route::get('/setting', [AdminSettingController::class, 'index'])->name('setting_admin');
+
+    // Login
+    // Route::get('/login', [AdminLoginController::class, 'index'])->name('login_admin');
+
 });
 
 // Use this api to check if server health is good or not

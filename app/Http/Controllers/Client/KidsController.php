@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+
 
 class KidsController extends Controller
 {
@@ -14,6 +16,8 @@ class KidsController extends Controller
             'Kids' => null
         ];
 
-        return view('client.kids', compact('breadcrumbs'));
+        $products = Product::where('category_id', '3')->paginate(12);
+
+        return view('client.kids', compact('breadcrumbs', 'products'));
     }
 }

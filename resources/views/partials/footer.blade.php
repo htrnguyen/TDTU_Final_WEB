@@ -14,7 +14,7 @@
     }
 </style>
 
-{{-- <footer class="text-dark text-center text-lg-start" style="background-color: #E5E1DA;"> --}}
+<footer class="text-dark text-center text-lg-start" style="background-color: #E5E1DA;">
     <!-- Grid container -->
     <div class="container py-2 px-4">
         <!--Grid row-->
@@ -49,28 +49,30 @@
 
             <!--Grid column-->
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
+                <h5 class="text-uppercase mb-4 pb-1">Contact Us</h5>
 
                 <div class="form-outline form-white mb-4">
-                    <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="Search"
+                    <input type="text" id="formControlLg" class="form-control form-control-lg"
+                        placeholder="Enter your query"
                         style="border-radius: 15px; font-size:0.9rem; width: 300px; margin-top:-4px" />
                 </div>
 
                 <ul class="fa-ul" style="margin-left: 1.65em;">
                     <li class="mb-3">
-                        <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967,
-                            Poland</span>
+                        <span class="fa-li"><i class="fas fa-map-marker-alt"></i></span>
+                        <span class="ms-2">1234 Street Name, City, Country</span>
                     </li>
                     <li class="mb-3">
-                        <span class="fa-li"><i class="fas fa-envelope"></i></span><span
-                            class="ms-2">contact@example.com</span>
+                        <span class="fa-li"><i class="fas fa-envelope"></i></span>
+                        <span class="ms-2">support@yoursite.com</span>
                     </li>
                     <li class="mb-3">
-                        <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567
-                            88</span>
+                        <span class="fa-li"><i class="fas fa-phone"></i></span>
+                        <span class="ms-2">+123 456 7890</span>
                     </li>
                 </ul>
             </div>
+
             <!--Grid column-->
 
             <!--Grid column-->

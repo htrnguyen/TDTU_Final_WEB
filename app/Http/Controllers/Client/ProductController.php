@@ -11,12 +11,20 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        return view('client.show', compact('product'));
-    }
-    public function showMenPage()
-    {
-        $products = Product::all();
+        $product_name = $product->name;
 
-        return view('client.men', ['products' => $products]);
+        $breadcrumbs = [
+            'Home' => route('home'),
+            'Product' => null,
+            $product_name => null
+        ];
+
+        return view('client.product-detail', compact('breadcrumbs', 'product'));
     }
+    // public function showMenPage()
+    // {
+    //     $products = Product::all();
+
+    //     return view('client.men', ['products' => $products]);
+    // }
 }
