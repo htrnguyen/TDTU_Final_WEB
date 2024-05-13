@@ -23,6 +23,7 @@ use App\Http\Controllers\Client\WomenController;
 use App\Http\Controllers\Client\KidsController;
 use App\Http\Controllers\Client\SearchController;
 use App\Http\Controllers\Client\ProductController;
+use App\Http\Controllers\Client\CheckoutController;
 
 // Auth
 use App\Http\Controllers\Auth\SessionController;
@@ -69,6 +70,9 @@ Route::group(['namespace' => 'client'], function () {
     // Cart 
     Route::get('/carts', [CartController::class, 'index'])->name('cart');
     Route::get('carts/{id}', [CartController::class, 'store'])->name('cart.add');
+
+    // Checkout
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
     //Search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
