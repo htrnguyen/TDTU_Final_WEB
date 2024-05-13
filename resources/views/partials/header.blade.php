@@ -27,19 +27,19 @@ use Illuminate\Support\Facades\Auth;
                 </button>
             </div>
             {{-- Part 2 --}}
-            <div class="collapse navbar-collapse d-flex justify-content-center ps-5" id="navbarNav">
+            <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('home') }}">New & Featured</a>
+                        <a class="nav-link text-dark me-4" href="{{ route('home') }}">New & Featured</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('men') }}">Men</a>
+                        <a class="nav-link text-dark me-4" href="{{ route('men') }}">Men</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('women') }}">Women</a>
+                        <a class="nav-link text-dark me-4" href="{{ route('women') }}">Women</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('kids') }}">Kids</a>
+                        <a class="nav-link text-dark me-4" href="{{ route('kids') }}">Kids</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="{{ route('home') }}">Sale</a>

@@ -1,8 +1,8 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="container mt-5">
-    <div class="row justify-content-center pt-5">
+<div class="container mt-4">
+    <div class="row justify-content-center pt-2">
         <div class="col-12 col-md-6">
             <a href=" {{ route('home') }}" class="d-flex align-items-center justify-content-center text-decoration-none">
                 <img src="{{ asset('images/logo.png') }}" class="img-fluid" alt="Logo" width="100">

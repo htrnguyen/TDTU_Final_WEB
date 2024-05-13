@@ -132,3 +132,13 @@ body {
 .breadcrumb {
     font-size: 1.1em;
 }
+
+/* scroll */
+.list-products::-webkit-scrollbar {
+    width: 7px; 
+}
+
+.list-products::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 5px; 
+}
