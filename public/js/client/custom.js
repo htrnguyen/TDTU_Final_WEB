@@ -1,8 +1,12 @@
 // Script for Product detail [resources\views\client\product-detail.blade.php]
 document.addEventListener("DOMContentLoaded", function () {
-    const colorButtons = document.querySelectorAll("[data-color]");
-    const sizeButtons = document.querySelectorAll("[data-size]");
+    const colorSelect = document.getElementById("colorSelect");
+    const sizeSelect = document.getElementById("sizeSelect");
     const codeElement = document.getElementById("code");
+
+    const colorInput = document.getElementById("colorInput");
+    const sizeInput = document.getElementById("sizeInput");
+
 
     const additionalForm = document.getElementById("additionalForm");
     const contactInfoForm = document.getElementById("contactInfoForm");
@@ -23,42 +27,29 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to update CODE
     function updateCODE(color, size) {
         codeElement.textContent = `${window.productId}-${color}-${size}`;
-
-        // Update color and size
-        document.getElementById("color").textContent = color;
-        document.getElementById("size").textContent = size;
     }
 
-    // Function to handle button click
-    function handleButtonClick(event, isColor) {
-        event.preventDefault();
-
-        // Remove active class from all buttons and add to clicked button
-        const buttons = isColor ? colorButtons : sizeButtons;
-        buttons.forEach((button) => button.classList.remove("btn-success"));
-        event.target.classList.add("btn-success");
-
+    // Function to handle select change
+    function handleSelectChange() {
         // Update CODE
-        const selectedColor =
-            document.querySelector("[data-color].btn-success")?.dataset.color ||
-            "";
-        const selectedSize =
-            document.querySelector("[data-size].btn-success")?.dataset.size ||
-            "";
+        let selectedColor = colorSelect.value;
+        let selectedSize = sizeSelect.value;
         updateCODE(selectedColor, selectedSize);
+        
+        colorInput.value = colorSelect.value;
+        sizeInput.value = sizeSelect.value;
+        
     }
 
     // Event listeners
-    colorButtons.forEach((button) =>
-        button.addEventListener("click", (event) =>
-            handleButtonClick(event, true)
-        )
-    );
-    sizeButtons.forEach((button) =>
-        button.addEventListener("click", (event) =>
-            handleButtonClick(event, false)
-        )
-    );
+    colorSelect.addEventListener("change", handleSelectChange);
+    sizeSelect.addEventListener("change", handleSelectChange);
+
+    // Trigger initial code update
+    handleSelectChange();
+
+    // ------------------------------------------------ //
+    // Function to CheckOut 
 
     // Function to CheckOut
     function toggleDisplay(element, display) {
@@ -2397,20 +2388,20 @@ function cancelEdit() {
 }
 
 // Show dropdown
-$(document).ready(function(){
-    $('#genderDropdown').click(function(){
-        $('#genderContent').slideToggle();
+$(document).ready(function () {
+    $("#genderDropdown").click(function () {
+        $("#genderContent").slideToggle();
     });
 
-    $('#colorDropdown').click(function(){
-        $('#colorContent').slideToggle();
+    $("#colorDropdown").click(function () {
+        $("#colorContent").slideToggle();
     });
 
-    $('#sizeDropdown').click(function(){
-        $('#sizeContent').slideToggle();
-    }); 
+    $("#sizeDropdown").click(function () {
+        $("#sizeContent").slideToggle();
+    });
 
-    $('#priceDropdown').click(function(){
-        $('#priceContent').slideToggle();
-    }); 
+    $("#priceDropdown").click(function () {
+        $("#priceContent").slideToggle();
+    });
 });
