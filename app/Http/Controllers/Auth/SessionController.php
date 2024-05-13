@@ -26,10 +26,12 @@ class SessionController extends Controller
             'password' => ['required'],
         ]);
 
+        // dd($credentials);
+
         if (Auth::attempt($credentials)) {
             // Authentication passed
             request()->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended();
         }
 
         // Authentication failed
@@ -42,6 +44,6 @@ class SessionController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('client.home');
+        return redirect()->intended();
     }
 }
