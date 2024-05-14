@@ -31,7 +31,7 @@ use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\AccountController;
 use App\Http\Controllers\auth\PasswordController;
-
+use App\Http\Middleware\AdminMiddleware;
 
 Route::group(['namespace' => 'auth'], function () {
     // Login
@@ -96,25 +96,24 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin'], function () {
     // Login
     Route::get('/login', [AdminSessionController::class, 'index'])->name('login_admin');
     Route::post('/login', [AdminSessionController::class, 'store'])->name('submit.login_admin');
+    
+    // Home
+    Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
 
-    // Route::middleware(['admin'])->group(function () {
-        // Home
-        Route::get('/home', [AdminController::class, 'index'])->name('home_admin');
+    // Product
+    Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
+    Route::get('/product/create', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
+    Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
+    Route::post('/product/create', [AdminProductController::class, 'store'])->name('submit.createproduct');
 
-        // Product
-        Route::get('/product', [AdminProductController::class, 'index'])->name('product_admin');
-        Route::get('/product/create', [AdminProductController::class, 'productCreate'])->name('createproduct_admin');
-        Route::get('/product/orderproduct', [AdminProductController::class, 'productOrder'])->name('orderproduct_admin');
-        Route::post('/product/create', [AdminProductController::class, 'store'])->name('submit.createproduct');
+    // Counpon
+    Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
 
-        // Counpon
-        Route::get('/coupon', [AdminCouponController::class, 'index'])->name('coupon_admin');
+    // Task List
+    Route::get('/tasklist', [AdminTaskListController::class, 'index'])->name('tasklist_admin');
 
-        // Task List
-        Route::get('/tasklist', [AdminTaskListController::class, 'index'])->name('tasklist_admin');
-
-        // Customer
-        Route::get('/customer', [AdminCustomerController::class, 'index'])->name('customer_admin');
+    // Customer
+    Route::get('/customer', [AdminCustomerController::class, 'index'])->name('customer_admin');
 
     // Setting
     Route::get('/setting', [AdminSettingController::class, 'index'])->name('setting_admin');

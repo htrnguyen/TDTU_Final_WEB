@@ -69,7 +69,7 @@ class AccountController extends Controller
     {
         $userId = Auth::user()->id;
 
-        $isDestroyed = User::destroy($userId);
+        $isDestroyed = User::find($userId)->delete();
 
         if (!$isDestroyed) {
             throw new ModelNotFoundException();
