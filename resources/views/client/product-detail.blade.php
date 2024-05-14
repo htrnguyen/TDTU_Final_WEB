@@ -5,7 +5,7 @@
     <div class="row pb-5 pt-2 px-5">
         @include('partials.breadcrumbs', ['pages' => ['Home', 'home']])
         <div class="col-md-6">
-            <img src="{{ asset('images/shoe3.jpg') }}" alt="{{ $product->name }}" class="img-fluid shadow-sm">
+            <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="img-fluid shadow-sm">
         </div>
         <div class="col-md-6 px-5">
             <form action="{{ route('cart.add', $product->id) }}" method="POST">
