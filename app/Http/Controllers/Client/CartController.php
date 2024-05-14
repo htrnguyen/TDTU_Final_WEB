@@ -35,7 +35,8 @@ class CartController extends Controller
     {
         $attributes = request()->validate([
             'color' => 'required|string',
-            'size' => 'required|string'
+            'size' => 'required|string',
+            'quantity' => 'required|integer'
         ]);
 
         $product = Product::find($id);
@@ -45,26 +46,23 @@ class CartController extends Controller
             ->first();
         $userId = Auth::user()->id;
 
-        // Check if the product detail already exists in the user's cart
         $existingCart = Cart::where('user_id', $userId)
             ->where('product_detail_id', $productDetail->id)
             ->first();
 
+        // If the product detail exists in the cart, increase the quantity
         if ($existingCart) {
-            // If the product detail exists in the cart, increase the quantity
-            $existingCart->increment('quantity');
-            $cart = $existingCart;
-        } else {
-            // Otherwise, create a new cart item
-            $cart = Cart::create([
-                'user_id' => $userId,
-                'product_id' => $product->id,
-                'product_detail_id' => $productDetail->id,
-                'quantity' => 1,
-            ]);
+            $existingCart->quantity += $attributes['quantity'];
         }
 
-        return redirect()->intended("product/$productDetail->id")->with('message', 'add product to cart successfully');
+        $cart = Cart::create([
+            ...$attributes,
+            'user_id' => $userId,
+            'product_id' => $product->id,
+            'product_detail_id' => $id,
+        ]);
+
+        return redirect()->route('product.product-detail', $product->id)->with('message', 'add product to cart successfully');
     }
 
 

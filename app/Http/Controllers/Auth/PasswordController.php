@@ -28,24 +28,19 @@ class PasswordController extends Controller
 
     public function forgot()
     {
-        $email = request()->validate([
+        $validatedData = request()->validate([
             'email' => 'required|email'
         ]);
 
-        $user = User::where('email', $email)->first();
+        $user = User::where('email', $validatedData['email'])->first();
 
         if (!$user) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Email not found'
-            ]);
+            return redirect()->back()->with('error', 'Email not found');
         }
-
-        // event(new UserForgotPassword($user));
 
         $user->notify(new ResetPasswordEmailNotification($user));
 
-        return view('login')->with('message', 'send email reset password successfully');
+        return redirect()->back()->with('success', 'Reset password email sent successfully');
     }
 
     public function reset()
@@ -89,7 +84,7 @@ class PasswordController extends Controller
 
         $tokenModel->delete();
 
-        return redirect()->intended()->with('message', 'Reset password successfully');
+        return redirect()->route('login')->with('message', 'Reset password successfully');
     }
 
     public function update()
@@ -115,13 +110,30 @@ class PasswordController extends Controller
         $user->password = Hash::make($data['password']);
         $user->save();
 
-        return redirect()->intended("/$user->username")->with('message', 'Change password successfully');
+        return redirect()->route('profile', $user->username)->with('message', 'Change password successfully');
     }
 
     public function edit()
     {
-        return view('auth.reset-password');
+        $token = request()->query('token');
+
+        if (!$token) {
+            return redirect()->back()->with('error', 'Invalid token.');
+        }
+
+        $tokenData = Token::where('token', $token)->first();
+
+        if (!$tokenData) {
+            return redirect()->back()->with('error', 'Invalid or expired token.');
+        }
+
+        if ($tokenData->isExpired()) { 
+            return redirect()->back()->with('error', 'Token has expired.');
+        }
+
+        return view('auth.reset-password', ['token' => $token]);
     }
+
 
     public function changePassword()
     {

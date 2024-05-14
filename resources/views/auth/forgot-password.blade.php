@@ -20,15 +20,21 @@
                         <button type="submit" class="btn btn-dark w-100 btn-hover">RESET PASSWORD</button>
                     </form>
                     {{-- Message --}}
-                    <div id="message" class="alert alert-success text-center d-none" role="alert">
-                        <h4 class="alert-heading">Email sent</h4>
-                        <p>
-                            We have sent you an email with instructions on how to reset your password.
-                        </p>
+                    @if(session('success'))
+                    <div class="alert alert-success pt-2">
+                        {{ session('success') }}
                     </div>
+                    @endif
+
+                    @if(session('error'))
+                    <div class="alert alert-danger pt-2">
+                        {{ session('error') }}
+                    </div>
+                    @endif
+
                     {{-- Back to login --}}
-                    <div class="text-center">
-                        <a href="{{ route('login') }}" class="text-decoration-none">Back to Login</a>
+                    <div class="text-center pt-2">
+                        <a href="{{ route('login') }}" class="btn btn-outline-dark text-decoration-none">Back to Login</a>
                     </div>
 
                 </div>
@@ -37,17 +43,3 @@
     </div>
 </div>
 @endsection
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("formForgotPassword");
-        const message = document.getElementById("message");
-
-        form.addEventListener("submit", function(event) {
-            // Ẩn form đi
-            form.classList.add("d-none");
-            // Hiển thị thông báo
-            message.classList.remove("d-none");
-        });
-    });
-</script>

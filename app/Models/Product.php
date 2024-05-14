@@ -25,7 +25,7 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function productDetail() {
+    public function productDetails() {
         return $this->hasMany(ProductDetail::class);
     }
 
@@ -60,19 +60,4 @@ class Product extends Model
 
         return $count > 1 ? $count . ' colors' : $count . ' color';
     }
-
-    // public function sizes()
-    // {
-    //     return $this->hasMany(ProductSize::class);
-    // }
-
-    // public function colors()
-    // {
-    //     return $this->belongsToMany(ProductColor::class);
-    // }
-
-    // public function images()
-    // {
-    //     return $this->hasMany(ProductImage::class);
-    // }
 }

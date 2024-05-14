@@ -10,27 +10,20 @@
         <div class="col-md-6 px-5">
             <form action="{{ route('cart.add', $product->id) }}" method="POST">
                 @csrf
-                <input type="hidden" id="color" name="color" value="red">
-                <input type="hidden" id="size" name="size" value="38">
                 <h2>{{ $product->name }}</h2>
                 <p class="fs-5"><strong>Price:</strong> ${{ number_format($product->price, 2) }}</p>
-
-                <!-- Code, Color, Size -->
                 <p class="fw-bold text-secondary" style="font-size: 0.9em;">CODE: <span id="code">{{ $product->id }}</span></p>
-                <!-- Hidden Inputs -->
-                <input type="hidden" id="colorInput" readonly>
-                <input type="hidden" id="sizeInput" readonly>
                 <!-- Color and Size Options -->
                 <div class="mt-3">
                     <p><strong>Color:</strong><br>
-                        <select id="colorSelect" class="form-select">
+                        <select id="colorSelect" name="color" class="form-select">
                             @foreach ($product->colorFromStringToArray() as $index => $size)
                                 <option value="{{ trim($size) }}">{{ trim($size) }}</option>
                             @endforeach
                         </select>
                     </p>
                     <p><strong>Size:</strong><br>
-                        <select id="sizeSelect" class="form-select">
+                        <select id="sizeSelect" name="size" class="form-select">
                             @foreach ($product->sizeFromStringToArray() as $index => $color)
                                 <option value="{{ trim($color) }}">{{ trim($color) }}</option>
                             @endforeach
@@ -40,7 +33,7 @@
                 <!-- Quantity -->
                 <div class="mb-3 w-25">
                     <label for="quantity" class="form-label"><strong>Quantity:</strong></label>
-                    <input type="number" class="form-control" id="quantity" value="1" min="1">
+                    <input type="number" name="quantity" class="form-control" id="quantity" value="1" min="1">
                 </div>
 
                 <!-- Add to Cart Button -->
@@ -56,6 +49,4 @@
 
 <script>
     window.productId = "{{ $product->id }}";
-
-
 </script>

@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Auth;
 @endphp
 <header class="border">
     <nav class="px-5 py-2 d-flex justify-content-between navbar navbar-expand-lg" style="background-color: #f5f5f5;">
-        <div class="text-black">Shoes Store</div>
+        <a class="text-decoration-none text-black fw-bold" href="{{ route('home') }}">Shoes store</a>
         <div class="navbar-nav">
             @auth
             <a class="nav-item m-auto text-dark" href="{{ route('profile', ['username' => @auth::user()->username]) }}">Hi, <strong>{{ @auth::user()->first_name . ' ' . @auth::user()->last_name }}</strong></a>
@@ -30,19 +30,19 @@ use Illuminate\Support\Facades\Auth;
             <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-dark me-4" href="{{ route('home') }}">New & Featured</a>
+                        <a class="nav-link text-dark me-4 fw-bold" href="{{ route('home') }}">New & Featured</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark me-4" href="{{ route('men') }}">Men</a>
+                        <a class="nav-link text-dark me-4 fw-bold" href="{{ route('men') }}">Men</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark me-4" href="{{ route('women') }}">Women</a>
+                        <a class="nav-link text-dark me-4 fw-bold" href="{{ route('women') }}">Women</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark me-4" href="{{ route('kids') }}">Kids</a>
+                        <a class="nav-link text-dark me-4 fw-bold" href="{{ route('kids') }}">Kids</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="{{ route('sale') }}">Sale</a>
+                        <a class="nav-link text-dark me-4 fw-bold" href="{{ route('sale') }}">Sale</a>
                     </li>
                 </ul>
             </div>

@@ -19,6 +19,10 @@ class AccountController extends Controller
     {
         $user = Auth::user();
 
+        if (!$user) {
+            return redirect()->route('login');
+        }
+
         if ($user->username === $username) {
             return view('client.profile')->with('user', $user);
         }
@@ -26,15 +30,10 @@ class AccountController extends Controller
         throw new UnauthorizedException('Unauthorized');
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**     
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show()
     {
         //
     }
@@ -42,36 +41,34 @@ class AccountController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update()
     {
         //
     }
 
-    public function updateAvatar(Request $request)
+    public function updateAvatar()
     {
+        $user = User::find(Auth::user()->id);
+
         // Validate the incoming request
         $avatar = request()->validate([
             'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:20000',
         ]);
 
-        dd('heheh');
-
-        // if (!$avatar) {
-        //     return back()->with('message', 'Fail to change avatar');
-        // }
-
-        $user = Auth::user();
-
+        if (!$avatar) {
+            return back()->with('message', 'Fail to change avatar');
+        }
+        
         // Save user avatar
         if (request()->hasFile('avatar')) {
             $avatar = request()->file('avatar');
-            $avatar_url = $avatar->storeAs('users', $avatar['username'] . $avatar->getExtension());
-            $avatar['avatar_url'] = Storage::url($avatar_url);
+            $avatar_saved = $avatar->storeAs('images/users', $user->username . '.' . $avatar->getClientOriginalExtension());
+            $user->avatar_url = $a = Storage::url($avatar_saved);
+            $user->save();
+            dd($a);
         }
 
-        dd($avatar_url);
-
-        return response()->json(['error' => 'File upload failed.'], 500);
+        return redirect()->back()->with('success', 'Your avatar has been updated successfully');
     }
 
 
