@@ -83,7 +83,7 @@
                             <div class="card border-0 rounded rounded-4 border shadow h-100">
                                 <a href="{{ route('product.product-detail', $product->id) }}"
                                     class="text-dark text-decoration-none">
-                                    <img src="{{ asset('images/shoe1-black.jpg') }}" class="card-img-top img-fluid "
+                                    <img src="{{ asset( $product->image) }}" class="card-img-top img-fluid "
                                         alt="{{ $product->name }}" style="object-fit: cover; height: 250px;">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
