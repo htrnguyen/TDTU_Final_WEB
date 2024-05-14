@@ -10,18 +10,20 @@
         <div class="col-md-3 offset-md-1">
             <div class="card py-3 px-4" style="background-color: #f7f7f79c">
                 <div class="row ">
-                    <form action="{{ route('account.avatar.update') }}" method="post">
+                    <form action="{{ route('account.avatar.update') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
-                        <div class="col-md-4 avatar-container"> <label for="avatar">
-                                <img src="{{ asset($user->avatar_url) }}" class="rounded-circle" style="width:100%" alt="Profile Picture">
+                        <div class="col-md-4 avatar-container">
+                            <label for="avatar">
+                                <img id="imagePreview" src="{{ ($user->avatar_url) }}" class="rounded-circle" style="width:100%" alt="Profile Picture">
                             </label>
                             <input type="file" id="avatar" name="avatar" accept="image/*" hidden>
-                            <button class="sdii-edit btn btn-sm btn-secondary" type="submit">
+                            <button class="sdii-edit btn btn-sm btn-dark" type="submit">
                                 Save <i class="fa-solid fa-pen"></i>
                             </button>
-                        </div>   
+                        </div>
                     </form>
+
 
                     <div class="col-md-8">
                         <div class="card-body">
@@ -73,21 +75,21 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="media mb-3">
-                            <h5 class="card-title">Personal Information</h5>
+                            <h5 class="card-title fw-bold">Personal Information</h5>
                             <form action="#" method="POST">
                                 @csrf
                                 <div class="media-body pt-3">
                                     <div class="form-group">
                                         <label for="name" class="pb-2">First name</label>
-                                        <input type="text" class="form-control rounded rounded-4" id="name" value="{{ $user->first_name }}" readonly>
+                                        <input type="text" class="form-control " id="name" value="{{ $user->first_name }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="pb-2">Last name</label>
-                                        <input type="text" class="form-control rounded rounded-4" id="name" value="{{ $user->last_name }}" readonly>
+                                        <input type="text" class="form-control " id="name" value="{{ $user->last_name }}" readonly>
                                     </div>
                                     <div class="form-group pt-3">
                                         <label for="dob" class="pb-2">Date Of Birth</label>
-                                        <input type="text" class="form-control rounded rounded-4" id="dob" placeholder="Empty" value="{{ $user->date_of_birth ?? ''}}" readonly>
+                                        <input type="text" class="form-control " id="dob" placeholder="Empty" value="{{ $user->date_of_birth ?? ''}}" readonly>
                                     </div>
                                     <div class="form-group pt-3">
                                         <label class="pb-2">Gender</label><br>
@@ -105,7 +107,7 @@
                                     <div class="form-group pt-3">
                                         <label class="pb-2" for="phone">Phone Number</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control rounded rounded-4" id="phone" placeholder="Empty" value="{{ $user->phone_number }}" readonly>
+                                            <input type="text" class="form-control " id="phone" placeholder="Empty" value="{{ $user->phone_number }}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group pt-3">
@@ -113,7 +115,7 @@
                                         <input type="email" class="form-control rounded rounded-4" id="email" value="{{ $user->email }}" readonly>
                                     </div>
                                     <div class="form-group pt-3 d-flex justify-content-center">
-                                        <p class="btn btn-edit btn-dark me-3 rounded rounded-4" id="editButton" onclick="enableEdit()"><i class="fa-solid fa-pen-to-square "></i>Edit
+                                        <p class="btn btn-edit btn-dark me-3 px-4" id="editButton" onclick="enableEdit()"><i class="fa-solid fa-pen-to-square "></i>Edit
                                         </p>
                                         <p class="btn btn-secondary rounded rounded-4" id="cancelButton" style="display: none;" onclick="cancelEdit()">
                                             Cancel
@@ -130,19 +132,19 @@
             <div class="card d-none" id="changePassword" style="background-color: #f7f7f79c">
                 <div class="card-body">
                     <div class="text-center">
-                        <h3 class="card-title">Change your password</h3>
+                        <h3 class="card-title fw-bold">Change your password</h3>
                         <!-- Display email dynamically if needed -->
                     </div>
                     <form method="post" action="{{ route('password.change') }}">
                         @csrf
                         <div class="mt-3 mb-3">
-                            <input type="password" class="form-control py-2 rounded rounded-4" name="old_password" placeholder="Old password" required>
+                            <input type="password" class="form-control py-2" name="old_password" placeholder="Old password" required>
                         </div>
                         <div class="mt-3 mb-3">
-                            <input type="password" class="form-control py-2 rounded rounded-4" name="password" placeholder="New password" required>
+                            <input type="password" class="form-control py-2" name="password" placeholder="New password" required>
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control mb-3 py-2 rounded rounded-4" name="password_confirmation" placeholder="Confirm new Password" required>
+                            <input type="password" class="form-control mb-3 py-2" name="password_confirmation" placeholder="Confirm new Password" required>
                             <small class="form-text text-muted">
                                 <ul>
                                     <li>Minimum of 8 characters</li>
@@ -151,8 +153,8 @@
                             </small>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-secondary me-3 rounded rounded-4">Cancel</button>
-                            <button type="submit" class="btn btn-dark rounded rounded-4">Save</button>
+                            <button type="button" class="btn btn-outline-dark me-3">Cancel</button>
+                            <button type="submit" class="btn btn-dark">Save</button>
                         </div>
                     </form>
                 </div>
@@ -204,8 +206,18 @@
 </div>
 
 <script>
-    $(document).ready(() => {
+    $(document).ready(function() {
         showMyAccount()
-    })
+        $('#imageUpload').on('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').attr('src', e.target.result).show();
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    });
 </script>
 @endsection
