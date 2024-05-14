@@ -45,8 +45,12 @@ By following these steps, your Laravel application should now be up and running 
 
 ### Use-Case Diagram
 
-![Use-Case Diagram](Usecase.png)
+![Use-Case Diagram](Document/UseCase.png)
 
 ### Class Diagram
 
-![Class Diagram](Class.png)
+![Class Diagram](Document/Class.png)
+
+### ERD
+
+![ERD](Document/UseCase.png)
