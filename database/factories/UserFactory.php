@@ -19,6 +19,8 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'password' => bcrypt('password'), // Default password is 'password'. You may use Hash::make() for Laravel 8
             'address' => $this->faker->address,
+            'gender' => $this->faker->randomElement(['male', 'female']),
+            'date_of_birth' => $this->faker->date(),
             'phone_number' => $this->faker->phoneNumber,
             'role' => 'user', // Default role is 'user'
             'avatar_url' => '/storage/images/users/default_avatar.jpg',

@@ -58,7 +58,7 @@ Route::group(['namespace' => 'auth'], function () {
     Route::post('/password/forgot', [PasswordController::class, 'forgot'])->name('password.forgot.submit');
     Route::get('/password/reset', [PasswordController::class, 'edit'])->name('reset-password');
     Route::patch('/password/reset', [PasswordController::class, 'reset'])->name('password.reset');
-    Route::post('/password/change', [PasswordController::class, 'change'])->name('password.change');
+    Route::post('/password/change', [PasswordController::class, 'update'])->name('password.change');
 
     // Change-password
     Route::get('/profile/change-password', [PasswordController::class, 'changePassword'])->name('change-password');
@@ -66,7 +66,6 @@ Route::group(['namespace' => 'auth'], function () {
 
 Route::group(['namespace' => 'client'], function () {
     //Home
-    // Route::view('/', 'client.home')->name('home');
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
     // Men
@@ -99,6 +98,7 @@ Route::group(['namespace' => 'client'], function () {
 
     // Profile
     Route::get('/{username}', [AccountController::class, 'index'])->name('profile');
+    Route::patch('/profile/avatar', [AccountController::class, 'updateAvatar'])->name('account.avatar.update');
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
 
     // View Product details

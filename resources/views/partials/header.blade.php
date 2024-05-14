@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
         <div class="text-black">Shoes Store</div>
         <div class="navbar-nav">
             @auth
-            <a class="nav-item m-auto text-dark" href="{{ route('profile', ['username' => @auth::user()->username]) }}">Hi, {{ @auth::user()->username }}</a>
+            <a class="nav-item m-auto text-dark" href="{{ route('profile', ['username' => @auth::user()->username]) }}">Hi, <strong>{{ @auth::user()->first_name . ' ' . @auth::user()->last_name }}</strong></a>
             <a class="text-dark fa-regular fa-user fs-5 ms-2" href="{{ route('profile', ['username' => @auth::user()->username]) }}"></a>
             @else
             <a class="nav-item m-auto text-dark me-3" href="{{ route('register') }}">Sign up</a>

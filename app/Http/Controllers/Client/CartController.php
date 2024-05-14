@@ -40,9 +40,9 @@ class CartController extends Controller
 
         $product = Product::find($id);
         $productDetail = ProductDetail::where('product_id', $id)
-                ->where('color', $attributes['color'])
-                ->where('size', $attributes['size'])
-                ->first();
+            ->where('color', $attributes['color'])
+            ->where('size', $attributes['size'])
+            ->first();
         $userId = Auth::user()->id;
 
         // Check if the product detail already exists in the user's cart
@@ -74,7 +74,7 @@ class CartController extends Controller
             ->where('user_id', Auth::user()->id)
             ->delete();
 
-        
+
 
         return redirect()->route('cart')->with('success', 'Cart item deleted successfully');
     }

@@ -45,21 +45,18 @@ class PasswordController extends Controller
 
         $user->notify(new ResetPasswordEmailNotification($user));
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Redirect to change-password page',
-            'data' => $user
-        ]);
+        return view('login')->with('message', 'send email reset password successfully');
     }
 
-    public function reset() {
+    public function reset()
+    {
         $data = request()->validate([
             'password' => 'required|min:8|confirmed',
             'token' => 'required'
         ]);
-        
+
         $tokenModel = Token::where('token', $data['token'])->first();
-        
+
         // Check if the token exists
         if (!$tokenModel) {
             return response()->json([
@@ -67,7 +64,7 @@ class PasswordController extends Controller
                 'message' => 'Invalid token',
             ], 404);
         }
-        
+
         // Check if the token has expired
         if ($tokenModel->expires_at && $tokenModel->expires_at->isPast()) {
             return response()->json([
@@ -75,9 +72,9 @@ class PasswordController extends Controller
                 'message' => 'Token has expired',
             ], 422);
         }
-        
+
         $user = User::find($tokenModel->user_id);
-        
+
         // Check if the user exists
         if (!$user) {
             return response()->json([
@@ -85,25 +82,22 @@ class PasswordController extends Controller
                 'message' => 'User not found',
             ], 404);
         }
-        
+
         // Update the user's password
         $user->password = Hash::make($data['password']);
         $user->save();
-        
+
         $tokenModel->delete();
-        
-        return response()->json([
-            'success' => true,
-            'message' => 'Password reset successfully',
-        ]);
-        
+
+        return redirect()->intended()->with('message', 'Reset password successfully');
     }
 
-    public function update() {
+    public function update()
+    {
         // Validate request data
         $data = request()->validate([
-            'oldPassword' => 'required',
-            'newPassword' => 'required|min:8',
+            'old_password' => 'required',
+            'password' => 'required|min:8|confirmed',
         ]);
 
         // Retrieve the authenticated user
@@ -111,19 +105,17 @@ class PasswordController extends Controller
         $user = User::where('id', $userId)->first();
 
         // Verify that the old password matches the user's current password
-        if (!Hash::check($data['oldPassword'], $user->password)) {
+        if (!Hash::check($data['old_password'], $user->password)) {
             throw ValidationException::withMessages([
-                'oldPassword' => 'The old password is incorrect.',
+                'old_password' => 'The old password is incorrect.',
             ]);
         }
 
         // Update the user's password
-        $user->password = Hash::make($data['newPassword']);
+        $user->password = Hash::make($data['password']);
         $user->save();
 
-        return response()->json([
-            'message' => 'Password updated successfully.',
-        ]);
+        return redirect()->intended("/$user->username")->with('message', 'Change password successfully');
     }
 
     public function edit()
@@ -131,7 +123,8 @@ class PasswordController extends Controller
         return view('auth.reset-password');
     }
 
-    public function changePassword(){
+    public function changePassword()
+    {
         return view('client.change-password');
     }
 }

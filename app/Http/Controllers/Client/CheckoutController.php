@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
@@ -17,7 +18,18 @@ class CheckoutController extends Controller
             'Home' => route('home'),
             'Checkout' => null
         ];
-        return view('client.checkout', compact('breadcrumbs'));
+
+        $user = User::find(Auth::user()->id);
+        $carts = $user->carts;
+        $total = $user->getTotalPrice();
+        $discountPrice = 0;
+
+        $productDetails = [];
+        foreach ($carts as $index => $cart) {
+            array_push($productDetails, $cart->getFullProductInformation());
+        }
+
+        return view('client.checkout', compact('breadcrumbs', 'productDetails', 'total', 'discountPrice'));
     }
 
     public function store(Request $request)
