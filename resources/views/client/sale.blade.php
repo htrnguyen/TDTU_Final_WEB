@@ -48,14 +48,28 @@
                         Size <i class="fa-solid fa-chevron-down"></i>
                     </p>
                     <div id="sizeContent" class="form-check mt-3" style="display: none;">
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="sizeFilter1">
-                        <label for="sizeFilter1" class="form-check-label mr-2">S</label><br><br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="sizeFilter2">
-                        <label for="sizeFilter2" class="form-check-label mr-2">M</label><br><br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="sizeFilter3">
-                        <label for="sizeFilter3" class="form-check-label mr-2">L</label><br><br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="sizeFilter3">
-                        <label for="sizeFilter3" class="form-check-label mr-2">XL</label><br><br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 35</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 36</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 36.5</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 37</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 38</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 39</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 40</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 41</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 42</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 43</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 44</label><br></br>
                     </div>
                 </div>
 
