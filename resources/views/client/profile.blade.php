@@ -76,20 +76,21 @@
                     <div class="row">
                         <div class="media mb-3">
                             <h5 class="card-title fw-bold">Personal Information</h5>
-                            <form action="#" method="POST">
+                            <form action="{{ route('profile.info.submit') }}" method="POST">
                                 @csrf
+                                @method
                                 <div class="media-body pt-3">
                                     <div class="form-group">
                                         <label for="name" class="pb-2">First name</label>
-                                        <input type="text" class="form-control " id="name" value="{{ $user->first_name }}" readonly>
+                                        <input type="text" class="form-control " id="first_name" value="{{ $user->first_name }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="pb-2">Last name</label>
-                                        <input type="text" class="form-control " id="name" value="{{ $user->last_name }}" readonly>
+                                        <input type="text" class="form-control " id="last_name" value="{{ $user->last_name }}" readonly>
                                     </div>
                                     <div class="form-group pt-3">
                                         <label for="dob" class="pb-2">Date Of Birth</label>
-                                        <input type="text" class="form-control " id="dob" placeholder="Empty" value="{{ $user->date_of_birth ?? ''}}" readonly>
+                                        <input type="text" class="form-control " name="date_of_birth" id="dob" placeholder="Empty" value="{{ $user->date_of_birth ?? ''}}" readonly>
                                     </div>
                                     <div class="form-group pt-3">
                                         <label class="pb-2">Gender</label><br>
@@ -107,16 +108,18 @@
                                     <div class="form-group pt-3">
                                         <label class="pb-2" for="phone">Phone Number</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control " id="phone" placeholder="Empty" value="{{ $user->phone_number }}" readonly>
+                                            <input type="text" class="form-control " name="phone_number" id="phone" placeholder="Empty" value="{{ $user->phone_number }}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group pt-3">
                                         <label class="pb-2" for="email">Email</label>
-                                        <input type="email" class="form-control rounded rounded-4" id="email" value="{{ $user->email }}" readonly>
+                                        <input type="email" class="form-control rounded rounded-4" id="email" name="email" value="{{ $user->email }}" readonly>
                                     </div>
                                     <div class="form-group pt-3 d-flex justify-content-center">
                                         <p class="btn btn-edit btn-dark me-3 px-4" id="editButton" onclick="enableEdit()"><i class="fa-solid fa-pen-to-square "></i>Edit
                                         </p>
+                                        <button type="submit" class="btn btn-edit btn-dark me-3 px-4">Save
+                                        </button>
                                         <p class="btn btn-secondary rounded rounded-4" id="cancelButton" style="display: none;" onclick="cancelEdit()">
                                             Cancel
                                         </p>

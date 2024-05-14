@@ -31,16 +31,7 @@ use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\AccountController;
 use App\Http\Controllers\auth\PasswordController;
-use App\Models\Cart;
-use App\Models\ProductDetail;
-use App\Models\User;
 
-Route::get('/test', function() {
-    $user = User::find(22);
-
-    $user->getTotalPrice();
-
-});
 
 Route::group(['namespace' => 'auth'], function () {
     // Login
@@ -67,16 +58,9 @@ Route::group(['namespace' => 'auth'], function () {
 Route::group(['namespace' => 'client'], function () {
     //Home
     Route::get('/', [HomeController::class, 'index'])->name('home');
-
-    // Men
     Route::get('/men', [MenController::class, 'index'])->name('men');
-
-    // Women
     Route::get('/women', [WomenController::class, 'index'])->name('women');
-
-    // Kids
     Route::get('/kids', [KidsController::class, 'index'])->name('kids');
-    Route::get('/kids/show', [ProductController::class, 'showMenPage'])->name('kids.products');
 
     // Sale
     Route::get('/sale', [SaleController::class, 'index'])->name('sale');
@@ -88,7 +72,7 @@ Route::group(['namespace' => 'client'], function () {
 
     // Checkout
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
-    Route::get('/checkout/test', [CheckoutController::class, 'store'])->name('checkout.test');
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.submit');
 
     //Search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
@@ -100,11 +84,11 @@ Route::group(['namespace' => 'client'], function () {
     // Profile
     Route::get('/{username}', [AccountController::class, 'index'])->name('profile');
     Route::patch('/profile/avatar', [AccountController::class, 'updateAvatar'])->name('account.avatar.update');
+    Route::patch('/profile/info', [AccountController::class, 'update'])->name('account.info.update');
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
 
     // View Product details
     Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.product-detail');
-    // Route::get('/viewproduct', [ViewProductController::class, 'index'])->name('viewproduct');
 });
 
 

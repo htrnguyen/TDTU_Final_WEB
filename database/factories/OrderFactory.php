@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Order;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrderFactory extends Factory
@@ -13,9 +12,11 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
-            'total_amount' => $this->faker->randomFloat(2, 10, 500),
-            'order_date' => $this->faker->dateTimeBetween('-1 year', 'now')
+            'user_id' => 22,
+            'order_date' => $this->faker->dateTime(),
+            'order_status' => $this->faker->randomElement(['pending', 'shipping', 'shipped', 'completed', 'cancelled']),
+            'shipping_address' => $this->faker->address,
+            'total_amount' => $this->faker->randomFloat(2, 10, 1000),
         ];
     }
 }

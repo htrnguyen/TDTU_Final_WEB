@@ -9,12 +9,14 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->timestamp('order_date')->useCurrent();
+            $table->dateTime('order_date')->default(now());
+            $table->enum('order_status', ['pending', 'shipping', 'shipped', 'completed', 'cancelled'])->default('pending');
+            $table->string('shipping_address');
             $table->decimal('total_amount', 10, 2);
             $table->timestamps();
 
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

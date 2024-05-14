@@ -36,9 +36,29 @@ class CheckoutController extends Controller
 
     public function store()
     {
+        dd('checkou');
+        $attributes = request()->validate([
+            'shipping_address' => 'required|string',
+            'phone_number' => 'required|string',
+            'note' => 'nullable|string',
+
+        ]);
+        dd($attributes);
+
+        if (!$attributes) {
+            return redirect()->back()->with('error', 'Please enter shipping address and phone number');
+        }
+
         $user = User::find(Auth::user()->id);
 
-        $user->notify(new PaymentSuccessfullyEmailNotification($user));
+
+        $order = Order::create([
+            'user_id' => $user->id,
+            'shipping_address' => $attributes['shipping_address'],
+        ]);
+        
+
+        // $user->notify(new PaymentSuccessfullyEmailNotification($user));
     }
 
     /**

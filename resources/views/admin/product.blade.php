@@ -78,7 +78,7 @@
                     </td>
                     <td>
                         <div class="lpc-product">
-                            <img src="{{ $product->image }}" alt="nike">
+                            <img src="{{ asset($product->image) }}" alt="nike">
                             <div class="lpc-name-description">
                                 <h3>{{ $product->name }}</h3>
                                 <p>{{ $product->description }}</p>

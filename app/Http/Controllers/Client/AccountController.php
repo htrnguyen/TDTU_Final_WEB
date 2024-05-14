@@ -30,14 +30,6 @@ class AccountController extends Controller
         throw new UnauthorizedException('Unauthorized');
     }
 
-    /**     
-     * Display the specified resource.
-     */
-    public function show()
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
