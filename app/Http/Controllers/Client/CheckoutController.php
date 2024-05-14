@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\User;
 use App\Notifications\PaymentSuccessfullyEmailNotification;
 use Illuminate\Http\Request;
@@ -43,9 +44,16 @@ class CheckoutController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show()
     {
-        //
+        $userId = Auth::user()->id;
+        $orders = Order::where('user_id', $userId)->get();
+    
+        foreach ($orders as $order) {
+            $order->products = $order->products()->get();
+        }
+    
+        return view('orders.index', compact('orders'));
     }
 
     /**

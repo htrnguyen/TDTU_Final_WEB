@@ -28,12 +28,9 @@ class CheckoutSuccessfullyEmail extends Mailable
 
     public function build()
     {
-        return $this->view('mail.reset', [
+        return $this->view('mail.checkout', [
             'user' => $this->user,
-            'cartItems' => Cart::where('user_id', $this->user->id)->first() ?? [
-                'id' => 1,
-                
-            ]
+            'cart' => Cart::where('user_id', $this->user->id)->get()
         ]);
     }
 
@@ -43,7 +40,7 @@ class CheckoutSuccessfullyEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Reset Password',
+            subject: 'Checkout Successfully!',
             to: $this->user->email
         );
     }
