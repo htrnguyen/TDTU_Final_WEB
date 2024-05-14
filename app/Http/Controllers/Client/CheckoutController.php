@@ -30,7 +30,7 @@ class CheckoutController extends Controller
             array_push($productDetails, $cart->getFullProductInformation());
         }
 
-        return view('client.checkout', compact('breadcrumbs', 'productDetails', 'total', 'discountPrice'));
+        return view('client.checkout', compact('breadcrumbs', 'productDetails', 'total', 'discountPrice', 'user'));
     }
 
     public function store()

@@ -18,14 +18,14 @@
                     <p><strong>Color:</strong><br>
                         <select id="colorSelect" name="color" class="form-select">
                             @foreach ($product->getAllColors() as $size)
-                                <option value="{{ trim($size) }}">{{ trim($size) }}</option>
+                            <option value="{{ trim($size) }}">{{ trim($size) }}</option>
                             @endforeach
                         </select>
                     </p>
                     <p><strong>Size:</strong><br>
                         <select id="sizeSelect" name="size" class="form-select">
                             @foreach ($product->getAllSizes() as $color)
-                                <option value="{{ trim($color) }}">{{ trim($color) }}</option>
+                            <option value="{{ trim($color) }}">{{ trim($color) }}</option>
                             @endforeach
                         </select>
                     </p>
@@ -38,6 +38,11 @@
 
                 <!-- Add to Cart Button -->
                 <button type="submit" class="btn btn-secondary mt-2 w-100 py-3">Add to Cart</button>
+                @if(session('error'))
+                <div class="mt-2 alert alert-danger">
+                    <p>{{ session('error') }}</p>
+                </div>
+                @endif
             </form>
 
             <!-- Product Description -->

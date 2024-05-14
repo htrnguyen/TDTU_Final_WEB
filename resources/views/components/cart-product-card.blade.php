@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center">
             <div class="col-md-3">
                 <!-- TODO: product img link -->
-                <img src="{{ asset('images/shoe1-black.jpg') }}" alt="Strutter shoe" style="width: 90%; height: 100%">
+                <img src="{{ asset($productDetail->image) }}" alt="Product" style="width: 90%; height: 100%">
             </div>
             <div>
                 <div class="d-flex justify-content-between align-items-center">

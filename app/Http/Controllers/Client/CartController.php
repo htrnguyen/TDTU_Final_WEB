@@ -50,12 +50,11 @@ class CartController extends Controller
         if (!$productDetail) {
             return redirect()
             ->back()
-            ->with('message', 'Cannot add this product to cart due to out of size or color');
+            ->with('error', 'Cannot add this product to cart due to out of size or color');
         }
 
         $userId = Auth::user()->id;
         
-        dd($productDetail);
         $existingCart = Cart::where('user_id', $userId)
             ->where('product_detail_id', $productDetail->id)
             ->first();
@@ -69,7 +68,7 @@ class CartController extends Controller
             ...$attributes,
             'user_id' => $userId,
             'product_id' => $product->id,
-            'product_detail_id' => $id,
+            'product_detail_id' => $productDetail->id,
         ]);
 
         return redirect()->route('product.product-detail', $product->id)->with('message', 'add product to cart successfully');
