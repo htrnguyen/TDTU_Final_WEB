@@ -8,9 +8,9 @@ You have added the following items to your cart:
 - {{ $item->name }} x {{ $item->quantity }}
 @endforeach
 
-@component('mail::button', ['url' => $cartUrl, 'color' => 'success', 'align' => 'center'])
+<!-- @component('mail::button', ['url' => $cartUrl, 'color' => 'success', 'align' => 'center'])
 View Cart
-@endcomponent
+@endcomponent -->
 
 If you did not add these items to your cart, please contact us immediately.
 

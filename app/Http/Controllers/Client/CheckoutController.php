@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\PaymentSuccessfullyEmailNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,9 +33,11 @@ class CheckoutController extends Controller
         return view('client.checkout', compact('breadcrumbs', 'productDetails', 'total', 'discountPrice'));
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $user = User::find(Auth::user()->id);
+
+        $user->notify(new PaymentSuccessfullyEmailNotification($user));
     }
 
     /**

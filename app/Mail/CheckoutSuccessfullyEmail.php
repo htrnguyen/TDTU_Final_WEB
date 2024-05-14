@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\Token;
+use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -10,15 +10,14 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Str;
 
-class Checkout extends Mailable
+class CheckoutSuccessfullyEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $user;
-
+    // public $username;
+    // public $verificationUrl;
     /**
      * Create a new message instance.
      */
@@ -29,15 +28,13 @@ class Checkout extends Mailable
 
     public function build()
     {
-        $token = Token::create([
-            'token' => Str::random(60),
-            'user_id' => $this->user->id,
-            'expires_at' => Carbon::now()->addMinutes(5),
-        ])->token;
-
-        $checkoutUrl = "http://localhost:8000/checkout?token=$token";
-
-        return $this->view('mail.checkout', compact('checkoutUrl'));
+        return $this->view('mail.reset', [
+            'user' => $this->user,
+            'cartItems' => Cart::where('user_id', $this->user->id)->first() ?? [
+                'id' => 1,
+                
+            ]
+        ]);
     }
 
     /**
@@ -46,7 +43,7 @@ class Checkout extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Checkout Email',
+            subject: 'Reset Password',
             to: $this->user->email
         );
     }
@@ -57,7 +54,7 @@ class Checkout extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.checkout',
+            markdown: 'mail.checkout',
         );
     }
 

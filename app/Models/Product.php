@@ -83,7 +83,7 @@ class Product extends Model
 
     public function getNumberOfColors()
     {
-        $count = count($this->colorFromStringToArray());
+        $count = count($this->getAllColors());
 
         return $count > 1 ? $count . ' colors' : $count . ' color';
     }
