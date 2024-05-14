@@ -7,23 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const colorInput = document.getElementById("colorInput");
     const sizeInput = document.getElementById("sizeInput");
 
-
-    const additionalForm = document.getElementById("additionalForm");
-    const contactInfoForm = document.getElementById("contactInfoForm");
-    const informationInput = document.querySelector(".informationInput");
-    const paymentInput = document.getElementById("paymentInput");
-    const emailContact = document.querySelector(".email-contact");
-    const emailInfor = document.querySelector(".content-email");
-    const inforAddress = document.querySelector(".infor-address");
-    const addressInfor = document.querySelector(".content-address");
-    const address = document.getElementById("address");
-    const fullname = document.getElementById("fullname");
-    const nameOrder = document.getElementById("nameOrder");
-    const shippingOrder = document.getElementById("shippingOrder");
-    const addressOrder = document.getElementById("addressOrder");
-    const paymentOrder = document.getElementById("paymentOrder");
-    const success = document.getElementById("sucesssOrder");
-
     // Function to update CODE
     function updateCODE(color, size) {
         codeElement.textContent = `${window.productId}-${color}-${size}`;
@@ -35,10 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let selectedColor = colorSelect.value;
         let selectedSize = sizeSelect.value;
         updateCODE(selectedColor, selectedSize);
-        
+
         colorInput.value = colorSelect.value;
         sizeInput.value = sizeSelect.value;
-        
     }
 
     // Event listeners
@@ -47,75 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Trigger initial code update
     handleSelectChange();
-
-    // ------------------------------------------------ //
-    // Function to CheckOut 
-
-    // Function to CheckOut
-    function toggleDisplay(element, display) {
-        element.classList[display ? "remove" : "add"]("d-none");
-    }
-
-    function handleContinueClick() {
-        toggleDisplay(additionalForm, true);
-        toggleDisplay(contactInfoForm, false);
-        toggleDisplay(informationInput, true);
-        emailInfor.innerHTML = emailContact.value;
-    }
-
-    function handleChangeContactClick() {
-        toggleDisplay(additionalForm, false);
-        toggleDisplay(contactInfoForm, true);
-        toggleDisplay(informationInput, false);
-        toggleDisplay(paymentInput, false);
-    }
-
-    function handleShippingClick() {
-        toggleDisplay(inforAddress, true);
-        toggleDisplay(additionalForm, false);
-        toggleDisplay(paymentInput, true);
-        addressInfor.innerHTML = address.value;
-    }
-
-    function handleChangeShippingClick() {
-        toggleDisplay(inforAddress, false);
-        toggleDisplay(additionalForm, true);
-        toggleDisplay(paymentInput, false);
-    }
-
-    function handlePlaceOrderClick(event) {
-        event.preventDefault();
-        toggleDisplay(informationInput, false);
-        toggleDisplay(contactInfoForm, false);
-        toggleDisplay(additionalForm, false);
-        toggleDisplay(paymentInput, false);
-        toggleDisplay(success, true);
-
-        nameOrder.innerHTML = fullname.value;
-        shippingOrder.innerHTML = document.querySelector(
-            'input[name="shippingMethod"]:checked'
-        ).nextElementSibling.innerHTML;
-        addressOrder.innerHTML = address.value;
-        paymentOrder.innerHTML = document.querySelector(
-            'input[name="paymentMethod"]:checked'
-        ).nextElementSibling.innerHTML;
-    }
-
-    document
-        .getElementById("continueButton")
-        .addEventListener("click", handleContinueClick);
-    document
-        .querySelector(".change-contact")
-        .addEventListener("click", handleChangeContactClick);
-    document
-        .getElementById("shippingButton")
-        .addEventListener("click", handleShippingClick);
-    document
-        .querySelector(".change-shipping")
-        .addEventListener("click", handleChangeShippingClick);
-    document
-        .querySelector(".placeOrder")
-        .addEventListener("click", handlePlaceOrderClick);
 });
 
 // Initialize slider:
