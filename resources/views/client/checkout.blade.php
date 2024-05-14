@@ -28,6 +28,8 @@
             <!-- <form id="contactInfoForm"> -->
             <form action="{{ route('checkout.submit') }}" method="POST">
                 @csrf
+                <input type="hidden" name="products" value="{{ json_encode($productDetails) }}">
+                <input type="hidden" name="total" value="{{ $total }}">
                 <div id="contactInfoForm">
                     <h4>Contact Information</h4>
                     <div class="mb-3">
@@ -57,22 +59,18 @@
                     <div class="mb-2">
                         <input type="text" class="form-control" id="note" name="note" placeholder="Note (optional)">
                     </div>
-                    @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                    @endif
+
 
                     <h4 class="mt-4">Shipping Method</h4>
                     <div class="pt-1 ps-2">
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="shippingMethod" id="shippingMethod1" value="1" checked>
+                            <input class="form-check-input" type="radio" name="shipping_method" id="shippingMethod1" value="Standard shipping" checked>
                             <label class="form-check-label" for="shippingMethod1">
                                 Standard Shipping (2-3 days)
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="shippingMethod" id="shippingMethod2" value="2">
+                            <input class="form-check-input" type="radio" name="shipping_method" id="shippingMethod2" value="Express shipping">
                             <label class="form-check-label" for="shippingMethod2">
                                 Express Shipping (1-2 days)
                             </label>
@@ -81,6 +79,7 @@
                             <button type="button" id="shippingButton" class="btn btn-secondary py-2">Continue to
                                 Payment</button>
                         </div>
+
                     </div>
                 </div>
 
@@ -91,7 +90,7 @@
                     <div class="pt-1 ps-2">
                         <!-- Phương thức thanh toán bằng tiền mặt -->
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod1" value="coc" checked>
+                            <input class="form-check-input" type="radio" name="payment_method" id="paymentMethod1" value="Casn on delivery" checked>
                             <label class="form-check-label" for="paymentMethod1">
                                 <img src="{{ asset('images/payment/COC.png') }}" alt="COC Payment" style="width: 30px; height: 30px;" class="me-2">
                                 Cash on Delivery
@@ -99,7 +98,7 @@
                         </div>
                         <!-- Phương thức thanh toán qua MoMo -->
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod2" value="momo">
+                            <input class="form-check-input" type="radio" name="payment_method" id="paymentMethod2" value="MoMo">
                             <label class="form-check-label" for="paymentMethod2">
                                 <img src="{{ asset('images/Payment/Momo-2.png') }}" alt="MoMo Payment" style="width: 30px; height: 30px;" class="me-2">
                                 MoMo Payment
@@ -111,6 +110,11 @@
                     </div>
                 </div>
             </form>
+            @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+            @endif
 
 
             {{-- Bill Order --}}

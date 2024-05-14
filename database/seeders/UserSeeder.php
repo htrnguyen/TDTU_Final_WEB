@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Luu',
             'first_name' => 'Huu Tri',
             'username' => 'admin',
-            'email' => 'coolxmode@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'), 
             'address' => 'Tan Dong, Tan Quoi Trung, Vung Liem, Vinh Long',
             'phone_number' => '0779660854',

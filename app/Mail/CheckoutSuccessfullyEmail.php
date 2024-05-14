@@ -16,21 +16,23 @@ class CheckoutSuccessfullyEmail extends Mailable
     use Queueable, SerializesModels;
 
     public $user;
+    public $order;
     // public $username;
     // public $verificationUrl;
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user)
+    public function __construct(User $user, $order)
     {
         $this->user = $user;
+        $this->order = $order;
     }
 
     public function build()
     {
         return $this->view('mail.checkout', [
             'user' => $this->user,
-            'cart' => Cart::where('user_id', $this->user->id)->get()
+            'order' => $this->order,
         ]);
     }
 
@@ -40,7 +42,7 @@ class CheckoutSuccessfullyEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Checkout Successfully!',
+            subject: 'Payment successfully',
             to: $this->user->email
         );
     }

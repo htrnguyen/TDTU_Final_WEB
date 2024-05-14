@@ -14,10 +14,12 @@ class PaymentSuccessfullyEmailNotification extends Notification
     use Queueable;
 
     public $user;
+    public $order;
 
-    public function __construct(User $user)
+    public function __construct(User $user, $order)
     {
         $this->user = $user;
+        $this->order = $order;
     }
     /**
      * Get the notification's delivery channels.
@@ -34,7 +36,7 @@ class PaymentSuccessfullyEmailNotification extends Notification
      */
     public function toMail(object $notifiable)
     {
-        return (new CheckoutSuccessfullyEmail($this->user))
+        return (new CheckoutSuccessfullyEmail($this->user, $this->order))
             ->to($this->user->email);
     }
 
