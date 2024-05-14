@@ -15,24 +15,6 @@
             </div>
         </div>
     </div>
-    <div class="container px-4 mt-5">
-        <h3 class="text-center mb-4">Popular Right Now</h3>
-        <div style="position: relative; height:900px;">
-            <video autoplay muted loop
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-                <source src="{{ asset('videos/summer.mp4') }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="container">
-                <div class="row">
-                    <div class="py-5 col-lg-9 offset-lg-9 text-right">
-                        <h1 class="text-dark display-4 fw-light">Summer <br>Hot Items</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     {{-- Content --}}
     <div class="container px-5 mt-3 md-5">
