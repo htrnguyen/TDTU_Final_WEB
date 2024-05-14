@@ -4,21 +4,6 @@
         <div class="col-md-2 px-3 d-none d-md-block">
             <div class="list-products" style="overflow-y: auto; height:500px">
                 <div class="mt-3 border-top pt-3">
-                    <p class="d-flex justify-content-between align-items-center text-right fw-bold" type="button" id="genderDropdown">
-                        Gender <i class="fa-solid fa-chevron-down"></i>
-                    </p>
-                    <div id="genderContent" class="mt-4" style="display: none;">
-
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
-                        <label for="colorFilter" class="form-check-label mr-2"> Men</label><br></br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
-                        <label for="colorFilter" class="form-check-label mr-2"> Women</label><br></br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
-                        <label for="colorFilter" class="form-check-label mr-2"> Kids</label><br></br>
-                    </div>
-                </div>
-
-                <div class="mt-3 border-top pt-3">
                     <p id="colorDropdown" class="d-flex justify-content-between align-items-center text-right fw-bold" type="button">
                         Color <i class="fa-solid fa-chevron-down"></i>
                     </p>

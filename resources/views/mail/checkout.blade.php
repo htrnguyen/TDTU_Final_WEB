@@ -1,20 +1,18 @@
 @component('mail::message')
 # Hello {{ $user->first_name }} {{ $user->last_name }},
 
-You have added the following items to your cart:
+Thank you for your purchase. 
 
-{{-- Foreach --}}
-@foreach ($cartItems as $item)
-- {{ $item->name }} x {{ $item->quantity }}
+@foreach($order->products as $product)
+Product: {{ $product->name }}
+Quantity: {{ $product->quantity }}
 @endforeach
 
-@component('mail::button', ['url' => $cartUrl, 'color' => 'success', 'align' => 'center'])
-View Cart
-@endcomponent
+Total: {{ $order->total }}
 
-If you did not add these items to your cart, please contact us immediately.
+We will ship your order as soon as possible. If you have any questions, please contact us.
 
-Cheers,  
+Best,  
 {{ config('app.name') }}
 
 @endcomponent

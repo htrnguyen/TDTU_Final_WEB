@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\User;
+use App\Notifications\PaymentSuccessfullyEmailNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,20 +31,29 @@ class CheckoutController extends Controller
             array_push($productDetails, $cart->getFullProductInformation());
         }
 
-        return view('client.checkout', compact('breadcrumbs', 'productDetails', 'total', 'discountPrice'));
+        return view('client.checkout', compact('breadcrumbs', 'productDetails', 'total', 'discountPrice', 'user'));
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $user = User::find(Auth::user()->id);
+
+        $user->notify(new PaymentSuccessfullyEmailNotification($user));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show()
     {
-        //
+        $userId = Auth::user()->id;
+        $orders = Order::where('user_id', $userId)->get();
+    
+        foreach ($orders as $order) {
+            $order->products = $order->products()->get();
+        }
+    
+        return view('orders.index', compact('orders'));
     }
 
     /**

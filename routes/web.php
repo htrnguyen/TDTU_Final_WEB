@@ -88,6 +88,7 @@ Route::group(['namespace' => 'client'], function () {
 
     // Checkout
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::get('/checkout/test', [CheckoutController::class, 'store'])->name('checkout.test');
 
     //Search
     Route::get('/search', [SearchController::class, 'search'])->name('search');

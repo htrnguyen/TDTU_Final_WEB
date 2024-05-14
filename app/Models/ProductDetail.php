@@ -34,7 +34,7 @@ class ProductDetail extends Model
 
         $product->color = $this->color;
         $product->size = $this->size;
-        $product->image = $this->image;
+        $product->image = $product->image;
         $product->product_detail_id = $this->id;
 
         return $product;
