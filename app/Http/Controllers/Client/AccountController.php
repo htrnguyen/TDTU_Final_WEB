@@ -62,10 +62,11 @@ class AccountController extends Controller
         // Save user avatar
         if (request()->hasFile('avatar')) {
             $avatar = request()->file('avatar');
-            $avatar_saved = $avatar->storeAs('images/users', $user->username . '.' . $avatar->getClientOriginalExtension());
-            $user->avatar_url = $a = Storage::url($avatar_saved);
+            $avatar_url = $avatar->storeAs('images/users', $user->username . '.' . $avatar->getClientOriginalExtension(), 'root_public');
+            // $user->avatar_url = $a = Storage::url($avatar_saved);
+            $user->avatar_url = $avatar_url;
             $user->save();
-            dd($a);
+            // dd($a);
         }
 
         return redirect()->back()->with('success', 'Your avatar has been updated successfully');

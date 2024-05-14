@@ -15,7 +15,7 @@
                         @method('PATCH')
                         <div class="col-md-4 avatar-container">
                             <label for="avatar">
-                                <img id="imagePreview" src="{{ ($user->avatar_url) }}" class="rounded-circle" style="width:100%" alt="Profile Picture">
+                                <img id="imagePreview" src="{{ asset($user->avatar_url) }}" class="rounded-circle" style="width:100%" alt="Profile Picture">
                             </label>
                             <input type="file" id="avatar" name="avatar" accept="image/*" hidden>
                             <button class="sdii-edit btn btn-sm btn-dark" type="submit">
