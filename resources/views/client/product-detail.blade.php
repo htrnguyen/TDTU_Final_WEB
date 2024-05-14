@@ -17,21 +17,26 @@
 
                 <!-- Code, Color, Size -->
                 <p class="fw-bold text-secondary" style="font-size: 0.9em;">CODE: <span id="code">{{ $product->id }}</span></p>
-
+                <!-- Hidden Inputs -->
+                <input type="hidden" id="colorInput" readonly>
+                <input type="hidden" id="sizeInput" readonly>
                 <!-- Color and Size Options -->
                 <div class="mt-3">
                     <p><strong>Color:</strong><br>
-                        @foreach ($product->colorFromStringToArray() as $index => $size)
-                        <a href="#" class="color-choices btn border {{ $index === 0 ? 'btn-success' : '' }}" role="button" data-size="{{ trim($size) }}">{{ trim($size) }}</a>
-                        @endforeach
+                        <select id="colorSelect" class="form-select">
+                            @foreach ($product->colorFromStringToArray() as $index => $size)
+                                <option value="{{ trim($size) }}">{{ trim($size) }}</option>
+                            @endforeach
+                        </select>
                     </p>
                     <p><strong>Size:</strong><br>
-                        @foreach ($product->sizeFromStringToArray() as $index => $color)
-                        <a href="#" class="color-choices btn border {{ $index === 0 ? 'btn-success' : '' }}" role="button" data-color="{{ trim($color) }}">{{ trim($color) }}</a>
-                        @endforeach
+                        <select id="sizeSelect" class="form-select">
+                            @foreach ($product->sizeFromStringToArray() as $index => $color)
+                                <option value="{{ trim($color) }}">{{ trim($color) }}</option>
+                            @endforeach
+                        </select>
                     </p>
                 </div>
-
                 <!-- Quantity -->
                 <div class="mb-3 w-25">
                     <label for="quantity" class="form-label"><strong>Quantity:</strong></label>
@@ -51,4 +56,6 @@
 
 <script>
     window.productId = "{{ $product->id }}";
+
+
 </script>

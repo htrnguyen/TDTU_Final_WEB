@@ -140,6 +140,6 @@
         </div>
     </div>
 </div>
-@include('partials.products', ['products' => $products])
+{{-- @include('partials.products', ['products' => $products]) --}}
 
 @endsection

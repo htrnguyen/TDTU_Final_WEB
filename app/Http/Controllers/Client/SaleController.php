@@ -13,9 +13,10 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->paginate(12);
-        return view('client.sale')->with('products', $products);
-    }
+        // $products = Product::all()->paginate(12);
+        // return view('client.sale')->with('products', $products);
+        return view('client.sale');
+    }                           
 
     /**
      * Store a newly created resource in storage.
