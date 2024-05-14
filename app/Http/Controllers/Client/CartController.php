@@ -19,6 +19,10 @@ class CartController extends Controller
             'Shopping cart' => null
         ];
 
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('message', 'Login to view your cart');
+        }
+        
         $user = User::find(Auth::user()->id);
         $carts = $user->carts;
         $total = $user->getTotalPrice();
