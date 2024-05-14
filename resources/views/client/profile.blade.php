@@ -12,8 +12,7 @@
                     <div class="row">
 
                         <div class="text-center">
-                            <form action="{{ route('account.avatar.update') }}" method="post" enctype="multipart/form-data"
-                                class="d-flex flex-column align-items-center">
+                            <form action="{{ route('account.avatar.update') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
                                 <div class="avatar-container">
@@ -24,10 +23,10 @@
                                     </label>
                                     <input type="file" id="avatar" name="avatar" accept="image/*" hidden
                                         onchange="previewImage(event)">
+                                    <button class="sdii-edit btn btn-sm btn-dark mt-3" type="submit">
+                                        Save <i class="fa-solid fa-pen"></i>
+                                    </button>
                                 </div>
-                                <button class="sdii-edit btn btn-sm btn-dark mt-3" type="submit">
-                                    Save <i class="fa-solid fa-pen"></i>
-                                </button>
                             </form>
 
                             <div class="">
@@ -86,26 +85,24 @@
                         <div class="row">
                             <div class="media mb-3">
                                 <h5 class="card-title fw-bold">Personal Information</h5>
-                                <form action="{{ route('account.info.submit') }}" method="POST">
+                                <form action="#" method="POST">
                                     @csrf
-                                    @method('PATCH')
                                     <div class="media-body pt-3">
                                         <div class="form-group">
                                             <label for="name" class="pb-2">First name</label>
-                                            <input type="text" class="form-control " id="first_name"
+                                            <input type="text" class="form-control " id="name"
                                                 value="{{ $user->first_name }}" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="name" class="pb-2">Last name</label>
-                                            <input type="text" class="form-control " id="last_name"
+                                            <input type="text" class="form-control " id="name"
                                                 value="{{ $user->last_name }}" readonly>
                                         </div>
                                         <div class="form-group pt-3">
                                             <label for="dob" class="pb-2">Date Of Birth</label>
-                                            <input type="text" class="form-control " name="date_of_birth" id="dob" placeholder="Empty"
+                                            <input type="text" class="form-control " id="dob" placeholder="Empty"
                                                 value="{{ $user->date_of_birth ?? '' }}" readonly>
                                         </div>
-
                                         <div class="form-group pt-3">
                                             <label class="pb-2">Gender</label><br>
                                             <div class="form-check form-check-inline">
@@ -121,17 +118,18 @@
                                                     class="form-check-label" for="female">Female</label>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="form-group pt-3">
                                         <label class="pb-2" for="phone">Phone Number</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control " name="phone_number" id="phone" placeholder="Empty" value="{{ $user->phone_number }}" readonly>
+                                            <input type="text" class="form-control " id="phone"
+                                                placeholder="Empty" value="{{ $user->phone_number }}" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group pt-3">
                                         <label class="pb-2" for="email">Email</label>
-                                        <input type="email" class="form-control rounded rounded-4" id="email" name="email" value="{{ $user->email }}" readonly>
+                                        <input type="email" class="form-control rounded rounded-4" id="email"
+                                            value="{{ $user->email }}" readonly>
                                     </div>
                                     <div class="form-group pt-3 d-flex justify-content-center">
                                         <p class="btn btn-edit btn-dark me-3 px-4" id="editButton"
