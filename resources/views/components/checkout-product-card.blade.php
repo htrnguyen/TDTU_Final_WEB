@@ -1,7 +1,7 @@
 @props(['productDetail'])
 <div class="row mb-3">
     <div class="col-3">
-        <img src="{{ asset('images/shoe3.jpg') }}" alt="{{ $productDetail->name }}" class="img-fluid shadow-lg me-4" width="100%">
+        <img src="{{ asset($productDetail->image) }}" alt="{{ $productDetail->name }}" class="img-fluid shadow-lg me-4" width="100%">
     </div>
     <div class="col-9">
         <h5 class="card-title">{{ $productDetail->name }}</h5>
