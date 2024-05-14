@@ -10,7 +10,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         // User::truncate();
-        // User::factory()->count(2)->create();
+        User::factory()->count(10)->create();
         User::create([
             'last_name' => 'Luu',
             'first_name' => 'Huu Tri',
