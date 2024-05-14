@@ -40,12 +40,22 @@ class CartController extends Controller
         ]);
 
         $product = Product::find($id);
+
         $productDetail = ProductDetail::where('product_id', $id)
             ->where('color', $attributes['color'])
             ->where('size', $attributes['size'])
             ->first();
-        $userId = Auth::user()->id;
+            // ->get();
 
+        if (!$productDetail) {
+            return redirect()
+            ->back()
+            ->with('message', 'Cannot add this product to cart due to out of size or color');
+        }
+
+        $userId = Auth::user()->id;
+        
+        dd($productDetail);
         $existingCart = Cart::where('user_id', $userId)
             ->where('product_detail_id', $productDetail->id)
             ->first();

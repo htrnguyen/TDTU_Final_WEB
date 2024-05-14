@@ -23,7 +23,8 @@ class ProductDetail extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function carts() {
+    public function carts()
+    {
         return $this->belongsToMany(Cart::class);
     }
 
@@ -38,4 +39,5 @@ class ProductDetail extends Model
 
         return $product;
     }
+
 }

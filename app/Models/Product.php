@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 class Product extends Model
 {
@@ -25,7 +26,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function productDetails() {
+    public function productDetails()
+    {
         return $this->hasMany(ProductDetail::class);
     }
 
@@ -34,28 +36,53 @@ class Product extends Model
         return $this->hasMany(Cart::class);
     }
 
-    public function getCategoryNameFromId() {
+    public function getCategoryNameFromId()
+    {
         $category = Category::find($this->category_id);
 
         return $category ? $category->category_name : 'Uncategorized';
     }
 
-    public function colorFromStringToArray() {
-        $colors = $this->color;
-        return explode(',', $colors);
+    public function getAllColors()
+    {
+        $pd = ProductDetail::where('product_id', $this->id)->get();
+
+        $colors = [];
+
+        foreach ($pd as $index => $p) {
+            if (!in_array($p->color, $colors)) {
+                array_push($colors, $p->color);
+            }
+        }
+
+        return Arr::sort($colors);
     }
 
-    public function sizeFromStringToArray() {
-        $sizes = $this->size;
-        return explode(',', $sizes);
+    public function getAllSizes()
+    {
+        $pd = ProductDetail::where('product_id', $this->id)->get();
+
+        $sizes = [];
+
+        foreach ($pd as $index => $p) {
+            if (!in_array($p->size, $sizes)) {
+                echo $p->size;
+                array_push($sizes, $p->size);
+            }
+        }
+
+
+        return Arr::sort($sizes);
     }
 
-    public function imageFromStringToArray() {
+    public function imageFromStringToArray()
+    {
         $images = $this->image;
         return explode(',', $images);
     }
 
-    public function getNumberOfColors() {
+    public function getNumberOfColors()
+    {
         $count = count($this->colorFromStringToArray());
 
         return $count > 1 ? $count . ' colors' : $count . ' color';

@@ -17,14 +17,14 @@
                 <div class="mt-3">
                     <p><strong>Color:</strong><br>
                         <select id="colorSelect" name="color" class="form-select">
-                            @foreach ($product->colorFromStringToArray() as $index => $size)
+                            @foreach ($product->getAllColors() as $size)
                                 <option value="{{ trim($size) }}">{{ trim($size) }}</option>
                             @endforeach
                         </select>
                     </p>
                     <p><strong>Size:</strong><br>
                         <select id="sizeSelect" name="size" class="form-select">
-                            @foreach ($product->sizeFromStringToArray() as $index => $color)
+                            @foreach ($product->getAllSizes() as $color)
                                 <option value="{{ trim($color) }}">{{ trim($color) }}</option>
                             @endforeach
                         </select>
