@@ -2,62 +2,87 @@
     <div class="row">
         <!-- Filters Sidebar for large screens -->
         <div class="col-md-2 px-3 d-none d-md-block">
-            <div>
-                <h5 class="mb-4">FILTER BY</h5>
-                <div class="mb-3">
-                    <p class="form-label">PRICE</p>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div id="slider-range"></div>
-                        </div>
-                    </div>
-                    <div class="row slider-labels">
-                        <div class="col-sm-7 caption">
-                            <span id="slider-range-value1"></span>
-                        </div>
-                        <div class="col-sm-5 caption">
-                            <span id="slider-range-value2"></span>
-                        </div>
+            <div class="list-products" style="overflow-y: auto; height:500px">
+                <div class="mt-3 border-top pt-3">
+                    <p class="d-flex justify-content-between align-items-center text-right fw-bold" type="button" id="genderDropdown">
+                        Gender <i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                    <div id="genderContent" class="mt-4" style="display: none;">
+
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
+                        <label for="colorFilter" class="form-check-label mr-2"> Men</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
+                        <label for="colorFilter" class="form-check-label mr-2"> Women</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
+                        <label for="colorFilter" class="form-check-label mr-2"> Kids</label><br></br>
                     </div>
                 </div>
-                <!-- Range Silder -->
 
-                <div class="mb-3">
-                    <p class="form-label border-bottom pb-2">COLOR</p>
-                    <div class="form-check mt-3">
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
-                            id="colorFilter">
+                <div class="mt-3 border-top pt-3">
+                    <p id="colorDropdown" class="d-flex justify-content-between align-items-center text-right fw-bold" type="button">
+                        Color <i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                    <div id="colorContent" class="form-check mt-3" style="display: none;">
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
                         <label for="colorFilter" class="form-check-label mr-2"> White</label><br></br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
-                            id="colorFilter">
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
                         <label for="colorFilter" class="form-check-label mr-2"> Black</label><br></br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
-                            id="colorFilter">
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
                         <label for="colorFilter" class="form-check-label mr-2"> Grey</label><br></br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
-                            id="colorFilter">
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
                         <label for="colorFilter" class="form-check-label mr-2"> Blue</label><br></br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
-                            id="colorFilter">
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
                         <label for="colorFilter" class="form-check-label mr-2"> Purple</label><br></br>
-                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox"
-                            id="colorFilter">
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="colorFilter">
                         <label for="colorFilter" class="form-check-label mr-2"> Green</label><br></br>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <p class="form-label border-bottom pb-2">SIZE</p>
-                    <div class="form-check mt-3">
+                <div class="mt-3 border-top pt-3">
+                    <p id="sizeDropdown" class="d-flex justify-content-between align-items-center text-right fw-bold" type="button">
+                        Size <i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                    <div id="sizeContent" class="form-check mt-3" style="display: none;">
                         <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
-                        <label class="form-check-label mr-2"> S</label><br></br>
+                        <label class="form-check-label mr-2"> 35</label><br></br>
                         <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
-                        <label class="form-check-label mr-2"> M</label><br></br>
+                        <label class="form-check-label mr-2"> 36</label><br></br>
                         <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
-                        <label class="form-check-label mr-2"> L</label><br></br>
+                        <label class="form-check-label mr-2"> 36.5</label><br></br>
                         <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
-                        <label class="form-check-label mr-2"> XL</label><br></br>
+                        <label class="form-check-label mr-2"> 37</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 38</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 39</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 40</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 41</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 42</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 43</label><br></br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox">
+                        <label class="form-check-label mr-2"> 44</label><br></br>
                     </div>
                 </div>
+
+                <div class="mt-3 border-top pt-3">
+                    <p id="priceDropdown" class="d-flex justify-content-between align-items-center text-right fw-bold" type="button">
+                        Price <i class="fa-solid fa-chevron-down"></i>
+                    </p>
+                    <div id="priceContent" class="form-check mt-3" style="display: none;">
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="sizeFilter1">
+                        <label for="sizeFilter1" class="form-check-label mr-2">Under $300</label><br><br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="sizeFilter2">
+                        <label for="sizeFilter2" class="form-check-label mr-2">$300 - $1,000</label><br><br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="sizeFilter3">
+                        <label for="sizeFilter3" class="form-check-label mr-2">$1,000 - $5,000</label><br><br>
+                        <input class="form-check-input form-check-input-lg border border-dark" type="checkbox" id="sizeFilter3">
+                        <label for="sizeFilter3" class="form-check-label mr-2">Over $5,000</label><br><br>
+                    </div>
+                </div>
+
             </div>
 
         </div>

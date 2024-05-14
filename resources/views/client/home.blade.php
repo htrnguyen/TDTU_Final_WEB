@@ -15,7 +15,24 @@
             </div>
         </div>
     </div>
-    
+    <div class="container px-4 mt-5">
+        <h3 class="text-center mb-4">Popular Right Now</h3>
+        <div style="position: relative; height:900px;">
+            <video autoplay muted loop
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+                <source src="{{ asset('videos/summer.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="container">
+                <div class="row">
+                    <div class="py-5 col-lg-9 offset-lg-9 text-right">
+                        <h1 class="text-dark display-4 fw-light">Summer <br>Hot Items</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     {{-- Content --}}
     <div class="container px-5 mt-3 md-5">
@@ -25,7 +42,8 @@
                     <img src="{{ asset('images/men-shoes.png') }}" class="card-img-top" alt="Men Shoes">
                     <div class="card-body">
                         <h5 class="card-title">Men Shoes Collection</h5>
-                        <p class="card-text small">Constructed from luxury nylons, leathers, and custom hardware, featuring
+                        <p class="card-text small">Constructed from luxury nylons, leathers, and custom hardware,
+                            featuring
                             sport
                             details such as hidden breathing vents, waterproof + antimicrobial linings, and more.</p>
                         <a href="{{ url('/men') }}" class="btn btn-dark">Shop Now</a>
@@ -37,7 +55,8 @@
                     <img src="{{ asset('images/women-shoes.png') }}" class="card-img-top" alt="Women Shoes">
                     <div class="card-body">
                         <h5 class="card-title">Women Shoes Collection</h5>
-                        <p class="card-text small">Constructed from luxury nylons, leathers, and custom hardware, featuring
+                        <p class="card-text small">Constructed from luxury nylons, leathers, and custom hardware,
+                            featuring
                             sport
                             details such as hidden breathing vents, waterproof + antimicrobial linings, and more.</p>
                         <a href="{{ url('/women') }}" class="btn btn-dark">Shop Now</a>
@@ -49,7 +68,8 @@
                     <img src="{{ asset('images/kids-shoes.jpg') }}" class="card-img-top" alt="Kids Shoes">
                     <div class="card-body">
                         <h5 class="card-title">Kids Shoes Collection</h5>
-                        <p class="card-text small">Constructed from luxury nylons, leathers, and custom hardware, featuring
+                        <p class="card-text small">Constructed from luxury nylons, leathers, and custom hardware,
+                            featuring
                             sport
                             details such as hidden breathing vents, waterproof + antimicrobial linings, and more.</p>
                         <a href="{{ url('/kids') }}" class="btn btn-dark">Shop Now</a>
@@ -58,6 +78,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="container px-4 mt-5">
         <h3 class="text-center mb-4">Featured Products</h3>
