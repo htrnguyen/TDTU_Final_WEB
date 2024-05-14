@@ -86,9 +86,9 @@
                         <div class="row">
                             <div class="media mb-3">
                                 <h5 class="card-title fw-bold">Personal Information</h5>
-                                <form action="{{ route('profile.info.submit') }}" method="POST">
+                                <form action="{{ route('account.info.submit') }}" method="POST">
                                     @csrf
-                                @method
+                                    @method('PATCH')
                                     <div class="media-body pt-3">
                                         <div class="form-group">
                                             <label for="name" class="pb-2">First name</label>

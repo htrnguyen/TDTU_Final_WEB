@@ -84,7 +84,7 @@ Route::group(['namespace' => 'client'], function () {
     // Profile
     Route::get('/{username}', [AccountController::class, 'index'])->name('profile');
     Route::patch('/profile/avatar', [AccountController::class, 'updateAvatar'])->name('account.avatar.update');
-    Route::patch('/profile/info', [AccountController::class, 'update'])->name('account.info.update');
+    Route::patch('/profile/info', [AccountController::class, 'update'])->name('account.info.submit');
     Route::delete('/profile/delete/{username}', [AccountController::class, 'destroy'])->name('account.delete')->middleware('auth');
 
     // View Product details
